@@ -1,7 +1,7 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-light {
     padding: 10px 0px;
-    border-bottom: 1px solid #dddddde0;
-    box-shadow: 0px -1px 3px 0px black;
+    border-bottom: 2px solid #dddddde0;
+    box-shadow: 0px -2px 16px 0px black;
 }
 a.navbarLogo img {
     width: 140px;

@@ -9,9 +9,9 @@ const NavigationBar = () => {
   return (
     
         <div>
-        <Navbar expand="lg" className='' bg="light">
+        <Navbar expand="lg" className='animated fadeInDown' bg="light">
             <Container fluid>
-                <Navbar.Brand className='navbarLogo' as={Link} to={'/'}><img src={logo} alt='logo'/></Navbar.Brand>
+                <Navbar.Brand className='navbarLogo text-center' as={Link} to={'/'}><img src={logo} alt='logo'/></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                 <Form className="d-flex me-auto">
@@ -23,8 +23,6 @@ const NavigationBar = () => {
                     <Nav.Link as={Link} to={'/postAD'}> Post AD <AiOutlineVideoCameraAdd/></Nav.Link>
                     <Nav.Link as={Link} to={'/allADS'}> All Ads <AiOutlineSortDescending/></Nav.Link>
                     <Nav.Link as={Link} to={'/myAccount'}> My Account <AiOutlineUserSwitch/></Nav.Link>
-                    
-
                 </Nav>
                 </Navbar.Collapse>
             </Container>
