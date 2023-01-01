@@ -25,11 +25,22 @@ p.coverText {
     background: transparent;
     border-color: #f0ad4e;
     margin-right: 5px;
+    border: 1px solid #f0ad4e;
 }
 ::placeholder {
-    color: white;
+    color: rgb(204, 195, 195);
     opacity: 1;
+    text-align: center;
   }
 .subscribeComponents {
     float: right;
+}
+img.poster {
+    width: 110px;
+}
+.posterText h2 {
+    font-size: 22px;
+}
+.card.posterWrapper {
+    padding: 13px 35px;
 }

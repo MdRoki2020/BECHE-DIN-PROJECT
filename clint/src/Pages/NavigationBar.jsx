@@ -1,7 +1,7 @@
 import React from 'react'
 import {Navbar,Container,Nav,Form,Button,FormControl} from 'react-bootstrap';
 import {Link} from "react-router-dom";
-import { AiOutlineUserSwitch,AiOutlineVideoCameraAdd,AiOutlineSortDescending,AiOutlineHome } from "react-icons/ai";
+import {AiOutlineSearch,AiOutlineUserSwitch,AiOutlineVideoCameraAdd,AiOutlineSortDescending,AiOutlineHome } from "react-icons/ai";
 import '../Assets/style/NavigationBar.css'
 import logo from '../Assets/images/logo.png'
 
@@ -16,7 +16,7 @@ const NavigationBar = () => {
                 <Navbar.Collapse id="navbarScroll">
                 <Form className="d-flex me-auto">
                     <FormControl type="search" placeholder="Search" className="me-2" aria-label="Search" />
-                    <Button variant="outline-success">Search</Button>
+                    <Button variant="outline-success"><AiOutlineSearch/></Button>
                 </Form>
                 <Nav>
                     <Nav.Link as={Link} to={'/'}> Home <AiOutlineHome/></Nav.Link>
