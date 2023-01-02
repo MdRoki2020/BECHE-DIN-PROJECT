@@ -42,5 +42,21 @@ img.poster {
     font-size: 22px;
 }
 .card.posterWrapper {
-    padding: 13px 35px;
+    padding: 24px 35px;
+}
+.singleContactBox.card.shadow {
+    width: 80px;
+    text-align: center;
+    margin: auto;
+    padding: 20px 0px;
+}
+.singleContactBox.card.shadow svg {
+    font-size: 30px;
+    width: auto;
+}
+.singleContact {
+    text-align: center;
+}
+.getInTouch{
+    background:#ddd;
 }
