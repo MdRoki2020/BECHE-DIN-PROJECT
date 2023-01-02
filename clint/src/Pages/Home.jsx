@@ -10,6 +10,7 @@ import fashion from '../Assets/images/fashion.jpg'
 import poster1 from '../Assets/images/poster1.png'
 import poster2 from '../Assets/images/poster2.png'
 import largeposter from '../Assets/images/largePoster.png'
+import Footer from './Footer'
 
 function Home() {
   return (
@@ -203,6 +204,9 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <Footer/>
+      
     </Fragment>
   )
 }

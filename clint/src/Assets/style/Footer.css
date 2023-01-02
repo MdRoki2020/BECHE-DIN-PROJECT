@@ -1,0 +1,18 @@
+footer {
+    background: #192132;
+    color: darkgray;
+    padding: 41px 0px;
+}
+.footerImage{
+    width: 140px;
+}
+input.footerInput {
+    padding: 7px 0px;
+    border-radius: 6px;
+    margin-right: 2px;
+}
+p.footerLink svg {
+    color: white;
+    background: #f0ad4e;
+    border-radius: 8px;
+}
