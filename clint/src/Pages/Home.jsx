@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import '../Assets/style/Home.css'
-import { AiTwotoneBell,AiOutlinePlusSquare,AiOutlineDoubleRight,AiFillCaretRight,AiTwotonePhone,AiTwotoneMail,AiFillEnvironment } from "react-icons/ai"
+import {AiOutlinePlusSquare,AiOutlineDoubleRight,AiFillCaretRight,AiTwotonePhone,AiTwotoneMail,AiFillEnvironment } from "react-icons/ai"
+import { TbBellRinging2 } from "react-icons/tb";
 import laptop from '../Assets/images/laptop.jpg'
 import watch from '../Assets/images/watch.jpg'
 import mobile from '../Assets/images/mobile.jpg'
@@ -11,6 +12,8 @@ import poster1 from '../Assets/images/poster1.png'
 import poster2 from '../Assets/images/poster2.png'
 import largeposter from '../Assets/images/largePoster.png'
 import Footer from './Footer'
+import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap';
 
 function Home() {
   return (
@@ -29,7 +32,7 @@ function Home() {
               </div>
               <div className='col-md-6'>
                   <div className='subscribeComponents mt-5 text-center animated fadeInRight'>
-                  <input className='shadow' placeholder='Enter Email'/><button className='shadow btn btn-warning text-light'>Subscribe <AiTwotoneBell/></button>
+                  <input className='shadow' placeholder='Enter Email'/><Button className='shadow btn btn-warning text-light'> <TbBellRinging2/></Button>
                   </div>
               </div>
             </div>
@@ -44,6 +47,7 @@ function Home() {
             
             <div className='row'>
               <div className='col-md-2'>
+              <Link to='/laptopItems'>
               <div className='allItems'>
                 <div class="card">
                   <img className="card-img-top" src={laptop} alt="laptop" />
@@ -52,9 +56,11 @@ function Home() {
                   </div>
                 </div>
               </div>
+              </Link>
               </div>
 
               <div className='col-md-2'>
+              <Link to='/'>
               <div className='allItems'>
                 <div class="card">
                   <img className="card-img-top" src={mobile} alt="Mobile" />
@@ -63,9 +69,11 @@ function Home() {
                   </div>
                 </div>
               </div>
+              </Link>
               </div>
 
               <div className='col-md-2'>
+              <Link to='/'>
               <div className='allItems'>
                 <div class="card">
                   <img className="card-img-top" src={watch} alt="watch" />
@@ -74,9 +82,11 @@ function Home() {
                   </div>
                 </div>
               </div>
+              </Link>
               </div>
 
               <div className='col-md-2'>
+              <Link to='/'>
               <div className='allItems'>
                 <div class="card">
                   <img className="card-img-top" src={tv} alt="tv" />
@@ -85,9 +95,11 @@ function Home() {
                   </div>
                 </div>
               </div>
+              </Link>
               </div>
 
               <div className='col-md-2'>
+              <Link to='/'>
               <div className='allItems'>
                 <div class="card">
                   <img className="card-img-top" src={electronic} alt="electronic" />
@@ -96,9 +108,11 @@ function Home() {
                   </div>
                 </div>
               </div>
+              </Link>
               </div>
 
               <div className='col-md-2'>
+              <Link to='/'>
               <div className='allItems'>
                 <div class="card">
                   <img className="card-img-top" src={fashion} alt="fashion" />
@@ -107,7 +121,9 @@ function Home() {
                   </div>
                 </div>
               </div>
+              </Link>
               </div>
+
             </div>
           </div>
         </div>

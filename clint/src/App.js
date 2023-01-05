@@ -3,6 +3,7 @@ import { Fragment } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Pages/Home';
+import LaptopItems from './Pages/LaptopItems';
 import NavigationBar from './Pages/NavigationBar';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/laptopItems" element={<LaptopItems />} />
 
           {/* <Route path="/sendOtp" element={<SendOtp />}/>
           <Route path="/verifyOtp" element={<VerifyOtp />}/>
