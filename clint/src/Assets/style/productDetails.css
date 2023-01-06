@@ -1,0 +1,40 @@
+button.btn.starButton {
+    background: rgb(255, 87, 34);
+    color: white;
+}
+.reviewOption{
+    color:rgb(255, 87, 34);
+}
+span.brand {
+    color: rgb(18, 153, 232);
+}
+span.soldBy {
+    color: rgb(18, 153, 232);
+}
+.productDetails.my-4 {
+    border: 1px solid bisque;
+}
+.detailsSectionOne {
+    border-bottom: 1px solid burlywood;
+    padding: 10px 10px;
+}
+span.exactPrice {
+    font-weight: 700;
+    font-size: x-large;
+    color: rgb(18, 153, 232);
+    margin-right: 10px;
+}
+
+del.exPrice {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+p.coins {
+    color: rgb(255, 87, 34);
+}
+
+.detailsSectionTwo {
+    border-bottom: 1px solid burlywood;
+    padding: 10px 10px;
+}

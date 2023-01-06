@@ -42,7 +42,7 @@ const LaptopItems = () => {
 
     <div className='row'>
       <div className='col-md-2'>
-        <Link to='/laptopItems'>
+        <Link to='/productDetails'>
             <div className='allItems animated zoomIn'>
               <div class="card">
                 <img className="card-img-top" src={headerLaptop} alt="laptop" />

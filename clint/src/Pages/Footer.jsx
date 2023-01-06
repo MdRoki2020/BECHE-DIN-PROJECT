@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { AiTwotoneBell,AiOutlineArrowRight } from "react-icons/ai"
+import { AiOutlineArrowRight } from "react-icons/ai"
+import { TbBellRinging2 } from "react-icons/tb";
 import logo from '../Assets/images/logo.png'
 import '../Assets/style/Footer.css'
 const Footer = () => {
@@ -24,7 +25,7 @@ const Footer = () => {
             <p>Sign up and receive the latest tips via email.</p>
             <p>Email*</p>
             <input className='footerInput' placeholder='you@example.com'/>
-            <button className='btn btn-info'>Subscribe <AiTwotoneBell/></button>
+            <button className='btn btn-info'>Subscribe <TbBellRinging2/></button>
             </div>
           </div>
         </div>

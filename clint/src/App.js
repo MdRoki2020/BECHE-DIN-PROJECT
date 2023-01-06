@@ -5,6 +5,7 @@ import './App.css';
 import Home from './Pages/Home';
 import LaptopItems from './Pages/LaptopItems';
 import NavigationBar from './Pages/NavigationBar';
+import ProductDetails from './Pages/ProductDetails';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/laptopItems" element={<LaptopItems />} />
+          <Route path="/ProductDetails" element={<ProductDetails />} />
 
           {/* <Route path="/sendOtp" element={<SendOtp />}/>
           <Route path="/verifyOtp" element={<VerifyOtp />}/>
