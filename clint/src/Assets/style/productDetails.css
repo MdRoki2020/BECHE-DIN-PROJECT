@@ -1,3 +1,6 @@
+.productImage{
+    border: 1px solid coral;
+}
 button.btn.starButton {
     background: rgb(255, 87, 34);
     color: white;
@@ -12,7 +15,8 @@ span.soldBy {
     color: rgb(18, 153, 232);
 }
 .productDetails.my-4 {
-    border: 1px solid bisque;
+    border: 1px solid coral;
+    background: white;
 }
 .detailsSectionOne {
     border-bottom: 1px solid burlywood;
@@ -37,4 +41,33 @@ p.coins {
 .detailsSectionTwo {
     border-bottom: 1px solid burlywood;
     padding: 10px 10px;
+}
+button.buynow.form-control {
+    background-color: rgb(255, 87, 34);
+    color: white;
+}
+
+button.wishlist.form-control.my-4 {
+    background: rgb(18, 153, 232);
+    color: white;
+}
+b.featuresheader {
+    font-weight: normal;
+}
+
+span.featuresnormal {
+    font-weight: 300;
+}
+.featuresElements p {
+    font-weight: 300;
+}
+.ratingPoster img {
+    width: 80px;
+}
+.ratingPoster {
+    width: 80px;
+    margin: auto;
+}
+p.text-center.my-3 {
+    color: rgb(255, 87, 34);
 }
