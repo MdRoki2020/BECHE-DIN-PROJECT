@@ -1,3 +1,4 @@
+/* For user signup page */
 .ImageCover {
     background: url("../images/accountCover.jpg");
     background-attachment: local;
@@ -22,5 +23,20 @@ p.subHeading.text-center {
     margin: 36px 0px;
 }
 p.forgetPass.text-center.text-primary {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+}
+
+
+/* For user signin Page */
+.signinComponents {
+    border: 2px dashed #ffc107;
+    padding: 10px 65px 70px 65px;
+    margin-top: 90px;
+}
+p.haventAccount.text-center.text-primary {
+    margin-top: 33px;
+}
+
+p.forgetPassForSignin.text-center.text-primary {
+    margin-bottom: 60px;
 }

@@ -22,7 +22,7 @@ const NavigationBar = () => {
                     <Nav.Link as={Link} to={'/'}> Home <AiOutlineHome/></Nav.Link>
                     <Nav.Link as={Link} to={'/PostAds'}> Post AD <AiOutlineVideoCameraAdd/></Nav.Link>
                     <Nav.Link as={Link} to={'/allADS'}> All Ads <AiOutlineSortDescending/></Nav.Link>
-                    <Nav.Link as={Link} to={'/MyAccount'}> My Account <AiOutlineUserSwitch/></Nav.Link>
+                    <Nav.Link as={Link} to={'/UserSignin'}> My Account <AiOutlineUserSwitch/></Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

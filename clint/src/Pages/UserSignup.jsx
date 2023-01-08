@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
-import '../Assets/style/myAccount.css'
+import '../Assets/style/userSignUpAndLogin.css'
 import {Link} from 'react-router-dom'
 import {Button} from 'react-bootstrap'
 import { AiOutlineUserAdd } from "react-icons/ai";
 
-const MyAccount = () => {
+const UserSignup = () => {
   return (
     <Fragment>
       <section>
@@ -18,45 +18,51 @@ const MyAccount = () => {
                 
                 <div className='row my-4'>
                         <div className='col-md-6'>
-                            <input type='text' className='form-control' placeholder='Enter First Name'/>
+                            <input type='text' className='form-control animated fadeInUp' placeholder='Enter First Name'/>
                         </div>
                         <div className='col-md-6'>
-                            <input type='text' className='form-control' placeholder='Enter Last Name'/>
+                            <input type='text' className='form-control animated fadeInUp' placeholder='Enter Last Name'/>
                         </div>
                 </div>
 
                 <div className='row'>
                         <div className='col-md-6'>
-                            <input type='text' className='form-control' placeholder='Enter Age'/>
+                            <input type='text' className='form-control animated fadeInUp' placeholder='Enter Age'/>
                         </div>
                         <div className='col-md-6'>
-                            <input type='text' className='form-control' placeholder='Enter Mobile Number'/>
+                            <input type='text' className='form-control animated fadeInUp' placeholder='Enter Mobile Number'/>
                         </div>
                 </div>
 
                 <div className='row py-4'>
-                        <div className='col-md-12'>
-                            <input type='email' className='form-control' placeholder='Enter Email'/>
+                        <div className='col-md-12 input-group'>
+                            <input type='email' className='form-control animated fadeInUp' placeholder='Enter Email'/>
+                        </div>
+                </div>
+
+                <div className='row mb-4'>
+                        <div className='col-md-12 input-group'>
+                            <input type='file' className='form-control animated fadeInUp'/>
                         </div>
                 </div>
 
                 <div className='row'>
                         <div className='col-md-6'>
-                            <input type='text' className='form-control' placeholder='Enter Password'/>
+                            <input type='password' className='form-control animated fadeInUp' placeholder='Enter Password'/>
                         </div>
                         <div className='col-md-6'>
-                            <input type='text' className='form-control' placeholder='Enter Conform Password'/>
+                            <input type='password' className='form-control animated fadeInUp' placeholder='Enter Conform Password'/>
                         </div>
                 </div>
 
                 <div className='row py-4'>
                         <div className='col-md-12'>
-                            <Button className='form-control btn btn-warning text-light'>Signup With Email <AiOutlineUserAdd/></Button>
+                            <Button className='form-control btn btn-warning text-light animated fadeInUp'>Signup With Email <AiOutlineUserAdd/></Button>
                         </div>
                 </div>
 
                 <div className='otherDetails'>
-                    <Link to='#'><p className='haveAnAccount text-center text-primary'>Already Have An Account !</p></Link>
+                    <Link to='/UserSignin'><p className='haveAnAccount text-center text-primary'>Already Have An Account !</p></Link>
                     <Link to='#'><p className='forgetPass text-center text-primary'>Forget Password</p></Link>
                 </div>
       
@@ -75,4 +81,4 @@ const MyAccount = () => {
   )
 }
 
-export default MyAccount
+export default UserSignup

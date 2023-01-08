@@ -7,8 +7,9 @@ import LaptopItems from './Pages/LaptopItems';
 import NavigationBar from './Pages/NavigationBar';
 import PostAds from './Pages/PostAds';
 import ProductDetails from './Pages/ProductDetails';
-import MyAccount from './Pages/MyAccount';
+import UserSignup from './Pages/UserSignup';
 import AllAds from './Pages/AllAds';
+import UserSignin from './Pages/UserSignin';
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
           <Route path="/laptopItems" element={<LaptopItems />} />
           <Route path="/ProductDetails" element={<ProductDetails />} />
           <Route path="/PostAds" element={<PostAds />} />
-          <Route path="/MyAccount" element={<MyAccount />} />
+          <Route path="/UserSignup" element={<UserSignup />} />
+          <Route path="/UserSignin" element={<UserSignin />} />
           <Route path="/AllAds" element={<AllAds />} />
 
           {/* <Route path="/sendOtp" element={<SendOtp />}/>
