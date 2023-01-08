@@ -1,0 +1,26 @@
+.ImageCover {
+    background: url("../images/accountCover.jpg");
+    background-attachment: fixed;
+    /* background-position: 100%; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+h4.accountHeading.text-center.mt-4 {
+    font-weight: 300;
+}
+
+p.subHeading.text-center {
+    font-weight: 200;
+}
+
+.otherDetails {
+    font-weight: 300;
+    margin-top: 15px;
+}
+.heading {
+    margin: 36px 0px;
+}
+p.forgetPass.text-center.text-primary {
+    margin-bottom: 100px;
+}
