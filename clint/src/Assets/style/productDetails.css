@@ -54,6 +54,9 @@ button.wishlist.form-control.my-4 {
 b.featuresheader {
     font-weight: normal;
 }
+b.featuresheader svg {
+    color: rgb(255, 87, 34);
+}
 
 span.featuresnormal {
     font-weight: 300;

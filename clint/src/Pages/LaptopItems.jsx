@@ -59,26 +59,30 @@ const LaptopItems = () => {
   </div>
   </section>
 
-  <div className=''>
-    <ReactPaginate 
-      previousLabel={"previous"}
-      nextLabel={"next"}
-      breakLabel={"..."}
-      // pageCount={pageCount}
-      // onPageChange={changePage}
-      containerClassName={"pagination justify-content-center"}
-      pageClassName={"page-item"}
-      pageLinkClassName={"page-link"}
-      previousClassName={"page-item"}
-      previousLinkClassName={"page-link"}
-      nextClassName={"page-item"}
-      nextLinkClassName={"page-link"}
-      breakClassName={"page-item"}
-      breakLinkClassName={"page-link"}
-      activeClassName={"active"}
-    />
-  </div>
-  <Footer />
+  <section>
+    <div className=''>
+      <ReactPaginate 
+        previousLabel={"previous"}
+        nextLabel={"next"}
+        breakLabel={"..."}
+        // pageCount={pageCount}
+        // onPageChange={changePage}
+        containerClassName={"pagination justify-content-center"}
+        pageClassName={"page-item"}
+        pageLinkClassName={"page-link"}
+        previousClassName={"page-item"}
+        previousLinkClassName={"page-link"}
+        nextClassName={"page-item"}
+        nextLinkClassName={"page-link"}
+        breakClassName={"page-item"}
+        breakLinkClassName={"page-link"}
+        activeClassName={"active"}
+      />
+    </div>
+  </section>
+
+  
+  <Footer />  
 </Fragment>
   )
 }

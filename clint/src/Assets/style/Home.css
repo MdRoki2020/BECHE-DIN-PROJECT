@@ -60,3 +60,15 @@ img.poster {
 .getInTouch{
     background:#ddd;
 }
+h5.card-title.text-center {
+    font-weight: 300;
+}
+.posterText h2 {
+    font-weight: normal;
+}
+.posterText p {
+    font-weight: 300;
+}
+.singleContact svg {
+    color: rgb(255, 87, 34);
+}

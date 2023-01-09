@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import ratingPoster from '../Assets/images/download.svg'
 import Footer from './Footer'
 import ReactImageMagnify from 'react-image-magnify';
+import { BsPatchCheckFill,BsBatteryCharging } from "react-icons/bs";
+import { IoColorPaletteSharp } from "react-icons/io5";
+import { SiBrandfolder } from "react-icons/si";
 
 const ProductDetails = () => {
   return (
@@ -49,19 +52,19 @@ const ProductDetails = () => {
 
                 <div className='detailsSectionTwo'>
                   <h6>More Information</h6>
-                  <b className='featuresheader'>Brand: </b><span className='featuresnormal'>Asus</span>
+                  <b className='featuresheader'><SiBrandfolder/> Brand: </b><span className='featuresnormal'>Asus</span>
                 </div>
 
                 <div className='detailsSectionTwo'>
-                  <b className='featuresheader'>Color: </b><span className='featuresnormal'>Black</span>
+                  <b className='featuresheader'><IoColorPaletteSharp/> Color: </b><span className='featuresnormal'>Black</span>
                 </div>
 
                 <div className='detailsSectionTwo'>
-                  <b className='featuresheader'>Battery mAh: </b><span className='featuresnormal'>63WHrs, 3S1P, 3-cell Li-ion</span>
+                  <b className='featuresheader'><BsBatteryCharging/> Battery mAh: </b><span className='featuresnormal'>63WHrs, 3S1P, 3-cell Li-ion</span>
                 </div>
 
                 <div className='detailsSectionTwo'>
-                  <b className='featuresheader'>Warranty Information: </b><span className='featuresnormal'>2 Years Brand Warranty</span>
+                  <b className='featuresheader'><BsPatchCheckFill/> Warranty Information: </b><span className='featuresnormal'>2 Years Brand Warranty</span>
                 </div>
 
                 <div className='detailsSectionTwo'>

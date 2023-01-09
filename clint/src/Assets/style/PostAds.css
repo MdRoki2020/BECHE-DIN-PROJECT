@@ -17,6 +17,9 @@ label {
 .card.posterWrapper h4 {
     font-weight: normal;
 }
+.card.shadow.posterWrapper.animated.flipInX.mt-3 svg {
+    color: rgb(255, 87, 34);
+}
 .productName label {
     margin-top: 20px;
     margin-bottom: 6px;

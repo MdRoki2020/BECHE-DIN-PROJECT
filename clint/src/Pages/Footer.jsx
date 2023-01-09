@@ -25,7 +25,7 @@ const Footer = () => {
             <p>Sign up and receive the latest tips via email.</p>
             <p>Email*</p>
             <input className='footerInput' placeholder='you@example.com'/>
-            <button className='btn btn-info'>Subscribe <TbBellRinging2/></button>
+            <button className='btn btn-warning'>Subscribe <TbBellRinging2/></button>
             </div>
           </div>
         </div>
