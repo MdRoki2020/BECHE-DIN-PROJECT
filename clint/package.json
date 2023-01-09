@@ -15,6 +15,7 @@
     "react-icons": "^4.7.1",
     "react-image-magnify": "^2.7.4",
     "react-paginate": "^8.1.4",
+    "react-quill": "^2.0.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.1",
     "react-script": "^2.0.5",

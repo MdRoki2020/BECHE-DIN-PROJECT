@@ -1,0 +1,40 @@
+.ql-editor {
+    padding: 128px 0px;
+}
+.productName label {
+    margin-top: 30px;
+    margin-bottom: 6px;
+}
+.productName input {
+    padding: 35px 0px;
+}
+.features {
+    margin-top: 22px;
+}
+label {
+    font-weight: 300;
+}
+.card.posterWrapper h4 {
+    font-weight: normal;
+}
+.productName label {
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+.productName input {
+    padding: 35px 0px;
+}
+
+.features {
+    margin-top: 22px;
+}
+
+.allInputs2 input {
+    padding: 21px 0px;
+}
+
+.publishButton {
+    margin-top: 12px;
+    margin-bottom: 15px;
+}

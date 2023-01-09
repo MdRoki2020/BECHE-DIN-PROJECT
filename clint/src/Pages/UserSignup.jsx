@@ -41,8 +41,11 @@ const UserSignup = () => {
                 </div>
 
                 <div className='row mb-4'>
-                        <div className='col-md-12 input-group'>
+                        <div className='col-md-6'>
                             <input type='file' className='form-control animated fadeInUp'/>
+                        </div>
+                        <div className='col-md-6'>
+                            <input type='text' className='form-control animated fadeInUp' placeholder='Enter District'/>
                         </div>
                 </div>
 
@@ -57,7 +60,7 @@ const UserSignup = () => {
 
                 <div className='row py-4'>
                         <div className='col-md-12'>
-                            <Button className='form-control btn btn-warning text-light animated fadeInUp'>Signup With Email <AiOutlineUserAdd/></Button>
+                            <Button className='form-control btn btn-warning text-light animated fadeInUp shadow'>Signup With Email <AiOutlineUserAdd/></Button>
                         </div>
                 </div>
 
