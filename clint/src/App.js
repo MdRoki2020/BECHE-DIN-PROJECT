@@ -2,32 +2,38 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Fragment } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './Pages/Home';
-import LaptopItems from './Pages/LaptopItems';
-import NavigationBar from './Pages/NavigationBar';
-import PostAds from './Pages/PostAds';
-import ProductDetails from './Pages/ProductDetails';
-import UserSignup from './Pages/UserSignup';
-import AllAds from './Pages/AllAds';
-import UserSignin from './Pages/UserSignin';
-import Shipping from './Pages/Shipping';
+import HomeLayout from './Layout/HomeLayout';
+import LaptopItemsLaout from './Layout/LaptopItemsLaout';
+import PostAdLayout from './Layout/PostAdLayout';
+import ProductDetailsLayout from './Layout/ProductDetailsLayout';
+import UserSignupLayout from './Layout/UserSignupLayout';
+import AllAdsLayout from './Layout/AllAdsLayout';
+import UserSigninLayout from './Layout/UserSigninLayout';
+import ShippingLayout from './Layout/ShippingLayout';
+
+import AdminDashboardLayout from './Layout/AdminDashboardLayout';
 
 function App() {
   return (
     <div className="">
       <Fragment>
         <BrowserRouter>
-        <NavigationBar/>
+        {/* <NavigationBar/> */}
+        {/* <AdminNavigation /> */}
         
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/laptopItems" element={<LaptopItems />} />
-          <Route path="/ProductDetails" element={<ProductDetails />} />
-          <Route path="/PostAds" element={<PostAds />} />
-          <Route path="/UserSignup" element={<UserSignup />} />
-          <Route path="/UserSignin" element={<UserSignin />} />
-          <Route path="/AllAds" element={<AllAds />} />
-          <Route path="/Shipping" element={<Shipping />} />
+          <Route path="/" element={<HomeLayout />} />
+          <Route path="/laptopItems" element={<LaptopItemsLaout />} />
+          <Route path="/ProductDetails" element={<ProductDetailsLayout />} />
+          <Route path="/PostAds" element={<PostAdLayout />} />
+          <Route path="/UserSignup" element={<UserSignupLayout />} />
+          <Route path="/UserSignin" element={<UserSigninLayout />} />
+          <Route path="/AllAds" element={<AllAdsLayout />} />
+          <Route path="/Shipping" element={<ShippingLayout />} />
+
+
+          <Route path="/AdminDashboard" element={<AdminDashboardLayout />} />
+
 
           {/* <Route path="/sendOtp" element={<SendOtp />}/>
           <Route path="/verifyOtp" element={<VerifyOtp />}/>

@@ -4,6 +4,7 @@ import { FaShippingFast } from "react-icons/fa";
 import '../Assets/style/shipping.css';
 import { AiFillStar } from "react-icons/ai";
 import { IoIosArrowDown } from "react-icons/io";
+import Footer from './Footer';
 
 
 const Shipping = () => {
@@ -26,7 +27,7 @@ const Shipping = () => {
                     </div>
                   </div>
 
-                  <div className='card shippingComponents px-3'>
+                  <div className='card shippingComponents px-3 mb-3'>
 
                   <div className='row my-4'>
                       <div className='col-md-6'>
@@ -81,7 +82,8 @@ const Shipping = () => {
 
                   <div className='row mb-4'>
                       <div className='col-md-6'>
-                        <p className='confirmingPoints'>Earn 300 Points By Confirming ! <AiFillStar/><AiFillStar/><AiFillStar/></p>
+                        <label >Transaction ID</label>
+                        <input type='text' className='form-control animated fadeInUp' placeholder='Enter Transaction ID'/>
                         
                       </div>
                       <div className='col-md-6'>
@@ -135,12 +137,18 @@ const Shipping = () => {
                       </table>
                     </div>
 
+                    <div className='payment'>
+                      <strong>Bkash Number:</strong> <span>017xxxxxxxx</span>
+                    </div>
+
                     </div>
 
                 </div>
               </div>
             </div>
         </section>
+
+        <Footer />
     </Fragment>
   )
 }

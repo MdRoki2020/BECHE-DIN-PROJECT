@@ -50,3 +50,11 @@ table th {
     color: rgb(255, 87, 34);
     padding: 7px 0px;
 }
+
+.payment strong {
+    font-weight: 500;
+}
+
+.payment span {
+    font-weight: 300;
+}
