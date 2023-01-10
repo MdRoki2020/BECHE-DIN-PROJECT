@@ -1,0 +1,52 @@
+.conformButton {
+    background: rgb(255, 87, 34);
+    border: none;
+}
+p.confirmingPoints {
+    font-weight: 300;
+}
+p.confirmingPoints svg {
+    color: rgb(255, 87, 34);
+}
+
+.orderSummery h2 {
+    font-size: x-large;
+    font-weight: normal;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 25px;
+}
+.orderSummery h2 {
+    font-size: x-large;
+    font-weight: normal;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 25px;
+}
+
+.discountOption {
+    font-weight: 300;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.discountOption svg {
+    color: rgb(255, 87, 34);
+}
+button.applyButton {
+    background: rgb(255, 87, 34);
+    color: white;
+}
+
+.cartSubTotal {padding-top: 10px;}
+
+.cartSubTotal b {
+    font-weight: 500;
+    font-size: initial;
+}
+table.subTotalTable {
+    margin-top: 10px;
+}
+
+table th {
+    color: rgb(255, 87, 34);
+    padding: 7px 0px;
+}

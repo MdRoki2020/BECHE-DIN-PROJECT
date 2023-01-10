@@ -10,6 +10,7 @@ import ProductDetails from './Pages/ProductDetails';
 import UserSignup from './Pages/UserSignup';
 import AllAds from './Pages/AllAds';
 import UserSignin from './Pages/UserSignin';
+import Shipping from './Pages/Shipping';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/UserSignup" element={<UserSignup />} />
           <Route path="/UserSignin" element={<UserSignin />} />
           <Route path="/AllAds" element={<AllAds />} />
+          <Route path="/Shipping" element={<Shipping />} />
 
           {/* <Route path="/sendOtp" element={<SendOtp />}/>
           <Route path="/verifyOtp" element={<VerifyOtp />}/>

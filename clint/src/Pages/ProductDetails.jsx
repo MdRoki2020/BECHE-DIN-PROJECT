@@ -34,7 +34,7 @@ const ProductDetails = () => {
                 }} />
               </div>
               <button className='wishlist form-control my-4 animated fadeInUp shadow'>WishList <AiOutlineHeart/></button>
-              <button className='buynow form-control animated fadeInUp shadow'>Buy Now <AiOutlineShopping/></button>
+              <Link to='/Shipping'><button className='buynow form-control animated fadeInUp shadow'>Buy Now <AiOutlineShopping/></button></Link>
               </div>
             </div>
             <div className='col-md-8'>
