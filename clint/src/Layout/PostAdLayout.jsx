@@ -1,12 +1,17 @@
-import React from 'react'
-import NavigationBar from '../Pages/NavigationBar'
-import PostAds from '../Pages/PostAds'
+import React, { Suspense } from 'react'
+import PublisherNavigation from '../Pages/Publisher/PublisherNavigation';
+import PostAds from '../Pages/Publisher/PostAds';
 
 const PostAdLayout = () => {
   return (
     <div>
-      <NavigationBar />
-      <PostAds />
+      <PublisherNavigation>
+        <Suspense>
+
+          <PostAds />
+
+        </Suspense>
+      </PublisherNavigation>
     </div>
   )
 }

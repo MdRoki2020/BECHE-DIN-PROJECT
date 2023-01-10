@@ -2,7 +2,6 @@ import React, { Fragment, useState } from 'react';
 import { Button, Collapse } from 'react-bootstrap';
 import { FaShippingFast } from "react-icons/fa";
 import '../Assets/style/shipping.css';
-import { AiFillStar } from "react-icons/ai";
 import { IoIosArrowDown } from "react-icons/io";
 import Footer from './Footer';
 

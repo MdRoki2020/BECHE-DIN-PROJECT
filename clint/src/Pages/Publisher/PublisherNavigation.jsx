@@ -4,9 +4,11 @@ import {NavLink} from "react-router-dom";
 import {AiFillProfile, AiOutlineMenuUnfold, AiOutlineLogout, AiFillDashboard} from "react-icons/ai";
 import { FaCreativeCommonsNd,FaUserPlus,FaTachometerAlt,FaBraille } from "react-icons/fa";
 import logo from "../../Assets/images/logo.png";
-import {removeSessions } from "../../Helper/SessionHelperAdmin";
+import {removeSessions } from "../../Helper/SessionHelperPublisher";
 
-const AdminNavigation = (props) => {
+
+
+const PublisherNavigation = (props) => {
 
     let contentRef,sideNavRef=useRef();
 
@@ -30,6 +32,7 @@ const AdminNavigation = (props) => {
             content.classList.add("content");
         }
       }
+
 
   return (
     <Fragment>
@@ -65,29 +68,14 @@ const AdminNavigation = (props) => {
 
             <div ref={(div) =>{sideNavRef=div}} className="side-nav-open">
 
-                <NavLink   className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" }  to="/adminDashboard"  end>
+                <NavLink   className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" }  to="/PublisherDashboard"  end>
                     <AiFillDashboard className="side-bar-item-icon" />
                     <span className="side-bar-item-caption">Dashboard</span>
                 </NavLink>
 
-                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/addFood" >
+                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/PostAds" >
                     <FaUserPlus className="side-bar-item-icon" />
-                    <span className="side-bar-item-caption">Add Food</span>
-                </NavLink>
-
-                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/foodstore" >
-                    <FaCreativeCommonsNd className="side-bar-item-icon" />
-                    <span className="side-bar-item-caption">Foods Wall</span>
-                </NavLink>
-
-                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/player" >
-                    <FaTachometerAlt className="side-bar-item-icon" />
-                    <span className="side-bar-item-caption">Player</span>
-                </NavLink>
-
-                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" }  to="/" >
-                    <FaBraille className="side-bar-item-icon" />
-                    <span className="side-bar-item-caption">Completed</span>
+                    <span className="side-bar-item-caption">Post ADs</span>
                 </NavLink>
 
             </div>
@@ -100,4 +88,4 @@ const AdminNavigation = (props) => {
   )
 }
 
-export default AdminNavigation
+export default PublisherNavigation

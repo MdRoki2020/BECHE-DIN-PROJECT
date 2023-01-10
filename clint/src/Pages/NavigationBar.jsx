@@ -20,7 +20,7 @@ const NavigationBar = () => {
                 </Form>
                 <Nav>
                     <Nav.Link as={Link} to={'/'}> Home <AiOutlineHome/></Nav.Link>
-                    <Nav.Link as={Link} to={'/PostAds'}> Post AD <AiOutlineVideoCameraAdd/></Nav.Link>
+                    <Nav.Link as={Link} to={'/PostAuth'}> Post AD <AiOutlineVideoCameraAdd/></Nav.Link>
                     <Nav.Link as={Link} to={'/allADS'}> All Ads <AiOutlineSortDescending/></Nav.Link>
                     <Nav.Link as={Link} to={'/UserSignin'}> My Account <AiOutlineUserSwitch/></Nav.Link>
                 </Nav>

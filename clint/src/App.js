@@ -4,13 +4,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import HomeLayout from './Layout/HomeLayout';
 import LaptopItemsLaout from './Layout/LaptopItemsLaout';
-import PostAdLayout from './Layout/PostAdLayout';
+import PostAuthLayout from './Layout/PostAuthLayout';
 import ProductDetailsLayout from './Layout/ProductDetailsLayout';
 import UserSignupLayout from './Layout/UserSignupLayout';
 import AllAdsLayout from './Layout/AllAdsLayout';
 import UserSigninLayout from './Layout/UserSigninLayout';
 import ShippingLayout from './Layout/ShippingLayout';
-
+import PostAdLayout from './Layout/PostAdLayout'
+import PublisherDashboardLayout from './Layout/PublisherDashboardLayout';
 import AdminDashboardLayout from './Layout/AdminDashboardLayout';
 
 function App() {
@@ -18,20 +19,23 @@ function App() {
     <div className="">
       <Fragment>
         <BrowserRouter>
-        {/* <NavigationBar/> */}
-        {/* <AdminNavigation /> */}
         
         <Routes>
+          {/* for user */}
           <Route path="/" element={<HomeLayout />} />
           <Route path="/laptopItems" element={<LaptopItemsLaout />} />
           <Route path="/ProductDetails" element={<ProductDetailsLayout />} />
-          <Route path="/PostAds" element={<PostAdLayout />} />
+          <Route path="/PostAuth" element={<PostAuthLayout />} />
           <Route path="/UserSignup" element={<UserSignupLayout />} />
           <Route path="/UserSignin" element={<UserSigninLayout />} />
           <Route path="/AllAds" element={<AllAdsLayout />} />
           <Route path="/Shipping" element={<ShippingLayout />} />
 
+          {/* for publisher */}
+          <Route path="/PublisherDashboard" element={<PublisherDashboardLayout />} />
+          <Route path="/PostAds" element={<PostAdLayout />} />
 
+          {/* for admin */}
           <Route path="/AdminDashboard" element={<AdminDashboardLayout />} />
 
 

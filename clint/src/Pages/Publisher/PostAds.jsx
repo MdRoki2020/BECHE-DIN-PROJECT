@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'
-import '../Assets/style/PostAds.css'
+import '../../Assets/style/PostAds.css'
 import { MdPublish } from "react-icons/md";
 import { Button } from 'react-bootstrap';
-import Footer from './Footer';
+import Footer from '../Footer';
 
 const PostAds = () => {
 
