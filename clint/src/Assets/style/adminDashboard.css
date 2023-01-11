@@ -1,6 +1,6 @@
-body {
+/* body {
     background: #d7c2ed url('../images/panelBackgroundPaper.webp') 0 0 no-repeat !important;
-}
+} */
 .dashboardCounter svg {
     color: rgb(255, 87, 34);
 }
@@ -19,8 +19,12 @@ body {
 
 .card.categoriesLavel h5 {
     padding: 4px 14px;
+    color: rgb(255, 87, 34);
+    font-weight: 300;
 }
 
 .card.IncomeChart h5 {
     padding: 4px 14px;
+    color: rgb(255, 87, 34);
+    font-weight: 300;
 }

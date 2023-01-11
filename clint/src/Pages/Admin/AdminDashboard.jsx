@@ -120,7 +120,7 @@ const AdminDashboard = () => {
           </div>
           <div className='col-md-6'>
             <div className='card categoriesLavel my-3'>
-                <h5>Categories Lavel</h5>
+                <h5>Product Lavel</h5>
                 <ResponsiveContainer width="100%" aspect={3}>
                   <AreaChart
                     width={500}
