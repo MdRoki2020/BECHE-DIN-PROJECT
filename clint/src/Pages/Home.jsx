@@ -13,7 +13,7 @@ import poster2 from '../Assets/images/poster2.png'
 import largeposter from '../Assets/images/largePoster.png'
 import Footer from './Footer'
 import { Link } from 'react-router-dom'
-import { Button } from 'react-bootstrap';
+import { Badge, Button } from 'react-bootstrap';
 
 function Home() {
   return (
@@ -43,7 +43,10 @@ function Home() {
       <section className='categorySection'>
         <div className='container'>
           <div className='category mt-4 mb-4'>
-            <h5 className='mb-4'>Category</h5>
+            {/* <h5 className='mb-4'>Category</h5> */}
+            <Badge bg="danger mb-3">
+            Categories
+            </Badge>
             
             <div className='row'>
               <div className='col-md-2'>
@@ -191,7 +194,10 @@ function Home() {
 
       <section className='getInTouch pt-4'>
         <div className='container'>
-        <h5 className='mb-4'>Get In Touch</h5>
+        {/* <h5 className='mb-4'>Get In Touch</h5> */}
+        <Badge bg="danger mb-3">
+        Get In Touch
+        </Badge>
           <div className='row'>
             <div className='col-md-4'>
               <div className='singleContact'>

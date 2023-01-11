@@ -3,7 +3,7 @@ import headerLaptop from '../Assets/images/laptop.jpg'
 import { AiTwotoneEnvironment,AiOutlineSearch } from "react-icons/ai"
 import { BsCartPlus } from "react-icons/bs";
 import '../Assets/style/categoriesItems.css'
-import { Button } from 'react-bootstrap'
+import { Badge, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import ReactPaginate from 'react-paginate';
 import Footer from './Footer';
@@ -24,7 +24,7 @@ const LaptopItems = () => {
             </div>
             <div className='col-sm-9'>
             <div className='posterText'>
-              <h2>Laptop Electronics !</h2>
+              <h2>Laptop !</h2>
               <p><AiTwotoneEnvironment/> All Bangladesh !</p>
               <input className='rounded-pill searchDistrict shadow' placeholder='Search By District' /> <Button className='btn btn-warning shadow'><AiOutlineSearch/></Button>
             </div>
@@ -38,7 +38,10 @@ const LaptopItems = () => {
 
   <section>
   <div className='container'>
-    <h5>Products</h5>
+    {/* <h5>Products</h5> */}
+    <Badge bg="success mb-3">
+      Products
+    </Badge>
 
     <div className='row'>
       <div className='col-md-2'>

@@ -4,9 +4,11 @@ import Badge from 'react-bootstrap/Badge';
 import {Table} from 'react-bootstrap';
 import { VscListOrdered } from "react-icons/vsc";
 import { FiUsers } from "react-icons/fi";
+import ReactPaginate from 'react-paginate'
 import { FaProductHunt } from "react-icons/fa";
 import { BsGraphUp } from "react-icons/bs";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Legend, Bar } from 'recharts';
+import Footer from '../Footer';
 
 
 const data = [
@@ -66,28 +68,28 @@ const AdminDashboard = () => {
           <div className='dashboardCounter card text-center shadow'>
             <h3><VscListOrdered/></h3>
             <p>Total Orders</p>
-            <h5>20</h5>
+            <h5 className='animated fadeInUp'>20</h5>
           </div>
           </div>
           <div className='col-md-3'>
           <div className='dashboardCounter card text-center shadow'>
             <h3><FiUsers/></h3>
               <p>Total Publisher</p>
-              <h5>200</h5>
+              <h5 className='animated fadeInUp'>200</h5>
           </div>
           </div>
           <div className='col-md-3'>
           <div className='dashboardCounter card text-center shadow'>
             <h3><FaProductHunt/></h3>
               <p>Total Product</p>
-              <h5>7539</h5>
+              <h5 className='animated fadeInUp'>7539</h5>
           </div>
           </div>
           <div className='col-md-3'>
           <div className='dashboardCounter card text-center shadow'>
             <h3><BsGraphUp/></h3>
               <p>Total Income</p>
-              <h5>৳ 20,0500</h5>
+              <h5 className='animated fadeInUp'>৳ 20,0500</h5>
           </div>
           </div>
         </div>
@@ -150,8 +152,10 @@ const AdminDashboard = () => {
 
         <div className='row'>
           <div className='recentOrder'>
-            <h4>Recent Orders</h4>
 
+            <Badge bg="success mb-3">
+            Recent Order
+            </Badge>
 
             <div className='orderTable'>
 
@@ -164,10 +168,12 @@ const AdminDashboard = () => {
                     <th>Product Category</th>
                     <th>Clint Name</th>
                     <th>Clint Number</th>
-                    <th>Clint Address</th>
                     <th>Clint Division</th>
-                    <th>Clint City</th>
+                    <th>Clint District</th>
+                    <th>Clint Thana</th>
+                    <th>Clint Address</th>
                     <th>Transaction ID</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -178,10 +184,12 @@ const AdminDashboard = () => {
                     <td>Laptop</td>
                     <td>Roki</td>
                     <td>01717453205</td>
+                    <td>Rangpur</td>
                     <td>Nilphamari</td>
-                    <td>Rangpur</td>
-                    <td>Rangpur</td>
+                    <td>Kishorgonj</td>
+                    <td>Pushna</td>
                     <td>xYG4HOIB6V</td>
+                    <td><Badge bg="danger">Pending</Badge></td>
                   </tr>
                 </tbody>
               </Table>
@@ -190,6 +198,28 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>
+
+      <div className=''>
+        <ReactPaginate 
+          previousLabel={"previous"}
+          nextLabel={"next"}
+          breakLabel={"..."}
+          // pageCount={pageCount}
+          // onPageChange={changePage}
+          containerClassName={"pagination justify-content-center"}
+          pageClassName={"page-item"}
+          pageLinkClassName={"page-link"}
+          previousClassName={"page-item"}
+          previousLinkClassName={"page-link"}
+          nextClassName={"page-item"}
+          nextLinkClassName={"page-link"}
+          breakClassName={"page-item"}
+          breakLinkClassName={"page-link"}
+          activeClassName={"active"}
+        />
+      </div>
+
+      <Footer />
     </Fragment>
   )
 }

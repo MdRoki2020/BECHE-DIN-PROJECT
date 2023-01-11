@@ -69,12 +69,12 @@ const Shipping = () => {
 
                   <div className='row mb-4'>
                       <div className='col-md-6'>
-                          <label >City</label>
-                          <input type='text' className='form-control animated fadeInUp' placeholder='Enter City'/>
+                          <label >District</label>
+                          <input type='text' className='form-control animated fadeInUp' placeholder='Enter Home District'/>
                       </div>
                       <div className='col-md-6'>
-                      <label >Area</label>
-                          <input type='text' className='form-control animated fadeInUp' placeholder='Enter Area'/>
+                      <label >Thana</label>
+                          <input type='text' className='form-control animated fadeInUp' placeholder='Enter Thana'/>
                       </div>
 
                   </div>
