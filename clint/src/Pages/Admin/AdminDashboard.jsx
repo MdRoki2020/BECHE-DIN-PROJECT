@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import '../../Assets/style/adminDashboard.css'
 import Badge from 'react-bootstrap/Badge';
+import {Table} from 'react-bootstrap';
 import { VscListOrdered } from "react-icons/vsc";
 import { FiUsers } from "react-icons/fi";
 import { FaProductHunt } from "react-icons/fa";
@@ -12,7 +13,7 @@ const data = [
   {
     name: 'Laptop',
     uv: 4000,
-    pv: 2400,
+    pv: 3400,
     amt: 2400,
   },
   {
@@ -53,11 +54,13 @@ const AdminDashboard = () => {
     <Fragment>
       <div className='container-fluid'>
 
-      <Badge bg="danger">
-        Admin
-      </Badge>
+        <Badge bg="danger mb-3">
+         ADMIN Dashboard
+        </Badge>
 
-        <h4>Dahboard</h4>
+        {/* <div className='dashboard'>
+          <h4>Dahboard</h4>
+        </div> */}
         <div className='row'>
           <div className='col-md-3'>
           <div className='dashboardCounter card text-center shadow'>
@@ -91,7 +94,7 @@ const AdminDashboard = () => {
 
         <div className='row'>
           <div className='col-md-6'>
-            <div className='card IncomeChart my-3'>
+            <div className='card IncomeChart my-3 shadow'>
             <h5>Income From Categories</h5>
 
             <ResponsiveContainer width="100%" aspect={3}>
@@ -119,7 +122,7 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className='col-md-6'>
-            <div className='card categoriesLavel my-3'>
+            <div className='card categoriesLavel my-3 shadow'>
                 <h5>Product Lavel</h5>
                 <ResponsiveContainer width="100%" aspect={3}>
                   <AreaChart
@@ -142,6 +145,48 @@ const AdminDashboard = () => {
                 </ResponsiveContainer>
 
               </div>
+          </div>
+        </div>
+
+        <div className='row'>
+          <div className='recentOrder'>
+            <h4>Recent Orders</h4>
+
+
+            <div className='orderTable'>
+
+              <Table striped bordered hover responsive>
+                <thead>
+                  <tr>
+                    <th>S.N</th>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Product Category</th>
+                    <th>Clint Name</th>
+                    <th>Clint Number</th>
+                    <th>Clint Address</th>
+                    <th>Clint Division</th>
+                    <th>Clint City</th>
+                    <th>Transaction ID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>vdghd34hdd</td>
+                    <td>Vivobook 15</td>
+                    <td>Laptop</td>
+                    <td>Roki</td>
+                    <td>01717453205</td>
+                    <td>Nilphamari</td>
+                    <td>Rangpur</td>
+                    <td>Rangpur</td>
+                    <td>xYG4HOIB6V</td>
+                  </tr>
+                </tbody>
+              </Table>
+
+            </div>
           </div>
         </div>
       </div>

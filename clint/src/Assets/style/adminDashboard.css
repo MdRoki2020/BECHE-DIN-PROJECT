@@ -28,3 +28,9 @@
     color: rgb(255, 87, 34);
     font-weight: 300;
 }
+
+.recentOrder h4 {
+    font-weight: normal;
+    font-size: 20px;
+    margin-top: 2px;
+}
