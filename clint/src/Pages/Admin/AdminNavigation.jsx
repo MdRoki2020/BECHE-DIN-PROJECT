@@ -1,7 +1,7 @@
 import React, {Fragment, useRef} from "react";
 import {Container,Navbar} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
-import {AiFillProfile, AiOutlineMenuUnfold, AiOutlineLogout, AiFillDashboard} from "react-icons/ai";
+import {AiFillProfile, AiOutlineMenuUnfold, AiOutlineLogout, AiFillDashboard,AiOutlineUnorderedList} from "react-icons/ai";
 import { FaCreativeCommonsNd,FaUserPlus,FaTachometerAlt,FaBraille } from "react-icons/fa";
 import logo from "../../Assets/images/logo.png";
 import {removeSessions } from "../../Helper/SessionHelperAdmin";
@@ -70,25 +70,11 @@ const AdminNavigation = (props) => {
                     <span className="side-bar-item-caption">Dashboard</span>
                 </NavLink>
 
-                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/addFood" >
-                    <FaUserPlus className="side-bar-item-icon" />
-                    <span className="side-bar-item-caption">Add Food</span>
+                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/PublisherList" >
+                    <AiOutlineUnorderedList className="side-bar-item-icon" />
+                    <span className="side-bar-item-caption">Publisher List</span>
                 </NavLink>
 
-                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/foodstore" >
-                    <FaCreativeCommonsNd className="side-bar-item-icon" />
-                    <span className="side-bar-item-caption">Foods Wall</span>
-                </NavLink>
-
-                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/player" >
-                    <FaTachometerAlt className="side-bar-item-icon" />
-                    <span className="side-bar-item-caption">Player</span>
-                </NavLink>
-
-                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" }  to="/" >
-                    <FaBraille className="side-bar-item-icon" />
-                    <span className="side-bar-item-caption">Completed</span>
-                </NavLink>
 
             </div>
 
