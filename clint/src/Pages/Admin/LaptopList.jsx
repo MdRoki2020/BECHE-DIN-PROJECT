@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import { Badge, Table } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
-import demo from'../../Assets/images/demo.jpg'
+import laptop from '../../Assets/images/laptop.jpg'
 import { FiEdit, } from "react-icons/fi";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const PublisherList = () => {
+const LaptopList = () => {
   return (
     <Fragment>
         <div className='container-fluid'>
@@ -39,7 +39,7 @@ const PublisherList = () => {
                 <td>01717453205</td>
                 <td>mroki815@gmail.com</td>
                 <td>Nilphamari</td>
-                <td><img src={demo} alt="profile" width="110"/></td>
+                <td><img src={laptop} alt="laptop" width="110"/></td>
                 <td>12-1-22</td>
                 <td><span className='text-primary'><FiEdit/></span> <span className='text-danger'><AiOutlineDelete/></span></td>
                 </tr>
@@ -71,4 +71,4 @@ const PublisherList = () => {
   )
 }
 
-export default PublisherList
+export default LaptopList

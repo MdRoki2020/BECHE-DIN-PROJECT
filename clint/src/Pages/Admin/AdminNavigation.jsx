@@ -2,7 +2,7 @@ import React, {Fragment, useRef} from "react";
 import {Container,Navbar} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import {AiFillProfile, AiOutlineMenuUnfold, AiOutlineLogout, AiFillDashboard,AiOutlineUnorderedList} from "react-icons/ai";
-import { FaCreativeCommonsNd,FaUserPlus,FaTachometerAlt,FaBraille } from "react-icons/fa";
+import { BsFillLaptopFill } from "react-icons/bs";
 import logo from "../../Assets/images/logo.png";
 import {removeSessions } from "../../Helper/SessionHelperAdmin";
 
@@ -73,6 +73,11 @@ const AdminNavigation = (props) => {
                 <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/PublisherList" >
                     <AiOutlineUnorderedList className="side-bar-item-icon" />
                     <span className="side-bar-item-caption">Publisher List</span>
+                </NavLink>
+
+                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/LaptopList" >
+                    <BsFillLaptopFill className="side-bar-item-icon" />
+                    <span className="side-bar-item-caption">Laptop List</span>
                 </NavLink>
 
 

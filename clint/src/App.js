@@ -14,6 +14,7 @@ import PostAdLayout from './Layout/PostAdLayout'
 import PublisherDashboardLayout from './Layout/PublisherDashboardLayout';
 import AdminDashboardLayout from './Layout/AdminDashboardLayout';
 import PublisherListLayout from './Layout/PublisherListLayout';
+import LaptopListLayout from './Layout/LaptopListLayout';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           {/* for admin */}
           <Route path="/AdminDashboard" element={<AdminDashboardLayout />} />
           <Route path="PublisherList" element={<PublisherListLayout />}/>
+          <Route path="LaptopList" element={<LaptopListLayout />}/>
 
 
           {/* <Route path="/sendOtp" element={<SendOtp />}/>
