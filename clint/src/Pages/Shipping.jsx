@@ -136,8 +136,8 @@ const Shipping = () => {
                       </table>
                     </div>
 
-                    <div className='payment'>
-                      <strong>Bkash Number:</strong> <span>017xxxxxxxx</span>
+                    <div className='payment animated tada'>
+                      <strong>Bkash Number:</strong> <span>017xx-xxxxxx</span>
                     </div>
 
                     </div>

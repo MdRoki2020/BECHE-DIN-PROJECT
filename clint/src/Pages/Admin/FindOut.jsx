@@ -94,7 +94,7 @@ const FindOut = () => {
                         </tr>
                         <tr>
                         <th>Product Price</th>
-                        <td className='animated fadeInUp text-danger'>67,000 BDT</td>
+                        <td className='animated tada text-danger'>67,000 BDT</td>
                         </tr>
                         <tr>
                         <th>Ex-Price</th>
