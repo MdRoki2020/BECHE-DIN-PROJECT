@@ -2,8 +2,6 @@ import React, { Fragment } from 'react'
 import { Badge, Table } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
 import demo from'../../Assets/images/demo.jpg'
-import { FiEdit, } from "react-icons/fi";
-import { AiOutlineDelete } from "react-icons/ai";
 
 const PublisherList = () => {
   return (

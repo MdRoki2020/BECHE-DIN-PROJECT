@@ -1,3 +1,17 @@
 th {
     font-weight: 500;
 }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+.productImage h4 {
+    font-weight: 300;
+    font-size: 15px;
+}
+.productImage {
+    border-radius: 10px;
+    padding: 5px 0px;
+}

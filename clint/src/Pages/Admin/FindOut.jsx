@@ -97,6 +97,10 @@ const FindOut = () => {
                         <td className='animated fadeInUp text-danger'>67,000 BDT</td>
                         </tr>
                         <tr>
+                        <th>Ex-Price</th>
+                        <td className='animated fadeInUp'><del>70,500</del> BDT</td>
+                        </tr>
+                        <tr>
                         <th>Product Color</th>
                         <td className='animated fadeInUp'>Silver</td>
                         </tr>
@@ -111,14 +115,13 @@ const FindOut = () => {
                         <tr>
                         <th>Product Author</th>
                         <td className='animated fadeInUp'>Walton Company</td>
-                        </tr>
-                        <tr>
-                        <th>Product Image</th>
-                        <td className='animated fadeInUp'><img src={laptop} alt="laptop" width="110"/></td>
-                        </tr>
-                        
+                        </tr>   
                     </tbody>
                 </table>
+                        <div className='productImage text-center mb-3'>
+                            <h4>Product Image</h4>
+                            <img className='center animated fadeInUp img-thumbnail img-fluid rounded' src={laptop} alt="laptop"/>
+                        </div>
             </div>
             <div className='col-md-4'></div>
         </div>
