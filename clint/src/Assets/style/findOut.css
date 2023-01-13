@@ -15,3 +15,6 @@ th {
     border-radius: 10px;
     padding: 5px 0px;
 }
+.card.posterWrapper svg {
+    color: rgb(255, 87, 34);
+}

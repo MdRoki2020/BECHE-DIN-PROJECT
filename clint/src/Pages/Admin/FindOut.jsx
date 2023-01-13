@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { MdOutlineFindInPage } from "react-icons/md";
+import { ImFinder } from "react-icons/im";
 import { AiOutlineFileSearch } from "react-icons/ai";
 import laptop from '../../Assets/images/laptop.jpg'
 import '../../Assets/style/findOut.css'
@@ -14,7 +14,7 @@ const FindOut = () => {
                     <div className='card posterWrapper animated flipInX my-3'>
                         <div className='row'>
                             <div className='col-sm-3'>
-                            <h2><MdOutlineFindInPage/></h2>
+                            <h2><ImFinder/></h2>
                             </div>
                             <div className='col-sm-9'>
                             <div className='posterText'>
