@@ -15,6 +15,7 @@ import PublisherDashboardLayout from './Layout/PublisherDashboardLayout';
 import AdminDashboardLayout from './Layout/AdminDashboardLayout';
 import PublisherListLayout from './Layout/PublisherListLayout';
 import LaptopListLayout from './Layout/LaptopListLayout';
+import FindOutLayout from './Layout/FindOutLayout';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path="/AdminDashboard" element={<AdminDashboardLayout />} />
           <Route path="PublisherList" element={<PublisherListLayout />}/>
           <Route path="LaptopList" element={<LaptopListLayout />}/>
+          <Route path="FindOut" element={<FindOutLayout />}/>
 
 
           {/* <Route path="/sendOtp" element={<SendOtp />}/>

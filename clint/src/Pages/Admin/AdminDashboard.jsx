@@ -174,6 +174,7 @@ const AdminDashboard = () => {
                     <th>Clint Address</th>
                     <th>Transaction ID</th>
                     <th>Status</th>
+                    <th>Order Time</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -190,6 +191,7 @@ const AdminDashboard = () => {
                     <td>Pushna</td>
                     <td>xYG4HOIB6V</td>
                     <td><Badge bg="danger">Pending</Badge></td>
+                    <td>10-12-23</td>
                   </tr>
                 </tbody>
               </Table>
