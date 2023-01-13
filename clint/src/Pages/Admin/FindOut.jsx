@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { MdOutlineFindInPage } from "react-icons/md";
 import { AiOutlineFileSearch } from "react-icons/ai";
 import laptop from '../../Assets/images/laptop.jpg'
+import '../../Assets/style/findOut.css'
 import Footer from '../Footer';
 
 const FindOut = () => {
@@ -35,39 +36,39 @@ const FindOut = () => {
                     <tbody>
                         <tr>
                         <th>Product Id</th>
-                        <td>6dg796ewd</td>
+                        <td className='animated fadeInUp'>6dg796ewd</td>
                         </tr>
                         <tr>
                         <th>Product Name</th>
-                        <td>Vivibook 15</td>
+                        <td className='animated fadeInUp'>Vivibook 15</td>
                         </tr>
                         <tr>
                         <th>Product Category</th>
-                        <td>Laptop</td>
+                        <td className='animated fadeInUp'>Laptop</td>
                         </tr>
                         <tr>
                         <th>Clint Number</th>
-                        <td>01717453205</td>
+                        <td className='animated fadeInUp'>01717453205</td>
                         </tr>
                         <tr>
                         <th>Clint Division</th>
-                        <td>Rangpur</td>
+                        <td className='animated fadeInUp'>Rangpur</td>
                         </tr>
                         <tr>
                         <th>Clint District</th>
-                        <td>Nilphamri</td>
+                        <td className='animated fadeInUp'>Nilphamri</td>
                         </tr>
                         <tr>
                         <th>Clint Thana</th>
-                        <td>Kishorgonj</td>
+                        <td className='animated fadeInUp'>Kishorgonj</td>
                         </tr>
                         <tr>
                         <th>Clint Address</th>
-                        <td>pushna</td>
+                        <td className='animated fadeInUp'>pushna</td>
                         </tr>
                         <tr>
                         <th>Order Time</th>
-                        <td>1-12-23</td>
+                        <td className='animated fadeInUp'>1-12-23</td>
                         </tr>
                         
                     </tbody>
@@ -81,39 +82,39 @@ const FindOut = () => {
                     <tbody>
                         <tr>
                         <th>Product Id</th>
-                        <td>6dg796ewd</td>
+                        <td className='animated fadeInUp'>6dg796ewd</td>
                         </tr>
                         <tr>
                         <th>Product Name</th>
-                        <td>Vivibook 15</td>
+                        <td className='animated fadeInUp'>Vivibook 15</td>
                         </tr>
                         <tr>
                         <th>Brand</th>
-                        <td>ASUS</td>
+                        <td className='animated fadeInUp'>ASUS</td>
                         </tr>
                         <tr>
                         <th>Product Price</th>
-                        <td>67,000 BDT</td>
+                        <td className='animated fadeInUp text-danger'>67,000 BDT</td>
                         </tr>
                         <tr>
                         <th>Product Color</th>
-                        <td>Silver</td>
+                        <td className='animated fadeInUp'>Silver</td>
                         </tr>
                         <tr>
                         <th>Product Battery mAh</th>
-                        <td>10,000 mAh</td>
+                        <td className='animated fadeInUp'>10,000 mAh</td>
                         </tr>
                         <tr>
                         <th>Warranty-Information</th>
-                        <td>2 years</td>
+                        <td className='animated fadeInUp'>2 years</td>
                         </tr>
                         <tr>
                         <th>Product Author</th>
-                        <td>Walton Company</td>
+                        <td className='animated fadeInUp'>Walton Company</td>
                         </tr>
                         <tr>
                         <th>Product Image</th>
-                        <td><img src={laptop} alt="laptop" width="110"/></td>
+                        <td className='animated fadeInUp'><img src={laptop} alt="laptop" width="110"/></td>
                         </tr>
                         
                     </tbody>
