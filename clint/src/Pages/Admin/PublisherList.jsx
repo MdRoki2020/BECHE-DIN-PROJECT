@@ -41,7 +41,7 @@ const PublisherList = () => {
                 <td>Nilphamari</td>
                 <td><img src={demo} alt="profile" width="110"/></td>
                 <td>12-1-22</td>
-                <td><span className='text-primary'><FiEdit/></span> <span className='text-danger'><AiOutlineDelete/></span></td>
+                <td><button className='btn btn-danger'>suspend</button></td>
                 </tr>
             </tbody>
             </Table>

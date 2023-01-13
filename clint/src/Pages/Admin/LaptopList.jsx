@@ -10,7 +10,7 @@ const LaptopList = () => {
     <Fragment>
         <div className='container-fluid'>
         <Badge bg="danger mb-3">
-         Publisher List
+         Laptop List
         </Badge>
 
         <div className='orderTable'>
