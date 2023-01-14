@@ -30,7 +30,7 @@ const FindOut = () => {
             <div className='col-md-4'>
                 <label>Transaction ID</label>
                 <input className='form-control animated fadeInUp' placeholder='Write Transaction ID'/>
-                <button className='btn btn-warning mt-1'>Show Details <AiOutlineFileSearch/></button>
+                <button className='btn btn-warning mt-1 shadow'>Show Details <AiOutlineFileSearch/></button>
 
                 <table className='subTotalTable table table-striped table-hover table-bordered table-responsive'>
                     <tbody>
@@ -77,7 +77,7 @@ const FindOut = () => {
             <div className='col-md-4'>
                 <label>Product ID</label>
                 <input className='form-control animated fadeInUp' placeholder='Write Product ID'/>
-                <button className='btn btn-warning mt-1'>Show Details <AiOutlineFileSearch/></button>
+                <button className='btn btn-warning mt-1 shadow'>Show Details <AiOutlineFileSearch/></button>
                 <table className='subTotalTable table table-striped table-hover table-bordered table-responsive'>
                     <tbody>
                         <tr>
@@ -123,7 +123,13 @@ const FindOut = () => {
                             <img className='center animated fadeInUp img-thumbnail img-fluid rounded' src={laptop} alt="laptop"/>
                         </div>
             </div>
-            <div className='col-md-4'></div>
+            <div className='col-md-4'>
+                <div className='voucherCode'>
+                <label>Generate Voucher Code</label>
+                <input className='form-control animated fadeInUp' placeholder='Generate Voucher Code'/>
+                <button className='applyButton shadow form-control mt-2'>Generate</button>
+                </div>
+            </div>
         </div>
         </div>
 

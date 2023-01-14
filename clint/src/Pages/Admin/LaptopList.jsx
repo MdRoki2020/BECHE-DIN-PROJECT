@@ -2,8 +2,6 @@ import React, { Fragment } from 'react'
 import { Badge, Table } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
 import laptop from '../../Assets/images/laptop.jpg'
-import { FiEdit, } from "react-icons/fi";
-import { AiOutlineDelete } from "react-icons/ai";
 
 const LaptopList = () => {
   return (
@@ -19,29 +17,31 @@ const LaptopList = () => {
             <thead>
                 <tr>
                 <th>S.N</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-                <th>Mobile Number</th>
-                <th>Email</th>
-                <th>District</th>
-                <th>Publisher Image</th>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Color</th>
+                <th>Battery mAh</th>
+                <th>Warranty</th>
+                <th>Author</th>
+                <th>Image</th>
                 <th>Entry Time</th>
                 <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                <td>1</td>
-                <td>Rs</td>
-                <td>Roki</td>
-                <td>22</td>
-                <td>01717453205</td>
-                <td>mroki815@gmail.com</td>
-                <td>Nilphamari</td>
-                <td><img src={laptop} alt="laptop" width="110"/></td>
-                <td>12-1-22</td>
-                <td><span className='text-primary'><FiEdit/></span> <span className='text-danger'><AiOutlineDelete/></span></td>
+                <td className='animated fadeInUp'>1</td>
+                <td className='animated fadeInUp'>Vivobook 15</td>
+                <td className='animated fadeInUp'>Asus</td>
+                <td className='animated fadeInUp'>65,500</td>
+                <td className='animated fadeInUp'>Silver</td>
+                <td className='animated fadeInUp'>10,000</td>
+                <td className='animated fadeInUp'>2 years</td>
+                <td className='animated fadeInUp'>Star Teach</td>
+                <td className='animated fadeInUp'><img src={laptop} alt="laptop" width="110"/></td>
+                <td className='animated fadeInUp'>12-1-22</td>
+                <td className='animated fadeInUp'><span><Badge bg="danger mb-3">Suspend</Badge></span></td>
                 </tr>
             </tbody>
             </Table>

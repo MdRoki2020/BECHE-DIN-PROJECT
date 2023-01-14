@@ -30,16 +30,16 @@ const PublisherList = () => {
             </thead>
             <tbody>
                 <tr>
-                <td>1</td>
-                <td>Rs</td>
-                <td>Roki</td>
-                <td>22</td>
-                <td>01717453205</td>
-                <td>mroki815@gmail.com</td>
-                <td>Nilphamari</td>
-                <td><img src={demo} alt="profile" width="110"/></td>
-                <td>12-1-22</td>
-                <td><button className='btn btn-danger'>suspend</button></td>
+                <td className='animated fadeInUp'>1</td>
+                <td className='animated fadeInUp'>Rs</td>
+                <td className='animated fadeInUp'>Roki</td>
+                <td className='animated fadeInUp'>22</td>
+                <td className='animated fadeInUp'>01717453205</td>
+                <td className='animated fadeInUp'>mroki815@gmail.com</td>
+                <td className='animated fadeInUp'>Nilphamari</td>
+                <td className='animated fadeInUp'><img src={demo} alt="profile" width="110"/></td>
+                <td className='animated fadeInUp'>12-1-22</td>
+                <td className='animated fadeInUp'><span><Badge bg="danger mb-3">Suspend</Badge></span></td>
                 </tr>
             </tbody>
             </Table>

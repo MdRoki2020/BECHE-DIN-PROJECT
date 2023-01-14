@@ -176,19 +176,19 @@ const AdminDashboard = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1</td>
-                    <td>vdghd34hdd</td>
-                    <td>Vivobook 15</td>
-                    <td>Laptop</td>
-                    <td>Roki</td>
-                    <td>01717453205</td>
-                    <td>Rangpur</td>
-                    <td>Nilphamari</td>
-                    <td>Kishorgonj</td>
-                    <td>Pushna</td>
-                    <td>xYG4HOIB6V</td>
-                    <td><Badge bg="danger">Pending</Badge></td>
-                    <td>10-12-23</td>
+                    <td className='animated fadeInUp'>1</td>
+                    <td className='animated fadeInUp'>vdghd34hdd</td>
+                    <td className='animated fadeInUp'>Vivobook 15</td>
+                    <td className='animated fadeInUp'>Laptop</td>
+                    <td className='animated fadeInUp'>Roki</td>
+                    <td className='animated fadeInUp'>01717453205</td>
+                    <td className='animated fadeInUp'>Rangpur</td>
+                    <td className='animated fadeInUp'>Nilphamari</td>
+                    <td className='animated fadeInUp'>Kishorgonj</td>
+                    <td className='animated fadeInUp'>Pushna</td>
+                    <td className='animated fadeInUp'>xYG4HOIB6V</td>
+                    <td className='animated fadeInUp'><Badge bg="danger">Pending</Badge></td>
+                    <td className='animated fadeInUp'>10-12-23</td>
                   </tr>
                 </tbody>
               </Table>
