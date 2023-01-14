@@ -60,9 +60,6 @@ const AdminDashboard = () => {
          ADMIN Dashboard
         </Badge>
 
-        {/* <div className='dashboard'>
-          <h4>Dahboard</h4>
-        </div> */}
         <div className='row'>
           <div className='col-md-3'>
           <div className='dashboardCounter card text-center shadow'>
