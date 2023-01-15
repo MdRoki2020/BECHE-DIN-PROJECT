@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
+import React, { Fragment} from 'react'
 import { Badge, Table } from 'react-bootstrap'
 import { FaBuysellads } from "react-icons/fa";
 import { SiHandshake,SiAnalogue } from "react-icons/si";
 import ReactPaginate from 'react-paginate'
 import { GiReturnArrow } from "react-icons/gi";
-import { LineChart, Line, ResponsiveContainer } from 'recharts';
+import { LineChart, Line,ResponsiveContainer } from 'recharts';
 import '../../Assets/style/adminDashboard.css'
 import laptop from '../../Assets/images/laptop.jpg'
 
@@ -100,11 +100,11 @@ const PublisherDashboard = () => {
           <div className='col-md-6'>
           <div className='card categoriesLavel my-3 shadow'>
             <h5>Income Rate</h5>
-            <ResponsiveContainer width="100%" aspect={3}>
-              <LineChart width={300} height={100} data={data}>
-                <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} />
-              </LineChart>
-            </ResponsiveContainer>
+            <ResponsiveContainer width="100%" aspect="3">
+            <LineChart width={300} height={100} data={data}>
+              <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} />
+            </LineChart>
+          </ResponsiveContainer>
         </div>
           </div>
         </div>
