@@ -1,8 +1,8 @@
 const mongoose=require('mongoose');
 const DataSchema=mongoose.Schema({
+    filePath:{type:String},
     Email:{type:String,unique:true},
     Password:{type:String},
-    ImagePath:{type:String},
     CreatedDate:{type:Date,default:Date.now()}
 })
 

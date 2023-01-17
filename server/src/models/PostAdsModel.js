@@ -1,6 +1,6 @@
-
 const mongoose=require('mongoose');
 const DataSchema=mongoose.Schema({
+    filePath:{type:String},
     PublisherEmail:{type:String},
     ProductName:{type:String},
     ProductBrand:{type:String},
@@ -9,7 +9,6 @@ const DataSchema=mongoose.Schema({
     ProductColor:{type:String},
     ProductBattery:{type:String},
     ProductWarranty:{type:String},
-    ProductImagePath:{type:String},
     ProductCategories:{type:String},
     ProductFetures:{type:String},
     CreatedDate:{type:Date,default:Date.now()}

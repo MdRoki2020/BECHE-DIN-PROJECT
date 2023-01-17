@@ -21,12 +21,18 @@ exports.AdminLogin=(req,res)=>{
     })
 }
 
-
-//create Admin
+//Create ADs
 exports.CreateAdmin=(req,res)=>{
-    let reqBody=req.body;
 
-    AdminModel.create(reqBody,(err,data)=>{
+    const file=new AdminModel({
+        
+        filePath:req.file.path,
+        Email:req.body.Email,
+        Password:req.body.Password
+
+      });
+
+      AdminModel.create(file,(err,data)=>{
 
         if(err){
             res.status(400).json({status:"fail",data:err})

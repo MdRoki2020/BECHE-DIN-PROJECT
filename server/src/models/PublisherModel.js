@@ -1,11 +1,11 @@
 const mongoose=require('mongoose');
 const DataSchema=mongoose.Schema({
+    filePath:{type:String},
     FirstName:{type:String},
     LastName:{type:String},
     Age:{type:String},
     Mobile:{type:String},
     Email:{type:String,unique:true},
-    ImagePath:{type:String},
     District:{type:String},
     CreatedDate:{type:Date,default:Date.now()}
 })
