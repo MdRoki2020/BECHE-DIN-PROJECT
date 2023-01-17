@@ -5,7 +5,7 @@ const DataSchema=mongoose.Schema({
     Age:{type:String},
     Mobile:{type:String},
     Email:{type:String,unique:true},
-    Image:{type:String},
+    ImagePath:{type:String},
     District:{type:String},
     CreatedDate:{type:Date,default:Date.now()}
 })

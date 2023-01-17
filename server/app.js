@@ -1,6 +1,6 @@
 //basic import
 const express=require('express');
-const router=require('./src/routes/api')
+const router=require('./src/routes/api');
 const app=new express();
 const bodyParser=require('body-parser');
 const path=require('path');
@@ -17,6 +17,8 @@ const cors=require('cors');
 
 //Database
 const mongoose=require('mongoose');
+mongoose.set('strictQuery',true);
+// or mongoose.set('strictQuery',true);
 
 //impliment security middleware
 app.use(cors());
