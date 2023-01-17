@@ -4,12 +4,15 @@ import { AiTwotoneEnvironment,AiOutlineSearch } from "react-icons/ai"
 import { BsCartPlus } from "react-icons/bs";
 import '../Assets/style/categoriesItems.css'
 import { Badge, Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import ReactPaginate from 'react-paginate';
 import Footer from './Footer';
 
 
-const LaptopItems = () => {
+const Products = () => {
+
+  const {categories}=useParams();
+  console.log(categories)
   return (
 <Fragment>
   <section>
@@ -24,7 +27,7 @@ const LaptopItems = () => {
             </div>
             <div className='col-sm-9'>
             <div className='posterText'>
-              <h2>Laptop !</h2>
+              <h2>{categories} !</h2>
               <p><AiTwotoneEnvironment/> All Bangladesh !</p>
               <input className='rounded-pill searchDistrict shadow' placeholder='Search By District' /> <Button className='btn btn-warning shadow'><AiOutlineSearch/></Button>
             </div>
@@ -90,4 +93,4 @@ const LaptopItems = () => {
   )
 }
 
-export default LaptopItems
+export default Products

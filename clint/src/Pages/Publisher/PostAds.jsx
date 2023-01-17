@@ -81,8 +81,16 @@ const PostAds = () => {
                           <input type='file' className='form-control animated fadeInUp'/>
                       </div>
                       <div className='col-md-6'>
-                          <label >Product Author</label>
-                          <input type='text' className='form-control animated fadeInUp' placeholder='Enter Product Author'/>
+                          <label>Product Categories</label>
+                          <select className='form-control animated fadeInUp'>
+                            <option>Select Categories</option>
+                            <option value='laptop'>Laptop</option>
+                            <option value='mobile'>Mobile</option>
+                            <option value='watch'>Watch</option>
+                            <option value='television'>Television</option>
+                            <option value='electronics'>Electronics</option>
+                            <option value='fashion'>Fashion</option>
+                          </select>
                       </div>
                   </div>
 

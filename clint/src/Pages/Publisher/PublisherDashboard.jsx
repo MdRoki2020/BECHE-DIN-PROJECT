@@ -5,8 +5,11 @@ import { SiHandshake,SiAnalogue } from "react-icons/si";
 import ReactPaginate from 'react-paginate'
 import { GiReturnArrow } from "react-icons/gi";
 import { LineChart, Line,ResponsiveContainer } from 'recharts';
+import { BiEdit } from "react-icons/bi";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import '../../Assets/style/adminDashboard.css'
 import laptop from '../../Assets/images/laptop.jpg'
+import Footer from '../Footer'
 
 const data = [
   {
@@ -122,6 +125,7 @@ const PublisherDashboard = () => {
             <thead>
                 <tr>
                 <th>S.N</th>
+                <th>Categories</th>
                 <th>Name</th>
                 <th>Brand</th>
                 <th>Price</th>
@@ -137,6 +141,7 @@ const PublisherDashboard = () => {
             <tbody>
                 <tr>
                 <td className='animated fadeInUp'>1</td>
+                <td className='animated fadeInUp'>Laptop</td>
                 <td className='animated fadeInUp'>Vivobook 15</td>
                 <td className='animated fadeInUp'>Asus</td>
                 <td className='animated fadeInUp'>65,500</td>
@@ -146,7 +151,7 @@ const PublisherDashboard = () => {
                 <td className='animated fadeInUp'>Star Teach</td>
                 <td className='animated fadeInUp'><img src={laptop} alt="laptop" width="110"/></td>
                 <td className='animated fadeInUp'>12-1-22</td>
-                <td className='animated fadeInUp'><span><Badge bg="danger mb-3">Suspend</Badge></span></td>
+                <td className='animated fadeInUp'><span className='text-info'><BiEdit/></span> <span className='text-danger'><RiDeleteBin6Line/></span></td>
                 </tr>
             </tbody>
             </Table>
@@ -176,6 +181,8 @@ const PublisherDashboard = () => {
       </div>
 
       </div>
+
+      <Footer />
     </Fragment>
   )
 }

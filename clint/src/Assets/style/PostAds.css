@@ -41,3 +41,6 @@ label {
     margin-top: 12px;
     margin-bottom: 15px;
 }
+select.form-control.animated.fadeInUp {
+    padding: 21px 0px;
+}

@@ -1,14 +1,14 @@
 import React from 'react'
 import NavigationBar from '../Pages/NavigationBar'
-import LaptopItems from '../Pages/LaptopItems'
+import Products from '../Pages/Products'
 
-const LaptopItemsLaout = () => {
+const ProductsLayout = () => {
   return (
     <div>
       <NavigationBar />
-      <LaptopItems />
+      <Products />
     </div>
   )
 }
 
-export default LaptopItemsLaout
+export default ProductsLayout

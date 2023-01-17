@@ -50,9 +50,9 @@ function Home() {
             
             <div className='row'>
               <div className='col-md-2'>
-              <Link to='/laptopItems'>
+              <Link to='/Products/laptop'>
               <div className='allItems'>
-                <div class="card">
+                <div className="card">
                   <img className="card-img-top" src={laptop} alt="laptop" />
                   <div className="card-body">
                     <h5 className="card-title text-center">Laptop</h5>
@@ -63,9 +63,9 @@ function Home() {
               </div>
 
               <div className='col-md-2'>
-              <Link to='/'>
+              <Link to='/Products/mobile'>
               <div className='allItems'>
-                <div class="card">
+                <div className="card">
                   <img className="card-img-top" src={mobile} alt="Mobile" />
                   <div className="card-body">
                     <h5 className="card-title text-center">Mobile</h5>
@@ -76,9 +76,9 @@ function Home() {
               </div>
 
               <div className='col-md-2'>
-              <Link to='/'>
+              <Link to='/Products/watch'>
               <div className='allItems'>
-                <div class="card">
+                <div className="card">
                   <img className="card-img-top" src={watch} alt="watch" />
                   <div className="card-body">
                     <h5 className="card-title text-center">Watch</h5>
@@ -89,9 +89,9 @@ function Home() {
               </div>
 
               <div className='col-md-2'>
-              <Link to='/'>
+              <Link to='/Products/television'>
               <div className='allItems'>
-                <div class="card">
+                <div className="card">
                   <img className="card-img-top" src={tv} alt="tv" />
                   <div className="card-body">
                     <h5 className="card-title text-center">Television</h5>
@@ -102,9 +102,9 @@ function Home() {
               </div>
 
               <div className='col-md-2'>
-              <Link to='/'>
+              <Link to='/Products/electronics'>
               <div className='allItems'>
-                <div class="card">
+                <div className="card">
                   <img className="card-img-top" src={electronic} alt="electronic" />
                   <div className="card-body">
                     <h5 className="card-title text-center">Electronics</h5>
@@ -115,9 +115,9 @@ function Home() {
               </div>
 
               <div className='col-md-2'>
-              <Link to='/'>
+              <Link to='/Products/fashion'>
               <div className='allItems'>
-                <div class="card">
+                <div className="card">
                   <img className="card-img-top" src={fashion} alt="fashion" />
                   <div className="card-body">
                     <h5 className="card-title text-center">Fashion</h5>

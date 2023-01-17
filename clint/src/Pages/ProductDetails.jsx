@@ -42,7 +42,7 @@ const ProductDetails = () => {
                 <div className='detailsSectionOne'>
                   <h4>Asus Vivobook 15</h4>
                   <button className='btn starButton my-3 shadow'>0 <AiFillStar/></button> (0) <Link to='#'><span className='reviewOption'> | Add Your Review</span></Link>
-                  <p>Brand: <span className='brand'> Asus</span> | Sold by: <span className='soldBy'> Beacon Computer</span></p>
+                  <p>Brand: <span className='brand'> Asus</span> | Categories: <span className='soldBy'> Laptop</span></p>
                 </div>
                 
                 <div className='detailsSectionTwo'>

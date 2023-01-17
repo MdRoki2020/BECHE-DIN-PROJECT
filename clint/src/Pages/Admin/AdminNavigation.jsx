@@ -37,7 +37,7 @@ const AdminNavigation = (props) => {
             <Navbar  className="fixed-top px-0 shadow-sm ">
                 <Container fluid={true}>
                     <Navbar.Brand >
-                        <a className="icon-nav m-0 h5" onClick={MenuBarClickHandler}><AiOutlineMenuUnfold/></a>
+                        <a  className="icon-nav m-0 h5" onClick={MenuBarClickHandler}><AiOutlineMenuUnfold/></a>
                         <img className="nav-logo mx-2"  src={logo} alt="logo"/>
                     </Navbar.Brand>
 
@@ -54,7 +54,7 @@ const AdminNavigation = (props) => {
                                     <AiFillProfile className="side-bar-item-icon" />
                                     <span className="side-bar-item-caption">Profile</span>
                                 </NavLink>
-                                <a onClick={onLogout} className="side-bar-item">
+                                <a  onClick={onLogout} className="side-bar-item">
                                     <AiOutlineLogout className="side-bar-item-icon" />
                                     <span className="side-bar-item-caption">Logout</span>
                                 </a>
@@ -76,9 +76,9 @@ const AdminNavigation = (props) => {
                     <span className="side-bar-item-caption">Publisher List</span>
                 </NavLink>
 
-                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/LaptopList" >
+                <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/ProductList" >
                     <BsFillLaptopFill className="side-bar-item-icon" />
-                    <span className="side-bar-item-caption">Laptop List</span>
+                    <span className="side-bar-item-caption">Product List</span>
                 </NavLink>
 
                 <NavLink className={(navData) => navData.isActive ? "side-bar-item-active side-bar-item mt-2" : "side-bar-item mt-2" } to="/FindOut" >

@@ -3,7 +3,6 @@ import { Fragment } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import HomeLayout from './Layout/HomeLayout';
-import LaptopItemsLaout from './Layout/LaptopItemsLaout';
 import PostAuthLayout from './Layout/PostAuthLayout';
 import ProductDetailsLayout from './Layout/ProductDetailsLayout';
 import UserSignupLayout from './Layout/UserSignupLayout';
@@ -16,6 +15,7 @@ import AdminDashboardLayout from './Layout/AdminDashboardLayout';
 import PublisherListLayout from './Layout/PublisherListLayout';
 import LaptopListLayout from './Layout/LaptopListLayout';
 import FindOutLayout from './Layout/FindOutLayout';
+import ProductsLayout from './Layout/ProductsLayout';
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
         <Routes>
           {/* for user */}
           <Route path="/" element={<HomeLayout />} />
-          <Route path="/laptopItems" element={<LaptopItemsLaout />} />
+          <Route path="/Products/:categories" element={<ProductsLayout />} />
           <Route path="/ProductDetails" element={<ProductDetailsLayout />} />
           <Route path="/PostAuth" element={<PostAuthLayout />} />
           <Route path="/UserSignup" element={<UserSignupLayout />} />
@@ -40,9 +40,9 @@ function App() {
 
           {/* for admin */}
           <Route path="/AdminDashboard" element={<AdminDashboardLayout />} />
-          <Route path="PublisherList" element={<PublisherListLayout />}/>
-          <Route path="LaptopList" element={<LaptopListLayout />}/>
-          <Route path="FindOut" element={<FindOutLayout />}/>
+          <Route path="/PublisherList" element={<PublisherListLayout />}/>
+          <Route path="/ProductList" element={<LaptopListLayout />}/>
+          <Route path="/FindOut" element={<FindOutLayout />}/>
 
 
           {/* <Route path="/sendOtp" element={<SendOtp />}/>

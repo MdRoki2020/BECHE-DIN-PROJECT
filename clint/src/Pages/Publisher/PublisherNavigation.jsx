@@ -2,7 +2,7 @@ import React, {Fragment, useRef} from "react";
 import {Container,Navbar} from "react-bootstrap";
 import {NavLink} from "react-router-dom";
 import {AiFillProfile, AiOutlineMenuUnfold, AiOutlineLogout, AiFillDashboard} from "react-icons/ai";
-import { FaCreativeCommonsNd,FaUserPlus,FaTachometerAlt,FaBraille } from "react-icons/fa";
+import {FaUserPlus} from "react-icons/fa";
 import logo from "../../Assets/images/logo.png";
 import {removeSessions } from "../../Helper/SessionHelperPublisher";
 
