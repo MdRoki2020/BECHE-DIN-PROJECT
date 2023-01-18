@@ -1,6 +1,8 @@
 const mongoose=require('mongoose');
 const DataSchema=mongoose.Schema({
     ProductCategories:{type:String},
+    ProductId:{type:String},
+    ProductName:{type:String},
     FirstName:{type:String},
     LastName:{type:String},
     ContactNumber:{type:String},

@@ -12,10 +12,22 @@ const router=express.Router();
 //Admin management
 router.post('/CreateAdmin/',uploadOthers.single('file'),AdminController.CreateAdmin);
 router.post('/AdminLogin/',AdminController.AdminLogin);
+router.get('/TotalOrders/',AdminController.TotalOrders);
+router.get('/TotalPublisher/',AdminController.TotalPublisher);
+router.get('/TotalProducts/',AdminController.TotalProducts);
+router.get('/ReadOrders/',AdminController.ReadOrders);
+router.get('/ReadPublisher/',AdminController.ReadPublisher);
+router.get('/ReadProducts/',AdminController.ReadProducts);
+router.get('/ReadOrderByTransactionId/:TransactionId',AdminController.ReadOrderByTransactionId);
+router.get('/ReadProductsById/:id',AdminController.ReadProductsById);
+
+
 
 //User management
 router.post('/CreateOrder/',UserController.CreateOrder);
 router.get('/FilterByCategories/:ProductCategories',UserController.FilterByCategories);
+router.get('/ReadById/:id',UserController.ReadById);
+
 
 //Publisher Management
 router.post('/CreatePublisher/',uploadOthers.single('file'),PublisherController.CreatePublisher);
