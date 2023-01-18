@@ -20,7 +20,8 @@ router.get('/FilterByCategories/:ProductCategories',UserController.FilterByCateg
 //Publisher Management
 router.post('/CreatePublisher/',uploadOthers.single('file'),PublisherController.CreatePublisher);
 router.post('/CreateADs/',upload.single('file'),PublisherController.CreateADs);
-
+router.post('/PublisherLogin/',PublisherController.PublisherLogin);
+router.get('/SpecificPublisherProductList/:PublisherEmail',PublisherController.SpecificPublisherProductList);
 
 
 module.exports=router;

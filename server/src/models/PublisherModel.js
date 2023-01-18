@@ -7,6 +7,7 @@ const DataSchema=mongoose.Schema({
     Mobile:{type:String},
     Email:{type:String,unique:true},
     District:{type:String},
+    Password:{type:String},
     CreatedDate:{type:Date,default:Date.now()}
 })
 
