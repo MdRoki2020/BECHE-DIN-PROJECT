@@ -3,7 +3,7 @@ const AuthVerifyMiddleware=require("../middleware/AuthVerifyMiddleware");
 let { upload } = require('../utility/filehelperForPostAds');
 let { uploadOthers } = require('../utility/filehelperForAdminAndPublisher');
 const AdminController=require("../controllers/AdminControllers");
-const OrderController=require("../controllers/OrderControllers");
+const UserController=require("../controllers/UserControllers");
 const PublisherController=require("../controllers/PublisherControllers");
 
 
@@ -13,8 +13,9 @@ const router=express.Router();
 router.post('/CreateAdmin/',uploadOthers.single('file'),AdminController.CreateAdmin);
 router.post('/AdminLogin/',AdminController.AdminLogin);
 
-//Order management
-router.post('/CreateOrder/',OrderController.CreateOrder);
+//User management
+router.post('/CreateOrder/',UserController.CreateOrder);
+router.get('/FilterByCategories/:ProductCategories',UserController.FilterByCategories);
 
 //Publisher Management
 router.post('/CreatePublisher/',uploadOthers.single('file'),PublisherController.CreatePublisher);

@@ -5,7 +5,7 @@ exports.AdminLogin=(req,res)=>{
     let reqBody=req.body;
     AdminModel.aggregate([
         {$match:reqBody},
-        {$project:{_id:0,Email:1,Image:1}}
+        {$project:{_id:0,Email:1,filePath:1}}
     ],(err,data)=>{
         if(err){
             res.status(400).json({status:"fail",data:err})
