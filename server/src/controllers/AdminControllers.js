@@ -3,6 +3,7 @@ const jwt=require("jsonwebtoken");
 const OrderModel = require('../models/OrderModel');
 const PublisherModel = require('../models/PublisherModel');
 const PostAdsModel = require('../models/PostAdsModel');
+const VoucherCodeModel = require('../models/VoucherCodeModel');
 
 exports.AdminLogin=(req,res)=>{
     let reqBody=req.body;
@@ -160,4 +161,20 @@ exports.ReadProductsById=(req,res)=>{
         }
     })
 
+}
+
+
+//generate voucher code
+exports.CreateVoucherCode=(req,res)=>{
+    let reqBody=req.body;
+
+    VoucherCodeModel.create(reqBody,(err,data)=>{
+
+        if(err){
+            res.status(400).json({status:"fail",data:err})
+        }else{
+            res.status(200).json({status:"success",data:data})
+        }
+
+    })
 }

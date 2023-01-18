@@ -24,7 +24,7 @@ exports.FilterByCategories=(req,res)=>{
     PostAdsModel.aggregate([
         {$match:{ProductCategories:ProductCategories}}, //first ProductCategories from database
         {$project:{
-            _id:1,filePath:1,PublisherEmail:1,ProductName:1,ProductBrand:1,ProductPrice:1,ProductColor:1,ProductBattery:1,ProductWarranty:1,ProductCategories:1,ProductFetures:1,CreatedDate:1,
+            _id:1,filePath:1,PublisherEmail:1,ProductName:1,ProductBrand:1,ProductPrice:1,ProductExPrice:1,ProductColor:1,ProductBattery:1,ProductWarranty:1,ProductCategories:1,ProductFetures:1,CreatedDate:1,
 
         }}
     ],(err,data)=>{
