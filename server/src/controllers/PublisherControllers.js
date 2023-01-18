@@ -40,6 +40,7 @@ exports.CreateADs=(req,res)=>{
         ProductName:req.body.ProductName,
         ProductBrand:req.body.ProductBrand,
         ProductPrice:req.body.ProductPrice,
+        ProductExPrice:req.body.ProductExPrice,
         ProductColor:req.body.ProductColor,
         ProductBattery:req.body.ProductBattery,
         ProductWarranty:req.body.ProductWarranty,
