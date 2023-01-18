@@ -42,7 +42,8 @@ app.use(bodyParser.json());
 const limiter=rateLimit({windowMs:15*60*1000,max:3000})
 app.use(limiter);
 
-app.use('/uploads',express.static(path.join(__dirname,'uploads')));
+app.use('/AdsImages',express.static(path.join(__dirname,'AdsImages')));
+app.use('/AdminAndPublisherImage',express.static(path.join(__dirname,'AdminAndPublisherImage')));
 
 
 
