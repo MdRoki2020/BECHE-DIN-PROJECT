@@ -1,5 +1,8 @@
 const AdminModel=require('../models/AdminModel');
 const jwt=require("jsonwebtoken");
+const OrderModel = require('../models/OrderModel');
+const PublisherModel = require('../models/PublisherModel');
+const PostAdsModel = require('../models/PostAdsModel');
 
 exports.AdminLogin=(req,res)=>{
     let reqBody=req.body;
@@ -41,4 +44,44 @@ exports.CreateAdmin=(req,res)=>{
         }
     })
     
+}
+
+
+//Total Orders
+exports.TotalOrders=(req,res)=>{
+    OrderModel.aggregate([
+        {$count:'total'}
+    ],(err,data)=>{
+        if(err){
+            res.status(400).json({status:"fail",data:err})
+        }else{
+            res.status(200).json({status:"success",data:data})
+        }
+    })
+}
+
+//Total Publisher
+exports.TotalPublisher=(req,res)=>{
+    PublisherModel.aggregate([
+        {$count:'total'}
+    ],(err,data)=>{
+        if(err){
+            res.status(400).json({status:"fail",data:err})
+        }else{
+            res.status(200).json({status:"success",data:data})
+        }
+    })
+}
+
+//Total Products
+exports.TotalProducts=(req,res)=>{
+    PostAdsModel.aggregate([
+        {$count:'total'}
+    ],(err,data)=>{
+        if(err){
+            res.status(400).json({status:"fail",data:err})
+        }else{
+            res.status(200).json({status:"success",data:data})
+        }
+    })
 }
