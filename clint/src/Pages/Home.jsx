@@ -89,7 +89,7 @@ function Home() {
               </div>
 
               <div className='col-md-2'>
-              <Link to='/Products/television'>
+              <Link to='/Products/Television'>
               <div className='allItems'>
                 <div className="card">
                   <img className="card-img-top" src={tv} alt="tv" />

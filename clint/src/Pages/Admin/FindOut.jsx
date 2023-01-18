@@ -4,6 +4,7 @@ import { AiOutlineFileSearch } from "react-icons/ai";
 import laptop from '../../Assets/images/laptop.jpg'
 import '../../Assets/style/findOut.css'
 import Footer from '../Footer';
+import { RiDeleteBin6Line } from 'react-icons/ri';
 
 const FindOut = () => {
   return (
@@ -118,10 +119,10 @@ const FindOut = () => {
                         </tr>   
                     </tbody>
                 </table>
-                        <div className='productImage text-center mb-3'>
-                            <h4>Product Image</h4>
-                            <img className='center animated fadeInUp img-thumbnail img-fluid rounded' src={laptop} alt="laptop"/>
-                        </div>
+                    <div className='productImage text-center mb-3'>
+                        <h4>Product Image</h4>
+                        <img className='center animated fadeInUp img-thumbnail img-fluid rounded' src={laptop} alt="laptop"/>
+                    </div>
             </div>
             <div className='col-md-4'>
                 <div className='voucherCode'>
@@ -129,6 +130,15 @@ const FindOut = () => {
                 <input className='form-control animated fadeInUp' placeholder='Generate Voucher Code'/>
                 <button className='applyButton shadow form-control mt-2'>Generate</button>
                 </div>
+                <table className='subTotalTable table table-striped table-hover table-bordered table-responsive'>
+                    <tbody>
+                    <tr>
+                        <th>Voucher Code</th>
+                        <td className='animated fadeInUp text-info'>Depend Admin</td>
+                        <td className='animated fadeInUp'><span className='text-danger'><RiDeleteBin6Line/></span></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         </div>

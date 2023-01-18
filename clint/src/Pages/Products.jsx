@@ -7,12 +7,36 @@ import { Badge, Button } from 'react-bootstrap'
 import { Link, useParams } from 'react-router-dom'
 import ReactPaginate from 'react-paginate';
 import Footer from './Footer';
+import { useEffect } from 'react';
+import { FilterByCategories } from '../APIRequest/APIRequest';
+import { useState } from 'react';
 
 
 const Products = () => {
 
   const {categories}=useParams();
-  console.log(categories)
+
+  const [product,setProduct]=useState([]);
+  const [pageNumber,setPageNumber]=useState(0);
+
+  const usersPerPage=18;
+  const pagesVisited=pageNumber * usersPerPage
+  const displayUsers=product.slice(pagesVisited,pagesVisited+usersPerPage)
+  const pageCount=Math.ceil(product.length / usersPerPage);
+  const changePage=({selected})=>{
+    setPageNumber(selected);
+  };
+
+  useEffect(()=>{
+    FilterByCategories(categories).then((data)=>{
+
+      setProduct(data);
+
+      })
+  },[categories])
+
+  console.log(product);
+
   return (
 <Fragment>
   <section>
@@ -46,21 +70,27 @@ const Products = () => {
       Products
     </Badge>
 
-    <div className='row'>
+    <div className='row d-block d-lg-flex'>
+    {
+      displayUsers.map((value,key)=>
+
       <div className='col-md-2'>
         <Link to='/productDetails'>
-            <div className='allItems animated zoomIn'>
+            <div className='allItems animated zoomIn mb-3'>
               <div class="card">
-                <img className="card-img-top" src={headerLaptop} alt="laptop" />
+                <img className="card-img-top" src={`http://localhost:5000/${value.filePath}`} alt="laptop" />
                 <div className="card-body">
-                  <h6 className="card-title text-center">Vivobook 15</h6>
-                  <div className='price text-center'><del>৳75500</del> <b>৳71500</b></div>
+                  <h6 className="card-title text-center">{value.ProductName}</h6>
+                  <div className='price text-center'><del>৳{value.ProductExPrice}</del> <b>৳{value.ProductPrice}</b></div>
                   <Link to='/productDetails'><button className='btn btn-secondary form-control'><BsCartPlus/></button></Link>
                 </div>
               </div>
             </div>
         </Link>
       </div>
+
+      )
+    }
     </div>
   </div>
   </section>
@@ -71,8 +101,8 @@ const Products = () => {
         previousLabel={"previous"}
         nextLabel={"next"}
         breakLabel={"..."}
-        // pageCount={pageCount}
-        // onPageChange={changePage}
+        pageCount={pageCount}
+        onPageChange={changePage}
         containerClassName={"pagination justify-content-center"}
         pageClassName={"page-item"}
         pageLinkClassName={"page-link"}
