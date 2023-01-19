@@ -111,3 +111,24 @@ export function FilterProductByEmail(publisherEmail){
         return false
     })
 }
+
+
+//Signup Request
+export function SignupRequest(data){
+
+    let URL="http://localhost:5000/api/v1/CreatePublisher"
+
+
+    return Axios.post(URL,data).then((res)=>{
+        
+        if(res.status===200){
+            return true;
+        }else{
+            return false;
+        }
+    }).catch((err)=>{
+        
+        console.log(err);
+        return false;
+    })
+}
