@@ -1,6 +1,6 @@
 import React, { Fragment, useRef } from 'react'
 import '../Assets/style/userSignUpAndLogin.css'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate,} from 'react-router-dom'
 import {Button} from 'react-bootstrap'
 import { AiOutlineUserAdd } from "react-icons/ai";
 import FullScreenLoader from '../common/FullScreenLoader';
@@ -11,7 +11,7 @@ import { SignupRequest } from '../APIRequest/APIRequest';
 const UserSignup = () => {
 
     let FirstNameRef,LastNameRef,AgeRef,MobileNumRef,EmailRef,fileRef,DistrictRef,PasswordRef,CnfrmPasswordRef,Loader=useRef();
-
+    let navigate=useNavigate();
 
     const OnSignUp=()=>{
 
@@ -75,9 +75,8 @@ const UserSignup = () => {
       SignupRequest(formData).then((result)=>{
         
         if(result===true){
-            
-
           Loader.classList.add('d-none');
+          navigate("/UserSignin");
 
           FirstNameRef.value="";
           LastNameRef.value="";
