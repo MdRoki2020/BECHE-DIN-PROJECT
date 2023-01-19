@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import {AiFillProfile, AiOutlineMenuUnfold, AiOutlineLogout, AiFillDashboard} from "react-icons/ai";
 import {FaUserPlus} from "react-icons/fa";
 import logo from "../../Assets/images/logo.png";
-import {removeSessions } from "../../Helper/SessionHelperPublisher";
+import {getUserDetails, removeSessions } from "../../Helper/SessionHelperPublisher";
 
 
 
@@ -45,11 +45,11 @@ const PublisherNavigation = (props) => {
 
                     <div className="float-right h-auto d-flex">
                         <div className="user-dropdown">
-                            <img className="icon-nav-img icon-nav" src={logo} alt="logo"/>
+                            <img className="icon-nav-img icon-nav" src={`http://localhost:5000/${getUserDetails()['filePath']}`} alt="profile"/>
                             <div className="user-dropdown-content ">
                                 <div className="mt-4 text-center">
-                                    <img className="icon-nav-img" src={logo} alt="logo"/>
-                                    <h6>Roki</h6>
+                                    <img className="icon-nav-img" src={`http://localhost:5000/${getUserDetails()['filePath']}`} alt="profile"/>
+                                    <h6>{getUserDetails()['FirstName']}</h6>
                                     <hr className="user-dropdown-divider  p-0"/>
                                 </div>
                                 <NavLink to="/Profile" className="side-bar-item">
