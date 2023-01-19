@@ -34,6 +34,7 @@ router.get('/ReadById/:id',UserController.ReadById);
 router.post('/CreatePublisher/',uploadOthers.single('file'),PublisherController.CreatePublisher);
 router.post('/CreateADs/',upload.single('file'),PublisherController.CreateADs);
 router.post('/PublisherLogin/',PublisherController.PublisherLogin);
+router.post('/AfterPostADsLogin/',PublisherController.AfterPostADsLogin);
 router.get('/SpecificPublisherProductList/:PublisherEmail',PublisherController.SpecificPublisherProductList);
 
 

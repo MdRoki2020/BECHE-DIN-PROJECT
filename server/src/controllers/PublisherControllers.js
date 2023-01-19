@@ -65,7 +65,28 @@ exports.PublisherLogin=(req,res)=>{
     let reqBody=req.body;
     PublisherModel.aggregate([
         {$match:reqBody},
-        {$project:{_id:0,Email:1,filePath:1}}
+        {$project:{_id:0,Email:1,filePath:1,FirstName:1}}
+    ],(err,data)=>{
+        if(err){
+            res.status(400).json({status:"fail",data:err})
+        }else{
+            if(data.length>0){
+                let payload={exp:Math.floor(Date.now()/1000)+(24*60*60),data:data[0]['Email']}
+                let token=jwt.sign(payload,'Secretkey123456789');
+                res.status(200).json({status:"success",token:token,data:data[0]})
+            }else{
+                res.status(401).json({status:"unauthorized"})
+            }
+        }
+    })
+}
+
+//After Post adS Login
+exports.AfterPostADsLogin=(req,res)=>{
+    let reqBody=req.body;
+    PublisherModel.aggregate([
+        {$match:reqBody},
+        {$project:{_id:0,Email:1,filePath:1,FirstName:1}}
     ],(err,data)=>{
         if(err){
             res.status(400).json({status:"fail",data:err})
@@ -89,7 +110,7 @@ exports.SpecificPublisherProductList=(req,res)=>{
     PostAdsModel.aggregate([
         {$match:{PublisherEmail:PublisherEmail}}, //first PublisherEmail from database
         {$project:{
-            _id:1,filePath:1,PublisherEmail:1,ProductName:1,ProductBrand:1,ProductPrice:1,ProductColor:1,ProductBattery:1,ProductWarranty:1,ProductCategories:1,CreatedDate:1,
+            _id:1,filePath:1,PublisherEmail:1,ProductName:1,ProductBrand:1,ProductPrice:1,ProductExPrice:1,ProductColor:1,ProductBattery:1,ProductWarranty:1,ProductCategories:1,CreatedDate:1,
 
         }}
     ],(err,data)=>{
