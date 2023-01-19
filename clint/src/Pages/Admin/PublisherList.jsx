@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { Badge, Table } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
 import demo from'../../Assets/images/demo.jpg'
+import '../../Assets/style/adminDashboard.css'
 
 const PublisherList = () => {
   return (
@@ -11,9 +12,9 @@ const PublisherList = () => {
          Publisher List
         </Badge>
 
-        <div className='orderTable'>
+        <div className='orderTable card'>
 
-            <Table striped bordered hover responsive>
+            <Table striped bordered hover responsive >
             <thead>
                 <tr>
                 <th>S.N</th>
@@ -37,7 +38,7 @@ const PublisherList = () => {
                 <td className='animated fadeInUp'>01717453205</td>
                 <td className='animated fadeInUp'>mroki815@gmail.com</td>
                 <td className='animated fadeInUp'>Nilphamari</td>
-                <td className='animated fadeInUp'><img src={demo} alt="profile" width="110"/></td>
+                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={demo} alt="profile" width="50"/></td>
                 <td className='animated fadeInUp'>12-1-22</td>
                 <td className='animated fadeInUp'><span><Badge bg="danger mb-3">Suspend</Badge></span></td>
                 </tr>

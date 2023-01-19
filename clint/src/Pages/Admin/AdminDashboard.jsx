@@ -154,7 +154,7 @@ const AdminDashboard = () => {
             Recent Order
             </Badge>
 
-            <div className='orderTable'>
+            <div className='orderTable card'>
 
               <Table striped bordered hover responsive>
                 <thead>

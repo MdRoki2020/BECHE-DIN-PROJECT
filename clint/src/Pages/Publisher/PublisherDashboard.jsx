@@ -1,5 +1,6 @@
-import React, { Fragment} from 'react'
+import React, { Fragment, useEffect} from 'react'
 import { Badge, Table } from 'react-bootstrap'
+import {getUserDetails } from "../../Helper/SessionHelperPublisher";
 import { FaBuysellads } from "react-icons/fa";
 import { SiHandshake,SiAnalogue } from "react-icons/si";
 import ReactPaginate from 'react-paginate'
@@ -10,6 +11,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import '../../Assets/style/adminDashboard.css'
 import laptop from '../../Assets/images/laptop.jpg'
 import Footer from '../Footer'
+import { useState } from 'react';
+import { FilterProductByEmail } from '../../APIRequest/APIRequest';
 
 const data = [
   {
@@ -57,6 +60,32 @@ const data = [
 ];
 
 const PublisherDashboard = () => {
+
+  const [user,setUser]=useState([]);
+
+  let publisherEmail=getUserDetails()['Email'];
+  console.log(publisherEmail);
+
+  const [pageNumber,setPageNumber]=useState(0);
+
+  const usersPerPage=10;
+  const pagesVisited=pageNumber * usersPerPage
+  const displayUsers=user.slice(pagesVisited,pagesVisited+usersPerPage)
+  const pageCount=Math.ceil(user.length / usersPerPage);
+  const changePage=({selected})=>{
+    setPageNumber(selected);
+  };
+
+  useEffect(()=>{
+    FilterProductByEmail(publisherEmail).then((data)=>{
+
+      setUser(data);
+
+      })
+  },[publisherEmail])
+
+  console.log(user)
+
   return (
     <Fragment>
       <div className='container-fluid'>
@@ -119,41 +148,45 @@ const PublisherDashboard = () => {
             Your Posted Products
             </Badge>
 
-            <div className='orderTable'>
+            <div className='orderTable card mb-3'>
 
             <Table striped bordered hover responsive>
             <thead>
                 <tr>
-                <th>S.N</th>
+                <th>Image</th>
                 <th>Categories</th>
                 <th>Name</th>
                 <th>Brand</th>
                 <th>Price</th>
+                <th>Ex-Price</th>
                 <th>Color</th>
                 <th>Battery mAh</th>
                 <th>Warranty</th>
-                <th>Author</th>
-                <th>Image</th>
                 <th>Entry Time</th>
                 <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td className='animated fadeInUp'>1</td>
-                <td className='animated fadeInUp'>Laptop</td>
-                <td className='animated fadeInUp'>Vivobook 15</td>
-                <td className='animated fadeInUp'>Asus</td>
-                <td className='animated fadeInUp'>65,500</td>
-                <td className='animated fadeInUp'>Silver</td>
-                <td className='animated fadeInUp'>10,000</td>
-                <td className='animated fadeInUp'>2 years</td>
-                <td className='animated fadeInUp'>Star Teach</td>
-                <td className='animated fadeInUp'><img src={laptop} alt="laptop" width="110"/></td>
-                <td className='animated fadeInUp'>12-1-22</td>
+            {
+                displayUsers.map((value,key)=>
+                <tr key={key}>
+                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`http://localhost:5000/${value.filePath}`} alt="laptop" width="50"/></td>
+                <td className='animated fadeInUp'>{value.ProductCategories}</td>
+                <td className='animated fadeInUp'>{value.ProductName}</td>
+                <td className='animated fadeInUp'>{value.ProductBrand}</td>
+                <td className='animated fadeInUp'>{value.ProductPrice}</td>
+                <td className='animated fadeInUp'><del>{value.ProductExPrice}</del></td>
+                <td className='animated fadeInUp'>{value.ProductColor}</td>
+                <td className='animated fadeInUp'>{value.ProductBattery}</td>
+                <td className='animated fadeInUp'>{value.ProductWarranty}</td>
+                <td className='animated fadeInUp'>{value.CreatedDate}</td>
                 <td className='animated fadeInUp'><span className='text-info'><BiEdit/></span> <span className='text-danger'><RiDeleteBin6Line/></span></td>
                 </tr>
+
+                )
+              }
             </tbody>
+            
             </Table>
 
             </div>
@@ -165,8 +198,8 @@ const PublisherDashboard = () => {
           previousLabel={"previous"}
           nextLabel={"next"}
           breakLabel={"..."}
-          // pageCount={pageCount}
-          // onPageChange={changePage}
+          pageCount={pageCount}
+          onPageChange={changePage}
           containerClassName={"pagination justify-content-center"}
           pageClassName={"page-item"}
           pageLinkClassName={"page-link"}

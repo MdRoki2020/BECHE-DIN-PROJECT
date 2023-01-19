@@ -94,3 +94,20 @@ export function PublisherLoginRequest(Email,Password){
     });
 
 }
+
+
+//filter product by userEmail
+export function FilterProductByEmail(publisherEmail){
+    let URL="http://localhost:5000/api/v1/SpecificPublisherProductList/"+publisherEmail;
+    return Axios.get(URL).then((res)=>{
+
+        if(res.status===200){
+            return res.data['data'];
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}

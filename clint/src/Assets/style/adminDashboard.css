@@ -35,3 +35,6 @@
     font-size: 20px;
     margin-top: 2px;
 }
+img.img-thumbnail.rounded {
+    border-radius: 50% !important;
+}
