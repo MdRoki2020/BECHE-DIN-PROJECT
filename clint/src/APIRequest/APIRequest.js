@@ -21,6 +21,22 @@ export function FilterByCategories(ProductCategories){
     })
 }
 
+//Product ReadBy Id
+export function ReadById(id){
+    let URL="http://localhost:5000/api/v1/ReadById/"+id;
+    return Axios.get(URL).then((res)=>{
+
+        if(res.status===200){
+            return res.data['data'];
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}
+
 
 //After PostADS Login
 export function AfterPostADsLoginRequest(Email,Password){

@@ -75,7 +75,7 @@ const Products = () => {
       displayUsers.map((value,key)=>
 
       <div className='col-md-2'>
-        <Link to='/productDetails'>
+        <Link to={'/productDetails/'+value._id}>
             <div className='allItems animated zoomIn mb-3'>
               <div class="card">
                 <img className="card-img-top" src={`http://localhost:5000/${value.filePath}`} alt="laptop" />

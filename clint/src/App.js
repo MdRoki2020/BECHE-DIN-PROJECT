@@ -27,7 +27,7 @@ function App() {
           {/* for user */}
           <Route path="/" element={<HomeLayout />} />
           <Route path="/Products/:categories" element={<ProductsLayout />} />
-          <Route path="/ProductDetails" element={<ProductDetailsLayout />} />
+          <Route path="/ProductDetails/:id" element={<ProductDetailsLayout />} />
           <Route path="/PostAuth" element={<PostAuthLayout />} />
           <Route path="/UserSignup" element={<UserSignupLayout />} />
           <Route path="/UserSignin" element={<UserSigninLayout />} />
