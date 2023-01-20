@@ -28,6 +28,7 @@ router.post('/CreateVoucherCode',AdminController.CreateVoucherCode);
 router.post('/CreateOrder/',UserController.CreateOrder);
 router.get('/FilterByCategories/:ProductCategories',UserController.FilterByCategories);
 router.get('/ReadById/:id',UserController.ReadById);
+router.get('/AllADs/',UserController.AllADs);
 
 
 //Publisher Management

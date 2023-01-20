@@ -1,8 +1,9 @@
 const PostAdsModel = require('../models/PostAdsModel');
 const PublisherModel=require('../models/PublisherModel');
 const jwt=require("jsonwebtoken");
+const path=require("path")
 
-//Create ADs
+//Create Publisher
 exports.CreatePublisher=(req,res)=>{
 
     const file=new PublisherModel({
