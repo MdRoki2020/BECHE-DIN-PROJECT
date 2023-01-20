@@ -53,7 +53,7 @@ const Products = () => {
             <div className='posterText'>
               <h2>{categories} !</h2>
               <p><AiTwotoneEnvironment/> All Bangladesh !</p>
-              <input className='rounded-pill searchDistrict shadow' placeholder='Search By District' /> <Button className='btn btn-warning shadow'><AiOutlineSearch/></Button>
+              <input className='rounded-pill searchDistrict shadow' placeholder='What Are You Want' /> <Button className='btn btn-warning shadow'><AiOutlineSearch/></Button>
             </div>
             </div>
           </div>
@@ -82,7 +82,7 @@ const Products = () => {
                 <div className="card-body">
                   <h6 className="card-title text-center">{value.ProductName}</h6>
                   <div className='price text-center'><del>৳{value.ProductExPrice}</del> <b>৳{value.ProductPrice}</b></div>
-                  <Link to='/productDetails'><button className='btn btn-secondary form-control'><BsCartPlus/></button></Link>
+                  <Link to={'/productDetails/'+value._id}><button className='btn btn-secondary form-control'><BsCartPlus/></button></Link>
                 </div>
               </div>
             </div>

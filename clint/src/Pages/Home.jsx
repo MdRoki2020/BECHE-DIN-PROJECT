@@ -50,7 +50,7 @@ function Home() {
             
             <div className='row'>
               <div className='col-md-2'>
-              <Link to='/Products/laptop'>
+              <Link to='/Products/Laptop'>
               <div className='allItems'>
                 <div className="card">
                   <img className="card-img-top" src={laptop} alt="laptop" />
@@ -63,7 +63,7 @@ function Home() {
               </div>
 
               <div className='col-md-2'>
-              <Link to='/Products/mobile'>
+              <Link to='/Products/Mobile'>
               <div className='allItems'>
                 <div className="card">
                   <img className="card-img-top" src={mobile} alt="Mobile" />
@@ -76,7 +76,7 @@ function Home() {
               </div>
 
               <div className='col-md-2'>
-              <Link to='/Products/watch'>
+              <Link to='/Products/Watch'>
               <div className='allItems'>
                 <div className="card">
                   <img className="card-img-top" src={watch} alt="watch" />
@@ -102,7 +102,7 @@ function Home() {
               </div>
 
               <div className='col-md-2'>
-              <Link to='/Products/electronics'>
+              <Link to='/Products/Electronics'>
               <div className='allItems'>
                 <div className="card">
                   <img className="card-img-top" src={electronic} alt="electronic" />
@@ -115,7 +115,7 @@ function Home() {
               </div>
 
               <div className='col-md-2'>
-              <Link to='/Products/fashion'>
+              <Link to='/Products/Fashion'>
               <div className='allItems'>
                 <div className="card">
                   <img className="card-img-top" src={fashion} alt="fashion" />
@@ -143,7 +143,7 @@ function Home() {
                 <div className='posterText'>
                   <h2>Sell Your Product's and Earn Money!</h2>
                   <p>If you want to sell any of your products then you can sell now. One of the easiest and quickest works</p>
-                  <button className='btn btn-warning shadow rounded-pill'>Post Your Ads <AiOutlinePlusSquare/></button>
+                  <Link to='/PostAuth'><button className='btn btn-warning shadow rounded-pill'>Post Your Ads <AiOutlinePlusSquare/></button></Link>
                 </div>
                 </div>
               </div>
@@ -160,7 +160,7 @@ function Home() {
                 <div className='posterText'>
                   <h2>Buy items at your fingertips !</h2>
                   <p>You can easily select your desired product and purchase it from here. It is easy and safe to use.</p>
-                  <button className='btn btn-info shadow rounded-pill'>See All Ads <AiOutlineDoubleRight/></button>
+                  <Link to='/AllAds'><button className='btn btn-info shadow rounded-pill'>See All Ads <AiOutlineDoubleRight/></button></Link>
                 </div>
                 </div>
               </div>

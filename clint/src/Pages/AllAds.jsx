@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import allAds from '../Assets/images/allAds.jpg'
 import { AiTwotoneEnvironment,AiOutlineSearch } from "react-icons/ai"
 import { BsCartPlus } from "react-icons/bs";
@@ -6,8 +6,31 @@ import ReactPaginate from 'react-paginate'
 import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import { Button } from 'react-bootstrap';
+import { AllADs } from '../APIRequest/APIRequest';
+
 
 const AllAds = () => {
+
+  const [product,setProduct]=useState([]);
+  const [pageNumber,setPageNumber]=useState(0);
+
+  const usersPerPage=18;
+  const pagesVisited=pageNumber * usersPerPage
+  const displayProduct=product.slice(pagesVisited,pagesVisited+usersPerPage)
+  const pageCount=Math.ceil(product.length / usersPerPage);
+  const changePage=({selected})=>{
+    setPageNumber(selected);
+  };
+
+  useEffect(()=>{
+    AllADs().then((data)=>{
+
+      setProduct(data);
+
+      })
+  },[])
+
+
   return (
     <Fragment>
   <section>
@@ -24,35 +47,40 @@ const AllAds = () => {
             <div className='posterText'>
               <h2>All Ads !</h2>
               <p><AiTwotoneEnvironment/> All Bangladesh !</p>
-              <input className='rounded-pill searchDistrict shadow' placeholder='Search By District' /> <Button className='btn btn-warning shadow'><AiOutlineSearch/></Button>
+              <input className='rounded-pill searchDistrict shadow' placeholder='What Are You Want' /> <Button className='btn btn-warning shadow'><AiOutlineSearch/></Button>
             </div>
             </div>
-          </div>
           </div>
         </div>
+    </div>
     </div>
   </div>
   </section>
 
   <section>
   <div className='container'>
-    <h5>Products</h5>
+    <h5>All Category</h5>
 
-    <div className='row'>
+    <div className='row d-block d-lg-flex'>
+    {
+    displayProduct.map((value,key)=>
+
       <div className='col-md-2'>
-        <Link to='/productDetails'>
-            <div className='allItems animated zoomIn'>
+        <Link to={'/productDetails/'+value._id}>
+            <div className='allItems animated zoomIn mb-3'>
               <div class="card">
-                <img className="card-img-top" src={allAds} alt="laptop" />
+                <img className="card-img-top" src={`http://localhost:5000/${value.filePath}`} alt="laptop" />
                 <div className="card-body">
-                  <h6 className="card-title text-center">Vivobook 15</h6>
-                  <div className='price text-center'><del>৳75500</del> <b>৳71500</b></div>
-                  <Link to='/productDetails'><button className='btn btn-secondary form-control'><BsCartPlus/></button></Link>
+                  <h6 className="card-title text-center">{value.ProductName}</h6>
+                  <div className='price text-center'><del>৳{value.ProductExPrice}</del> <b>৳{value.ProductPrice}</b></div>
+                  <Link to={'/productDetails/'+value._id}><button className='btn btn-secondary form-control'><BsCartPlus/></button></Link>
                 </div>
               </div>
             </div>
         </Link>
       </div>
+      )
+    }
     </div>
   </div>
   </section>
@@ -62,8 +90,8 @@ const AllAds = () => {
       previousLabel={"previous"}
       nextLabel={"next"}
       breakLabel={"..."}
-      // pageCount={pageCount}
-      // onPageChange={changePage}
+      pageCount={pageCount}
+      onPageChange={changePage}
       containerClassName={"pagination justify-content-center"}
       pageClassName={"page-item"}
       pageLinkClassName={"page-link"}

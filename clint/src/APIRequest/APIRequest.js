@@ -132,3 +132,20 @@ export function SignupRequest(data){
         return false;
     })
 }
+
+
+//Read All ADs
+export function AllADs(){
+    let URL="http://localhost:5000/api/v1/AllADs"
+    return Axios.get(URL).then((res)=>{
+
+        if(res.status===200){
+            return res.data['data']; 
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}
