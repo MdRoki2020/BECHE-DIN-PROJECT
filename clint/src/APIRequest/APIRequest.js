@@ -149,3 +149,25 @@ export function AllADs(){
         return false
     })
 }
+
+
+//Create ADS
+export function PostADsRequest(data){
+    
+
+    let URL="http://localhost:5000/api/v1/CreateADs"
+
+
+    return Axios.post(URL,data).then((res)=>{
+        
+        if(res.status===200){
+            return true;
+        }else{
+            return false;
+        }
+    }).catch((err)=>{
+        
+        console.log(err);
+        return false;
+    })
+}
