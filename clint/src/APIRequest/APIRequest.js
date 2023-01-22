@@ -171,3 +171,52 @@ export function PostADsRequest(data){
         return false;
     })
 }
+
+
+//Read All Orders
+export function AllOrders(){
+    let URL="http://localhost:5000/api/v1/ReadOrders"
+    return Axios.get(URL).then((res)=>{
+
+        if(res.status===200){
+            return res.data['data']; 
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}
+
+//Read Publisher List
+export function AllPublisherList(){
+    let URL="http://localhost:5000/api/v1/ReadPublisher"
+    return Axios.get(URL).then((res)=>{
+
+        if(res.status===200){
+            return res.data['data']; 
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}
+
+//Read All Ads List
+export function AllADsList(){
+    let URL="http://localhost:5000/api/v1/ReadProducts"
+    return Axios.get(URL).then((res)=>{
+
+        if(res.status===200){
+            return res.data['data']; 
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}

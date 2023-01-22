@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import '../../Assets/style/adminDashboard.css'
 import Badge from 'react-bootstrap/Badge';
 import {Table} from 'react-bootstrap';
@@ -9,6 +9,7 @@ import { FaProductHunt } from "react-icons/fa";
 import { BsGraphUp } from "react-icons/bs";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Legend, Bar } from 'recharts';
 import Footer from '../Footer';
+import { AllOrders } from '../../APIRequest/APIRequest';
 
 
 const data = [
@@ -52,6 +53,27 @@ const data = [
 
 
 const AdminDashboard = () => {
+
+  const [product,setProduct]=useState([]);
+  const [pageNumber,setPageNumber]=useState(0);
+
+  const usersPerPage=10;
+  const pagesVisited=pageNumber * usersPerPage
+  const displayOrders=product.slice(pagesVisited,pagesVisited+usersPerPage)
+  const pageCount=Math.ceil(product.length / usersPerPage);
+  const changePage=({selected})=>{
+    setPageNumber(selected);
+  };
+
+  useEffect(()=>{
+    AllOrders().then((data)=>{
+
+      setProduct(data);
+
+      })
+  },[])
+
+
   return (
     <Fragment>
       <div className='container-fluid'>
@@ -154,12 +176,11 @@ const AdminDashboard = () => {
             Recent Order
             </Badge>
 
-            <div className='orderTable card'>
+            <div className='orderTable card mb-3'>
 
               <Table striped bordered hover responsive>
                 <thead>
                   <tr>
-                    <th>S.N</th>
                     <th>Product Id</th>
                     <th>Product Name</th>
                     <th>Product Category</th>
@@ -175,21 +196,24 @@ const AdminDashboard = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td className='animated fadeInUp'>1</td>
-                    <td className='animated fadeInUp'>vdghd34hdd</td>
-                    <td className='animated fadeInUp'>Vivobook 15</td>
-                    <td className='animated fadeInUp'>Laptop</td>
-                    <td className='animated fadeInUp'>Roki</td>
-                    <td className='animated fadeInUp'>01717453205</td>
-                    <td className='animated fadeInUp'>Rangpur</td>
-                    <td className='animated fadeInUp'>Nilphamari</td>
-                    <td className='animated fadeInUp'>Kishorgonj</td>
-                    <td className='animated fadeInUp'>Pushna</td>
-                    <td className='animated fadeInUp'>xYG4HOIB6V</td>
+                  {
+                    displayOrders.map((value,key)=>
+                    <tr key={key}>
+                    <td className='animated fadeInUp'>{value.ProductId}</td>
+                    <td className='animated fadeInUp'>{value.ProductName}</td>
+                    <td className='animated fadeInUp'>{value.ProductCategories}</td>
+                    <td className='animated fadeInUp'>{value.FirstName}</td>
+                    <td className='animated fadeInUp'>{value.ContactNumber}</td>
+                    <td className='animated fadeInUp'>{value.Division}</td>
+                    <td className='animated fadeInUp'>{value.District}</td>
+                    <td className='animated fadeInUp'>{value.Thana}</td>
+                    <td className='animated fadeInUp'>{value.Address}</td>
+                    <td className='animated fadeInUp'>{value.TransactionId}</td>
                     <td className='animated fadeInUp'><Badge bg="danger">Pending</Badge></td>
-                    <td className='animated fadeInUp'>10-12-23</td>
-                  </tr>
+                    <td className='animated fadeInUp'>{value.CreatedDate}</td>
+                    </tr>
+                    )
+                  }
                 </tbody>
               </Table>
 
@@ -203,8 +227,8 @@ const AdminDashboard = () => {
           previousLabel={"previous"}
           nextLabel={"next"}
           breakLabel={"..."}
-          // pageCount={pageCount}
-          // onPageChange={changePage}
+          pageCount={pageCount}
+          onPageChange={changePage}
           containerClassName={"pagination justify-content-center"}
           pageClassName={"page-item"}
           pageLinkClassName={"page-link"}

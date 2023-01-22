@@ -1,10 +1,31 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Badge, Table } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
-import demo from'../../Assets/images/demo.jpg'
 import '../../Assets/style/adminDashboard.css'
+import { AllPublisherList } from '../../APIRequest/APIRequest'
 
 const PublisherList = () => {
+
+  const [product,setProduct]=useState([]);
+  const [pageNumber,setPageNumber]=useState(0);
+
+  const usersPerPage=15;
+  const pagesVisited=pageNumber * usersPerPage
+  const displayUsers=product.slice(pagesVisited,pagesVisited+usersPerPage)
+  const pageCount=Math.ceil(product.length / usersPerPage);
+  const changePage=({selected})=>{
+    setPageNumber(selected);
+  };
+
+  useEffect(()=>{
+    AllPublisherList().then((data)=>{
+
+      setProduct(data);
+
+      })
+  },[])
+
+
   return (
     <Fragment>
         <div className='container-fluid'>
@@ -12,36 +33,38 @@ const PublisherList = () => {
          Publisher List
         </Badge>
 
-        <div className='orderTable card'>
+        <div className='orderTable card mb-3'>
 
             <Table striped bordered hover responsive >
             <thead>
                 <tr>
-                <th>S.N</th>
+                <th>Publisher Image</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Age</th>
                 <th>Mobile Number</th>
                 <th>Email</th>
                 <th>District</th>
-                <th>Publisher Image</th>
                 <th>Entry Time</th>
                 <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td className='animated fadeInUp'>1</td>
-                <td className='animated fadeInUp'>Rs</td>
-                <td className='animated fadeInUp'>Roki</td>
-                <td className='animated fadeInUp'>22</td>
-                <td className='animated fadeInUp'>01717453205</td>
-                <td className='animated fadeInUp'>mroki815@gmail.com</td>
-                <td className='animated fadeInUp'>Nilphamari</td>
-                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={demo} alt="profile" width="50"/></td>
-                <td className='animated fadeInUp'>12-1-22</td>
+            {
+                displayUsers.map((value,key)=>
+                <tr key={key}>
+                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`http://localhost:5000/${value.filePath}`} alt="profile" width="50"/></td>
+                <td className='animated fadeInUp'>{value.FirstName}</td>
+                <td className='animated fadeInUp'>{value.LastName}</td>
+                <td className='animated fadeInUp'>{value.Age}</td>
+                <td className='animated fadeInUp'>{value.Mobile}</td>
+                <td className='animated fadeInUp'>{value.Email}</td>
+                <td className='animated fadeInUp'>{value.District}</td>
+                <td className='animated fadeInUp'>{value.CreatedDate}</td>
                 <td className='animated fadeInUp'><span><Badge bg="danger mb-3">Suspend</Badge></span></td>
                 </tr>
+                )
+            }
             </tbody>
             </Table>
 
@@ -52,8 +75,8 @@ const PublisherList = () => {
           previousLabel={"previous"}
           nextLabel={"next"}
           breakLabel={"..."}
-          // pageCount={pageCount}
-          // onPageChange={changePage}
+          pageCount={pageCount}
+          onPageChange={changePage}
           containerClassName={"pagination justify-content-center"}
           pageClassName={"page-item"}
           pageLinkClassName={"page-link"}

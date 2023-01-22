@@ -1,10 +1,30 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Badge, Table } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
-import laptop from '../../Assets/images/laptop.jpg'
+import { AllADsList } from '../../APIRequest/APIRequest'
 import '../../Assets/style/adminDashboard.css'
 
 const LaptopList = () => {
+
+  const [product,setProduct]=useState([]);
+  const [pageNumber,setPageNumber]=useState(0);
+
+  const usersPerPage=15;
+  const pagesVisited=pageNumber * usersPerPage
+  const displayAds=product.slice(pagesVisited,pagesVisited+usersPerPage)
+  const pageCount=Math.ceil(product.length / usersPerPage);
+  const changePage=({selected})=>{
+    setPageNumber(selected);
+  };
+
+  useEffect(()=>{
+    AllADsList().then((data)=>{
+      setProduct(data);
+
+      })
+  },[])
+
+
   return (
     <Fragment>
         <div className='container-fluid'>
@@ -12,38 +32,40 @@ const LaptopList = () => {
          Product List
         </Badge>
 
-        <div className='orderTable card'>
+        <div className='orderTable card mb-3'>
 
             <Table striped bordered hover responsive>
             <thead>
                 <tr>
-                <th>S.N</th>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Brand</th>
                 <th>Price</th>
                 <th>Color</th>
                 <th>Battery mAh</th>
                 <th>Warranty</th>
-                <th>Author</th>
-                <th>Image</th>
+                <th>Categories</th>
                 <th>Entry Time</th>
                 <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td className='animated fadeInUp'>1</td>
-                <td className='animated fadeInUp'>Vivobook 15</td>
-                <td className='animated fadeInUp'>Asus</td>
-                <td className='animated fadeInUp'>65,500</td>
-                <td className='animated fadeInUp'>Silver</td>
-                <td className='animated fadeInUp'>10,000</td>
-                <td className='animated fadeInUp'>2 years</td>
-                <td className='animated fadeInUp'>Star Teach</td>
-                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={laptop} alt="laptop" width="50"/></td>
-                <td className='animated fadeInUp'>12-1-22</td>
+            {
+              displayAds.map((value,key)=>
+              <tr key={key}>
+                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`http://localhost:5000/${value.filePath}`} width="50"/></td>
+                <td className='animated fadeInUp'>{value.ProductName}</td>
+                <td className='animated fadeInUp'>{value.ProductBrand}</td>
+                <td className='animated fadeInUp'>{value.ProductPrice}</td>
+                <td className='animated fadeInUp'>{value.ProductColor}</td>
+                <td className='animated fadeInUp'>{value.ProductBattery}</td>
+                <td className='animated fadeInUp'>{value.ProductWarranty}</td>
+                <td className='animated fadeInUp'>{value.ProductCategories}</td>
+                <td className='animated fadeInUp'>{value.CreatedDate}</td>
                 <td className='animated fadeInUp'><span><Badge bg="danger mb-3">Suspend</Badge></span></td>
                 </tr>
+              )
+              }
             </tbody>
             </Table>
 
@@ -54,8 +76,8 @@ const LaptopList = () => {
           previousLabel={"previous"}
           nextLabel={"next"}
           breakLabel={"..."}
-          // pageCount={pageCount}
-          // onPageChange={changePage}
+          pageCount={pageCount}
+          onPageChange={changePage}
           containerClassName={"pagination justify-content-center"}
           pageClassName={"page-item"}
           pageLinkClassName={"page-link"}
