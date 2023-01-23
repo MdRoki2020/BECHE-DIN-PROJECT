@@ -1,13 +1,110 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { Button, Collapse } from 'react-bootstrap';
 import { FaShippingFast } from "react-icons/fa";
 import '../Assets/style/shipping.css';
 import { IoIosArrowDown } from "react-icons/io";
 import Footer from './Footer';
+import { OrderRequest, ReadById } from '../APIRequest/APIRequest';
+import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { ErrorToast, IsEmpty, SuccessToast } from '../Helper/FormHelper';
 
 
 const Shipping = () => {
   const [open, setOpen] = useState(false);
+  const [product,setProduct]=useState([]);
+
+  const {id}=useParams();
+
+  useEffect(()=>{
+    ReadById(id).then((data)=>{
+
+        setProduct(data[0]);
+
+      })
+  },[id])
+
+  let FirstNameRef,LastNameRef,ContactNumberRef,AddressRef,DivisionRef,DistrictRef,ThanaRef,TransactionRef=useRef();
+
+  let productName=product.ProductName
+  let ProductCategories=product.ProductCategories
+  let ProductId=product._id
+
+  let ProductPrice=parseFloat(product.ProductPrice);
+  let TotalPrice=ProductPrice+250;
+
+  const OnOrder=()=>{
+
+    let FirstName=FirstNameRef.value;
+    let LastName=LastNameRef.value;
+    let ContactNumber=ContactNumberRef.value;
+    let Address=AddressRef.value;
+    let Division=DivisionRef.value;
+    let District=DistrictRef.value;
+    let Thana=ThanaRef.value;
+    let Transaction=TransactionRef.value;
+
+    if(IsEmpty(FirstName)){
+        ErrorToast("First Name Required");
+      }
+      else if(IsEmpty(LastName)){
+        ErrorToast("Last Name Required");
+      }
+      else if(IsEmpty(ContactNumber)){
+        ErrorToast("Contact Number Required");
+      }
+      else if(IsEmpty(Address)){
+        ErrorToast("Address Required");
+      }
+      else if(IsEmpty(Division)){
+        ErrorToast("Division Required");
+      }
+      else if(IsEmpty(District)){
+        ErrorToast("District Required");
+      }
+      else if(IsEmpty(Thana)){
+        ErrorToast("Thana Required");
+      }
+      else if(IsEmpty(Transaction)){
+        ErrorToast("Transaction Id Required");
+      }else{
+
+    SuccessToast("Please Wait...");
+    OrderRequest(ProductCategories,ProductId,productName,FirstName,LastName,ContactNumber,Address,Division,District,Thana,Transaction).then((result)=>{
+    if(result===true){
+      FirstNameRef.value="";
+      LastNameRef.value="";
+      ContactNumberRef.value="";
+      AddressRef.value="";
+      DivisionRef.value="";
+      DistrictRef.value="";
+      ThanaRef.value="";
+      TransactionRef.value="";
+
+      success();
+
+    }
+    else{
+
+      ErrorToast('Something Went Wrong');
+      console.log('something went wrong');
+
+    }
+  })
+
+    }
+}
+
+const success=()=>{
+  Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'We Received Your Order',
+      showConfirmButton: false,
+      timer: 1500
+    })
+}
+
 
   return (
     <Fragment>
@@ -31,29 +128,29 @@ const Shipping = () => {
                   <div className='row my-4'>
                       <div className='col-md-6'>
                           <label >First Name</label>
-                          <input type='text' className='form-control animated fadeInUp' placeholder='Enter First Name'/>
+                          <input ref={(input)=>FirstNameRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter First Name'/>
                       </div>
                       <div className='col-md-6'>
                           <label >Last Name</label>
-                          <input type='text' className='form-control animated fadeInUp' placeholder='Enter Last Name'/>
+                          <input ref={(input)=>LastNameRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Last Name'/>
                       </div>
                   </div>
 
                   <div className='row'>
                       <div className='col-md-6'>
                           <label >Contact Number</label>
-                          <input type='text' className='form-control animated fadeInUp' placeholder='Enter Contact Number'/>
+                          <input ref={(input)=>ContactNumberRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Contact Number'/>
                       </div>
                       <div className='col-md-6'>
                           <label >Address</label>
-                          <input type='text' className='form-control animated fadeInUp' placeholder='Enter H. no, R.no,block/sector'/>
+                          <input ref={(input)=>AddressRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter H. no, R.no,block/sector'/>
                       </div>
                   </div>
 
                   <div className='row py-4'>
                       <div className='col-md-12'>
                           <label >Division</label>
-                          <select className='form-control animated fadeInUp' placeholder='Select Division'>
+                          <select ref={(input)=>DivisionRef=input} className='form-control animated fadeInUp' placeholder='Select Division'>
                             <option>Select Division</option>
                             <option>Barisal</option>
                             <option>Chittagong</option>
@@ -70,11 +167,11 @@ const Shipping = () => {
                   <div className='row mb-4'>
                       <div className='col-md-6'>
                           <label >District</label>
-                          <input type='text' className='form-control animated fadeInUp' placeholder='Enter Home District'/>
+                          <input ref={(input)=>DistrictRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Home District'/>
                       </div>
                       <div className='col-md-6'>
                       <label >Thana</label>
-                          <input type='text' className='form-control animated fadeInUp' placeholder='Enter Thana'/>
+                          <input ref={(input)=>ThanaRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Thana'/>
                       </div>
 
                   </div>
@@ -82,11 +179,11 @@ const Shipping = () => {
                   <div className='row mb-4'>
                       <div className='col-md-6'>
                         <label >Transaction ID</label>
-                        <input type='text' className='form-control animated fadeInUp' placeholder='Enter Transaction ID'/>
+                        <input ref={(input)=>TransactionRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Transaction ID'/>
                         
                       </div>
                       <div className='col-md-6'>
-                          <Button className='py-3 conformButton form-control animated fadeInUp shadow'>Conform <FaShippingFast/></Button>
+                          <Button onClick={OnOrder} className='py-3 conformButton form-control animated fadeInUp shadow'>Conform <FaShippingFast/></Button>
                       </div>
                   </div>
 
@@ -124,14 +221,14 @@ const Shipping = () => {
                         <tbody>
                           <tr>
                             <td>Subtotal</td>
-                            <td>৳ 251,990</td>
+                            <td>৳ {product.ProductPrice}</td>
                           </tr>
                           <tr>
                             <td>Shipping</td>
                             <td>৳ 250</td>
                           </tr>
                           <th>Total</th>
-                          <th className='animated fadeInUp'>৳ 25,2240</th>
+                          <th className='animated fadeInUp'>৳ {TotalPrice}</th>
                         </tbody>
                       </table>
                     </div>

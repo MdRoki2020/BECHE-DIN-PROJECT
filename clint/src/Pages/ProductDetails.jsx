@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import productImage from '../Assets/images/laptop.jpg'
 import { AiFillStar,AiOutlineHeart,AiOutlineShopping } from "react-icons/ai";
 import '../Assets/style/productDetails.css';
 import { Link, useParams } from 'react-router-dom';
@@ -51,7 +50,7 @@ const ProductDetails = () => {
                 }} />
               </div>
               <button className='wishlist form-control my-4 animated fadeInUp shadow'>WishList <AiOutlineHeart/></button>
-              <Link to='/Shipping'><button className='buynow form-control animated fadeInUp shadow'>Buy Now <AiOutlineShopping/></button></Link>
+              <Link to={'/Shipping/'+product._id}><button className='buynow form-control animated fadeInUp shadow'>Buy Now <AiOutlineShopping/></button></Link>
               </div>
             </div>
             <div className='col-md-8'>

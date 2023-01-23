@@ -337,3 +337,34 @@ export function TotalProducts(){
         return false
     })
 }
+
+//order request
+export function OrderRequest(ProductCategories,ProductId,productName,FirstName,LastName,ContactNumber,Address,Division,District,Thana,Transaction){
+    let URL="http://localhost:5000/api/v1/CreateOrder"
+
+    let PostBody={
+        ProductCategories:ProductCategories,
+        ProductId:ProductId,
+        ProductName:productName,
+        FirstName:FirstName,
+        LastName:LastName,
+        ContactNumber:ContactNumber,
+        Address:Address,
+        Division:Division,
+        District:District,
+        Thana:Thana,
+        TransactionId:Transaction,
+    }
+
+    return Axios.post(URL,PostBody).then((res)=>{
+        if(res.status===200){
+            return true;
+        }else{
+            return false;
+        }
+    }).catch((err)=>{
+        console.log(err);
+        return false;
+    })
+
+}

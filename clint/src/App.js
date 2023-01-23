@@ -19,7 +19,6 @@ import ProductsLayout from './Layout/ProductsLayout';
 
 function App() {
   return (
-    <div className="">
       <Fragment>
         <BrowserRouter>
         
@@ -32,7 +31,7 @@ function App() {
           <Route path="/UserSignup" element={<UserSignupLayout />} />
           <Route path="/UserSignin" element={<UserSigninLayout />} />
           <Route path="/AllAds" element={<AllAdsLayout />} />
-          <Route path="/Shipping" element={<ShippingLayout />} />
+          <Route path="/Shipping/:id" element={<ShippingLayout />} />
 
           {/* for publisher */}
           <Route path="/PublisherDashboard" element={<PublisherDashboardLayout />} />
@@ -53,7 +52,6 @@ function App() {
 
         </BrowserRouter>
       </Fragment>
-    </div>
   );
 }
 
