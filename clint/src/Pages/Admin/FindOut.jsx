@@ -27,7 +27,11 @@ const FindOut = () => {
           ErrorToast("Transaction ID Required");
         }else{
           ReadOrderByTransactionId(TransactionId).then((data)=>{
-            setDetails(data[0]);
+            if(IsEmpty(data)){
+              ErrorToast("Wrong Transaction ID");
+            }else{
+              setDetails(data[0]);
+            }
           })
         }
       }
@@ -41,7 +45,11 @@ const FindOut = () => {
           ErrorToast("Product ID Required");
         }else{
           ReadProductsById(ProductId).then((data)=>{
-            setProductDetails(data[0]);
+            if(IsEmpty(data)){
+              ErrorToast("Wrong Product ID");
+            }else{
+              setProductDetails(data[0]);
+            }
           })
         }
       }
