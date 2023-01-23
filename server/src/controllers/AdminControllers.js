@@ -146,22 +146,41 @@ exports.ReadOrderByTransactionId=(req,res)=>{
 }
 
 
+//read product by id
+// exports.ReadProductsById=(req,res)=>{
+//     let id=req.params.id;
+
+//     PostAdsModel.aggregate([
+//         {$match:{_id:id}},
+//         {$project:{
+//             _id:1,ProductName:1,ProductBrand:1,ProductPrice:1,ProductExPrice:1,ProductColor:1,ProductBattery:1,ProductWarranty:1,ProductCategories:1,CreatedDate:1,
+//         }}
+//     ],(err,data)=>{
+//         if(err){
+//             res.status(400).json({status:"fail",data:err})
+//         }else{
+//             res.status(200).json({status:"success",data:data})
+//         }
+//     })
+// }
+
+
 //Show Products By  Id
-exports.ReadProductsById=(req,res)=>{
+// exports.ReadProductsById=(req,res)=>{
 
-    let id=req.params.id;
-    let Query={_id:id}
+//     let id=req.params.id;
+//     let Query={_id:id}
 
-    PostAdsModel.find(Query,(err,data)=>{
+//     PostAdsModel.find(Query,(err,data)=>{
 
-        if(err){
-            res.status(400).json({status:"fail",data:err})
-        }else{
-            res.status(200).json({status:"success",data:data})
-        }
-    })
+//         if(err){
+//             res.status(400).json({status:"fail",data:err})
+//         }else{
+//             res.status(200).json({status:"success",data:data})
+//         }
+//     })
 
-}
+// }
 
 
 //generate voucher code
@@ -176,5 +195,19 @@ exports.CreateVoucherCode=(req,res)=>{
             res.status(200).json({status:"success",data:data})
         }
 
+    })
+}
+
+
+//show voucher code
+exports.ShowVoucherCode=(req,res)=>{
+
+    VoucherCodeModel.find((err,data)=>{
+
+        if(err){
+            res.status(400).json({status:"fail",data:err})
+        }else{
+            res.status(200).json({status:"success",data:data})
+        }
     })
 }

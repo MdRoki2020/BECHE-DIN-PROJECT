@@ -19,9 +19,9 @@ router.get('/ReadOrders/',AdminController.ReadOrders);
 router.get('/ReadPublisher/',AdminController.ReadPublisher);
 router.get('/ReadProducts/',AdminController.ReadProducts);
 router.get('/ReadOrderByTransactionId/:TransactionId',AdminController.ReadOrderByTransactionId);
-router.get('/ReadProductsById/:id',AdminController.ReadProductsById);
+// router.get('/ReadProductsById/:id',AdminController.ReadProductsById);
 router.post('/CreateVoucherCode',AdminController.CreateVoucherCode);
-
+router.get('/ShowVoucherCode',AdminController.ShowVoucherCode);
 
 
 //User management
