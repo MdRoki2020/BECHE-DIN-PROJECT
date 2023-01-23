@@ -220,3 +220,120 @@ export function AllADsList(){
         return false
     })
 }
+
+//Read Data By TransactionID
+export function ReadOrderByTransactionId(TransactionId){
+    let URL="http://localhost:5000/api/v1/ReadOrderByTransactionId/"+TransactionId;
+    return Axios.get(URL).then((res)=>{
+        if(res.status===200){
+            return res.data['data'];
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}
+
+
+//Read Data By ProductID
+export function ReadProductsById(ProductId){
+    let URL="http://localhost:5000/api/v1/ReadById/"+ProductId;
+    return Axios.get(URL).then((res)=>{
+        if(res.status===200){
+            return res.data['data'];
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}
+
+//generate voucher code
+export function generateVoucherCode(voucher){
+    
+    let URL="http://localhost:5000/api/v1/CreateVoucherCode"
+
+    let PostBody={
+        VoucherCode:voucher,
+    }
+    return Axios.post(URL,PostBody).then((res)=>{
+        
+        if(res.status===200){
+            return true;
+        }else{
+            return false;
+        }
+    }).catch((err)=>{
+        
+        console.log(err);
+        return false;
+    })
+}
+
+//Read Voucher code
+export function ShowVoucherCode(){
+    let URL="http://localhost:5000/api/v1/ShowVoucherCode"
+    return Axios.get(URL).then((res)=>{
+
+        if(res.status===200){
+            return res.data['data']; 
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}
+
+//Total Orders
+export function TotalOrders(){
+    let URL="http://localhost:5000/api/v1/TotalOrders"
+    return Axios.get(URL).then((res)=>{
+
+        if(res.status===200){
+            return res.data['data'][0];
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}
+
+//Total publisher
+export function TotalPublisher(){
+    let URL="http://localhost:5000/api/v1/TotalPublisher"
+    return Axios.get(URL).then((res)=>{
+
+        if(res.status===200){
+            return res.data['data'][0];
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}
+
+//Total Products
+export function TotalProducts(){
+    let URL="http://localhost:5000/api/v1/TotalProducts"
+    return Axios.get(URL).then((res)=>{
+
+        if(res.status===200){
+            return res.data['data'][0];
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}

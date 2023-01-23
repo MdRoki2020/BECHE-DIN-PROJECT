@@ -9,7 +9,7 @@ import { FaProductHunt } from "react-icons/fa";
 import { BsGraphUp } from "react-icons/bs";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Legend, Bar } from 'recharts';
 import Footer from '../Footer';
-import { AllOrders } from '../../APIRequest/APIRequest';
+import { AllOrders,TotalOrders,TotalPublisher,TotalProducts } from '../../APIRequest/APIRequest';
 
 
 const data = [
@@ -54,6 +54,10 @@ const data = [
 
 const AdminDashboard = () => {
 
+  const [TotalOrderCount,setTotalOrders]=useState([]);
+  const [TotalPublisherCount,setTotalPublisher]=useState([]);
+  const [TotalProductCount,setTotalProduct]=useState([]);
+
   const [product,setProduct]=useState([]);
   const [pageNumber,setPageNumber]=useState(0);
 
@@ -66,12 +70,35 @@ const AdminDashboard = () => {
   };
 
   useEffect(()=>{
-    AllOrders().then((data)=>{
-
-      setProduct(data);
-
-      })
+    getOrder();
+    CountTotalOrders();
+    CountTotalPublisher();
+    CountTotalProducts();
   },[])
+
+  const getOrder=()=>{
+    AllOrders().then((data)=>{
+      setProduct(data);
+      })
+  }
+
+  const CountTotalOrders=()=>{
+    TotalOrders().then((data)=>{
+      setTotalOrders(data);
+      })
+  }
+
+  const CountTotalPublisher=()=>{
+    TotalPublisher().then((data)=>{
+      setTotalPublisher(data);
+      })
+  }
+
+  const CountTotalProducts=()=>{
+    TotalProducts().then((data)=>{
+      setTotalProduct(data);
+      })
+  }
 
 
   return (
@@ -87,21 +114,21 @@ const AdminDashboard = () => {
           <div className='dashboardCounter card text-center shadow'>
             <h3><VscListOrdered/></h3>
             <p>Total Orders</p>
-            <h5 className='animated fadeInUp'>20</h5>
+            <h5 className='animated fadeInUp'>{TotalOrderCount.total}</h5>
           </div>
           </div>
           <div className='col-md-3'>
           <div className='dashboardCounter card text-center shadow'>
             <h3><FiUsers/></h3>
               <p>Total Publisher</p>
-              <h5 className='animated fadeInUp'>200</h5>
+              <h5 className='animated fadeInUp'>{TotalPublisherCount.total}</h5>
           </div>
           </div>
           <div className='col-md-3'>
           <div className='dashboardCounter card text-center shadow'>
             <h3><FaProductHunt/></h3>
               <p>Total Product</p>
-              <h5 className='animated fadeInUp'>7539</h5>
+              <h5 className='animated fadeInUp'>{TotalProductCount.total}</h5>
           </div>
           </div>
           <div className='col-md-3'>
