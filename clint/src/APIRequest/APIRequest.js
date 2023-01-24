@@ -158,7 +158,7 @@ export function PostADsRequest(data){
     let URL="http://localhost:5000/api/v1/CreateADs"
 
 
-    return Axios.post(URL,data).then((res)=>{
+    return Axios.post(URL,data,AxiosHeader).then((res)=>{
         
         if(res.status===200){
             return true;
@@ -371,9 +371,27 @@ export function OrderRequest(ProductCategories,ProductId,productName,FirstName,L
 }
 
 
-//publisher delete product
+// delete product
 export function DeleteProduct(id){
     let URL="http://localhost:5000/api/v1/DeleteProduct/"+id;
+    return Axios.get(URL,AxiosHeader).then((res)=>{
+
+        if(res.status===200){
+            return true
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        console.log(err);
+        return false;
+    })
+}
+
+
+// delete publisher
+export function DeletePublisher(id){
+    let URL="http://localhost:5000/api/v1/DeletePublisher/"+id;
     return Axios.get(URL).then((res)=>{
 
         if(res.status===200){

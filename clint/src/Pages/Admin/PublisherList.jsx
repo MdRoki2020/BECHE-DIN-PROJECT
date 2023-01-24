@@ -3,6 +3,7 @@ import { Badge, Table } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
 import '../../Assets/style/adminDashboard.css'
 import { AllPublisherList } from '../../APIRequest/APIRequest'
+import { PublisherDeleteAlert } from '../../Helper/PublisherDeleteAlert'
 
 const PublisherList = () => {
 
@@ -18,12 +19,22 @@ const PublisherList = () => {
   };
 
   useEffect(()=>{
-    AllPublisherList().then((data)=>{
-
-      setProduct(data);
-
-      })
+    GetPublisher();
   },[])
+
+  const GetPublisher=()=>{
+    AllPublisherList().then((data)=>{
+      setProduct(data);
+    })
+  }
+
+  const DeleteItem=(id)=>{
+    PublisherDeleteAlert(id).then((data)=>{
+        if(data===true){
+          GetPublisher();
+        }
+    })
+  }
 
 
   return (
@@ -61,7 +72,7 @@ const PublisherList = () => {
                 <td className='animated fadeInUp'>{value.Email}</td>
                 <td className='animated fadeInUp'>{value.District}</td>
                 <td className='animated fadeInUp'>{value.CreatedDate}</td>
-                <td className='animated fadeInUp'><span><Badge bg="danger mb-3">Suspend</Badge></span></td>
+                <td className='animated fadeInUp'><span onClick={DeleteItem.bind(this,value._id)}><Badge bg="danger mb-3">Suspend</Badge></span></td>
                 </tr>
                 )
             }

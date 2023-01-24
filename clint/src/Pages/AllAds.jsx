@@ -61,13 +61,13 @@ const AllAds = () => {
   <div className='container'>
     <h5>All Category</h5>
 
-    <div className='row d-block d-lg-flex'>
+    <div className='row'>
     {
     displayProduct.map((value,key)=>
 
-      <div className='col-md-2'>
+      <div className='col-md-2 d-block d-lg-flex'>
         <Link to={'/productDetails/'+value._id}>
-            <div className='allItems animated zoomIn mb-3'>
+            <div className='allItems animated zoomIn mb-3 '>
               <div class="card">
                 <img className="card-img-top" src={`http://localhost:5000/${value.filePath}`} alt="laptop" />
                 <div className="card-body">
