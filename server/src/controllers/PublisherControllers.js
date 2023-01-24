@@ -121,3 +121,39 @@ exports.SpecificPublisherProductList=(req,res)=>{
         }
     })
 }
+
+
+
+//delete Product
+exports.DeleteProduct=(req,res)=>{
+
+    let id=req.params.id;
+    let Query={_id:id};
+
+    PostAdsModel.remove(Query,(err,data)=>{
+
+        if(err){
+            res.status(400).json({"status":"fail",data:err})
+        }else{
+            res.status(200).json({"status":"successfull",data:data})
+        }
+    })
+    
+}
+
+//delete Publisher
+exports.DeletePublisher=(req,res)=>{
+
+    let id=req.params.id;
+    let Query={_id:id};
+
+    PublisherModel.remove(Query,(err,data)=>{
+
+        if(err){
+            res.status(400).json({"status":"fail",data:err})
+        }else{
+            res.status(200).json({"status":"successfull",data:data})
+        }
+    })
+    
+}

@@ -37,6 +37,7 @@ router.post('/CreateADs/',upload.single('file'),PublisherController.CreateADs);
 router.post('/PublisherLogin/',PublisherController.PublisherLogin);
 router.post('/AfterPostADsLogin/',PublisherController.AfterPostADsLogin);
 router.get('/SpecificPublisherProductList/:PublisherEmail',PublisherController.SpecificPublisherProductList);
-
+router.get('/DeleteProduct/:id',PublisherController.DeleteProduct);
+router.get('/DeletePublisher/:id',PublisherController.DeletePublisher);
 
 module.exports=router;
