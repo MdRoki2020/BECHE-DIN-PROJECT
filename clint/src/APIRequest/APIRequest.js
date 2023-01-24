@@ -244,6 +244,7 @@ export function ReadProductsById(ProductId){
         if(res.status===200){
             return res.data['data'];
         }else{
+            ErrorToast("Product Id Dosen't Match")
             return false
         }
 
@@ -367,4 +368,22 @@ export function OrderRequest(ProductCategories,ProductId,productName,FirstName,L
         return false;
     })
 
+}
+
+
+//publisher delete product
+export function DeleteProduct(id){
+    let URL="http://localhost:5000/api/v1/DeleteProduct/"+id;
+    return Axios.get(URL).then((res)=>{
+
+        if(res.status===200){
+            return true
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        console.log(err);
+        return false;
+    })
 }

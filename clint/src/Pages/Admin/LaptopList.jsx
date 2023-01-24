@@ -1,8 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { Badge, Table } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
-import { AllADsList } from '../../APIRequest/APIRequest'
+import Swal from 'sweetalert2'
+import { AllADsList, DeleteProduct } from '../../APIRequest/APIRequest'
 import '../../Assets/style/adminDashboard.css'
+import { DeleteAlert } from '../../Helper/DeleteAlert'
+import { ErrorToast } from '../../Helper/FormHelper'
 
 const LaptopList = () => {
 
@@ -18,11 +21,24 @@ const LaptopList = () => {
   };
 
   useEffect(()=>{
+    GetData();
+  },[])
+
+  const GetData=()=>{
     AllADsList().then((data)=>{
       setProduct(data);
 
       })
-  },[])
+  }
+
+
+  const DeleteItem=(id)=>{
+    DeleteAlert(id).then((data)=>{
+        if(data===true){
+            GetData();
+        }
+    })
+  }
 
 
   return (
@@ -62,7 +78,7 @@ const LaptopList = () => {
                 <td className='animated fadeInUp'>{value.ProductWarranty}</td>
                 <td className='animated fadeInUp'>{value.ProductCategories}</td>
                 <td className='animated fadeInUp'>{value.CreatedDate}</td>
-                <td className='animated fadeInUp'><span><Badge bg="danger mb-3">Suspend</Badge></span></td>
+                <td className='animated fadeInUp'><span onClick={DeleteItem.bind(this,value._id)}><Badge bg="danger mb-3">Suspend</Badge></span></td>
                 </tr>
               )
               }

@@ -9,10 +9,12 @@ import { LineChart, Line,ResponsiveContainer } from 'recharts';
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import '../../Assets/style/adminDashboard.css'
-import laptop from '../../Assets/images/laptop.jpg'
 import Footer from '../Footer'
 import { useState } from 'react';
 import { FilterProductByEmail } from '../../APIRequest/APIRequest';
+import { ErrorToast } from '../../Helper/FormHelper';
+import { useNavigate } from 'react-router-dom';
+import { DeleteAlert } from '../../Helper/DeleteAlert';
 
 const data = [
   {
@@ -60,6 +62,7 @@ const data = [
 ];
 
 const PublisherDashboard = () => {
+  let navigate = useNavigate();
 
   const [user,setUser]=useState([]);
 
@@ -77,14 +80,29 @@ const PublisherDashboard = () => {
   };
 
   useEffect(()=>{
+    GetData();
+    
+  },[])
+
+  const GetData=()=>{
     FilterProductByEmail(publisherEmail).then((data)=>{
-
       setUser(data);
-
       })
-  },[publisherEmail])
+  }
 
-  console.log(user)
+
+  const UpdateItem=(id)=>{
+    navigate("/updatefood/"+id);
+}
+
+
+const DeleteItem=(id)=>{
+  DeleteAlert(id).then((data)=>{
+      if(data===true){
+          GetData();
+      }
+  })
+}
 
   return (
     <Fragment>
@@ -180,7 +198,7 @@ const PublisherDashboard = () => {
                 <td className='animated fadeInUp'>{value.ProductBattery}</td>
                 <td className='animated fadeInUp'>{value.ProductWarranty}</td>
                 <td className='animated fadeInUp'>{value.CreatedDate}</td>
-                <td className='animated fadeInUp'><span className='text-info'><BiEdit/></span> <span className='text-danger'><RiDeleteBin6Line/></span></td>
+                <td className='animated fadeInUp'><span onClick={UpdateItem.bind(this,value._id)} className='text-info'><BiEdit/></span> <span onClick={DeleteItem.bind(this,value._id)} className='text-danger'><RiDeleteBin6Line/></span></td>
                 </tr>
 
                 )

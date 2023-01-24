@@ -28,10 +28,11 @@ const FindOut = () => {
         }else{
           ReadOrderByTransactionId(TransactionId).then((data)=>{
             if(IsEmpty(data)){
-              ErrorToast("Wrong Transaction ID");
+              ErrorToast("Transaction ID Dosen't Match");
             }else{
               setDetails(data[0]);
             }
+            
           })
         }
       }
@@ -46,10 +47,11 @@ const FindOut = () => {
         }else{
           ReadProductsById(ProductId).then((data)=>{
             if(IsEmpty(data)){
-              ErrorToast("Wrong Product ID");
+              ErrorToast("Product Id Dosen't Match");
             }else{
               setProductDetails(data[0]);
             }
+            
           })
         }
       }
