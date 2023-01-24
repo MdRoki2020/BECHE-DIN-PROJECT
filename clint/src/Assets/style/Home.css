@@ -10,12 +10,13 @@ body{
     background-size: cover;
 }
 h2.textContentWrapper {
-    color: white;
+    color: #000000;
     font-weight: 200;
     font-size: 40px;
+    font-family: j !important;
 }
 p.coverText {
-    color: wheat;
+    color: #000000;
     font-weight: 400;
 }
 
@@ -25,7 +26,7 @@ p.coverText {
     background: transparent;
     border-color: #f0ad4e;
     margin-right: 5px;
-    border: 1px solid #f0ad4e;
+    border: 2px solid #0dcaf0;
 }
 ::placeholder {
     color: rgb(204, 195, 195);

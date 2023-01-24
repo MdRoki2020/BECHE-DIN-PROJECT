@@ -6,3 +6,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
 a.navbarLogo img {
     width: 140px;
 }
+nav.animated.fadeInDown.navbar.navbar-expand-lg.navbar-light.bg-light {
+    background: #0d6c7f2e !important;
+}
+input.me-2.form-control {
+    border: 1px solid #0dcaf0;
+}

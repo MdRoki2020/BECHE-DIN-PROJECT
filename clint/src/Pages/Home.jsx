@@ -25,14 +25,14 @@ function Home() {
               <div className='col-md-6'>
               <div className='coverMeta text-center'>
                 <h2 className='textContentWrapper animated fadeInUp delay-2s'>BECHE DIN Will Change</h2>
-                <h2 className='textContentWrapper animated fadeInUp'>Expression Each Visit</h2>
+                <h2 className='textContentWrapper animated fadeInUp'>Expression Every Visit</h2>
                 <p className='coverText animated fadeInUpBig'>Sold Your Old Drafts Safely</p>
                 <p className='coverText animated fadeInUpBig'>Safe Delevered Of Our Own Community</p>
               </div>
               </div>
               <div className='col-md-6'>
                   <div className='subscribeComponents mt-5 text-center animated fadeInUp'>
-                  <input className='shadow' placeholder='Enter Email'/><Button className='shadow btn btn-warning text-light'> <TbBellRinging2/></Button>
+                  <input className='shadow' placeholder='Enter Email'/><Button className='shadow btn btn-info text-light'> <TbBellRinging2/></Button>
                   </div>
               </div>
             </div>

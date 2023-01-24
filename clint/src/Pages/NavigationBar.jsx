@@ -16,7 +16,7 @@ const NavigationBar = () => {
                 <Navbar.Collapse id="navbarScroll">
                 <Form className="d-flex me-auto">
                     <FormControl type="search" placeholder="Search" className="me-2" aria-label="Search" />
-                    <Button variant="outline-success"><AiOutlineSearch/></Button>
+                    <Button variant="outline-info"><AiOutlineSearch/></Button>
                 </Form>
                 <Nav>
                     <Nav.Link as={Link} to={'/'}> Home <AiOutlineHome/></Nav.Link>
