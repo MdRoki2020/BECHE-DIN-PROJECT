@@ -68,3 +68,40 @@ exports.AllADs=(req,res)=>{
     })
 }
 
+
+//search
+exports.ProductSearch=async(req,res)=>{
+    try{
+        let searchValue = req.params.searchKeyword;
+
+        let data;
+
+        if (searchValue!=="0") {
+
+            let SearchRgx = {"$regex": searchValue, "$options": "i"}
+            let SearchQuery = {$or: [{ProductCategories: SearchRgx}]}
+
+            data = await PostAdsModel.aggregate([{
+                $facet:{
+                    Total:[{$match: SearchQuery},{$count: "count"}],
+                    Rows:[{$match: SearchQuery}],
+                }
+            }])
+        }
+        else {
+            data = await PostAdsModel.aggregate([{
+                $facet:{
+                    Total:[{$count: "count"}],
+                    Rows:[{$skip: skipRow}, {$limit: perPage}],
+                }
+            }])
+
+        }
+
+        res.status(200).json({status: "success",data})
+
+    }catch(error){
+        res.status(200).json({status: "fail",error:error})
+    }
+}
+

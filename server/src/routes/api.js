@@ -29,15 +29,16 @@ router.post('/CreateOrder/',UserController.CreateOrder);
 router.get('/FilterByCategories/:ProductCategories',UserController.FilterByCategories);
 router.get('/ReadById/:id',UserController.ReadById);
 router.get('/AllADs/',UserController.AllADs);
+router.get('/ProductSearch/',UserController.ProductSearch);
 
 
 //Publisher Management
 router.post('/CreatePublisher/',uploadOthers.single('file'),PublisherController.CreatePublisher);
-router.post('/CreateADs/',upload.single('file'),PublisherController.CreateADs);
+router.post('/CreateADs/',upload.single('file'),AuthVerifyMiddleware,PublisherController.CreateADs);
 router.post('/PublisherLogin/',PublisherController.PublisherLogin);
 router.post('/AfterPostADsLogin/',PublisherController.AfterPostADsLogin);
 router.get('/SpecificPublisherProductList/:PublisherEmail',PublisherController.SpecificPublisherProductList);
-router.get('/DeleteProduct/:id',PublisherController.DeleteProduct);
+router.get('/DeleteProduct/:id',AuthVerifyMiddleware,PublisherController.DeleteProduct);
 router.get('/DeletePublisher/:id',PublisherController.DeletePublisher);
 
 module.exports=router;
