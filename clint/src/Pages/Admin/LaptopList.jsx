@@ -5,7 +5,6 @@ import Swal from 'sweetalert2'
 import { AllADsList, DeleteProduct } from '../../APIRequest/APIRequest'
 import '../../Assets/style/adminDashboard.css'
 import { DeleteAlert } from '../../Helper/DeleteAlert'
-import { ErrorToast } from '../../Helper/FormHelper'
 
 const LaptopList = () => {
 
@@ -69,7 +68,7 @@ const LaptopList = () => {
             {
               displayAds.map((value,key)=>
               <tr key={key}>
-                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`http://localhost:5000/${value.filePath}`} width="50"/></td>
+                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} width="50" alt='image'/></td>
                 <td className='animated fadeInUp'>{value.ProductName}</td>
                 <td className='animated fadeInUp'>{value.ProductBrand}</td>
                 <td className='animated fadeInUp'>{value.ProductPrice}</td>

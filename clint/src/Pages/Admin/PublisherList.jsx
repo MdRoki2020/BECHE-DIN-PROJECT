@@ -64,7 +64,7 @@ const PublisherList = () => {
             {
                 displayUsers.map((value,key)=>
                 <tr key={key}>
-                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`http://localhost:5000/${value.filePath}`} alt="profile" width="50"/></td>
+                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} alt="profile" width="50"/></td>
                 <td className='animated fadeInUp'>{value.FirstName}</td>
                 <td className='animated fadeInUp'>{value.LastName}</td>
                 <td className='animated fadeInUp'>{value.Age}</td>
