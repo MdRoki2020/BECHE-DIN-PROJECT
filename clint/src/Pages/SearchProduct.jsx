@@ -1,7 +1,7 @@
 import React, { Fragment, useRef, useState } from 'react'
 import allAds from '../Assets/images/allAds.jpg'
-import { AiTwotoneEnvironment,AiOutlineSearch } from "react-icons/ai"
-import { BsCartPlus,BsEmojiLaughing } from "react-icons/bs";
+import { AiTwotoneEnvironment } from "react-icons/ai"
+import { BsCartPlus,BsEmojiLaughing,BsSearch } from "react-icons/bs";
 import ReactPaginate from 'react-paginate'
 import { Link } from 'react-router-dom'
 import Footer from './Footer'
@@ -10,11 +10,11 @@ import { ProductSearchRequest } from '../APIRequest/APIRequest';
 import { ErrorToast, IsEmpty } from '../Helper/FormHelper';
 
 
+
 const SearchProduct = () => {
 
   let ProductSearchRef=useRef();
 
-//   const [product,setProduct]=useState([]);
   const [pageNumber,setPageNumber]=useState(0);
   const [searchProduct,setSearchProduct]=useState([]);
 
@@ -25,15 +25,6 @@ const SearchProduct = () => {
   const changePage=({selected})=>{
     setPageNumber(selected);
   };
-
-//   useEffect(()=>{
-//     AllADs().then((data)=>{
-
-//       setProduct(data);
-
-//       })
-//   },[])
-
 
 
 //search request
@@ -52,7 +43,9 @@ const SearchProduct = () => {
     
   }
 
-//   console.log(searchProduct);
+
+
+  //collapse
 
 
   return (
@@ -64,16 +57,75 @@ const SearchProduct = () => {
     <div className='col-md-12'>
         <div className='card posterWrapper animated flipInX my-4'>
           <div className='row'>
-            <div className='col-sm-3'>
-            <img className='poster' src={allAds} alt='headerLaptop'/>
-            </div>
-            <div className='col-sm-9'>
-            <div className='posterText'>
-              <h2>What Are You Want ! Please Search <BsEmojiLaughing /></h2>
-              <p><AiTwotoneEnvironment/> All Bangladesh !</p>
-              <input ref={(input)=>ProductSearchRef=input} className='rounded-pill searchDistrict shadow' placeholder='What Are You Want' /> <Button onClick={GetSearchValue} className='btn btn-warning shadow'><AiOutlineSearch/></Button>
-            </div>
-            </div>
+
+              <div className='col-sm-2'>
+                <img className='poster' src={allAds} alt='headerLaptop'/>
+              </div>
+              <div className='col-sm-4'>
+                <div className='posterText'>
+                  <h2>What Are You Want! Search Me <BsEmojiLaughing /></h2>
+                  <p><AiTwotoneEnvironment/> All Bangladesh !</p>
+                  <input ref={(input)=>ProductSearchRef=input} className='searchDistrict shadow' placeholder='What Are You Want' /> <Button onClick={GetSearchValue} className='btn btn-info shadow'><BsSearch/></Button>
+                </div>
+              </div>
+              <div className='col-sm-2'>
+                <div className='BrandCheckBoxSearch'>
+
+                  <span>BRAND</span>
+                  <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="apple" id="flexCheckDefault" />
+                  <label class="form-check-label" for="flexCheckDefault">Apple</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="asus" id="flexCheckChecked" />
+                    <label class="form-check-label" for="flexCheckChecked">Asus</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="samsung" id="flexCheckDefault" />
+                    <label class="form-check-label" for="flexCheckDefault">Samsung</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="walton" id="flexCheckDefault" />
+                    <label class="form-check-label" for="flexCheckDefault">Walton</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div className='col-sm-2'>
+                <div className='CategoriesCheckBoxSearch'>
+
+                  <span>CATEGORIES</span>
+                  <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="laptop" id="flexCheckDefault" />
+                  <label class="form-check-label" for="flexCheckDefault">Laptop</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="mobile" id="flexCheckChecked" />
+                    <label class="form-check-label" for="flexCheckChecked">Mobile</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="watch" id="flexCheckDefault" />
+                    <label class="form-check-label" for="flexCheckDefault">Watch</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="electronics" id="flexCheckDefault" />
+                    <label class="form-check-label" for="flexCheckDefault">Electronics</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div className='col-sm-2'>
+                <div className='PriceCheckBoxSearch'>
+
+                  <span>PRICE RANGE</span>
+                  <input type="range" className="form-range" id="customRange2" />
+                </div>
+
+                <button className='everythingSearch btn btn-info shadow'><BsSearch/></button>
+              </div>
+
           </div>
         </div>
     </div>

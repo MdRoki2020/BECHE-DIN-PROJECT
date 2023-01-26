@@ -1,6 +1,3 @@
-body{
-    
-}
 .wrapper {
     background: url('../images//cover.jpg');
     padding: 143px 0px;
@@ -22,7 +19,7 @@ p.coverText {
 
 .subscribeComponents input {
     padding: 6px 0px;
-    border-radius: 7px;
+    border-radius: 5px;
     background: transparent;
     border-color: #f0ad4e;
     margin-right: 5px;

@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import allAds from '../Assets/images/allAds.jpg'
-import { AiTwotoneEnvironment,AiOutlineSearch } from "react-icons/ai"
-import { BsCartPlus } from "react-icons/bs";
+import { AiTwotoneEnvironment } from "react-icons/ai"
+import { BsCartPlus, BsSearch } from "react-icons/bs";
 import ReactPaginate from 'react-paginate'
 import { Link } from 'react-router-dom'
 import Footer from './Footer'
@@ -47,7 +47,7 @@ const AllAds = () => {
             <div className='posterText'>
               <h2>All Ads !</h2>
               <p><AiTwotoneEnvironment/> All Bangladesh !</p>
-              <input className='rounded-pill searchDistrict shadow' placeholder='What Are You Want' /> <Button className='btn btn-warning shadow'><AiOutlineSearch/></Button>
+              <input className='searchDistrict shadow' placeholder='What Are You Want' /> <Button className='btn btn-info shadow'><BsSearch/></Button>
             </div>
             </div>
           </div>

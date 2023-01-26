@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import headerLaptop from '../Assets/images/laptop.jpg'
-import { AiTwotoneEnvironment,AiOutlineSearch } from "react-icons/ai"
-import { BsCartPlus } from "react-icons/bs";
+import { AiTwotoneEnvironment } from "react-icons/ai"
+import { BsCartPlus, BsSearch } from "react-icons/bs";
 import '../Assets/style/categoriesItems.css'
 import { Badge, Button } from 'react-bootstrap'
 import { Link, useParams } from 'react-router-dom'
@@ -53,7 +53,7 @@ const Products = () => {
             <div className='posterText'>
               <h2>{categories} !</h2>
               <p><AiTwotoneEnvironment/> All Bangladesh !</p>
-              <input className='rounded-pill searchDistrict shadow' placeholder='What Are You Want' /> <Button className='btn btn-warning shadow'><AiOutlineSearch/></Button>
+              <input className='searchDistrict shadow' placeholder='What Are You Want' /> <Button className='btn btn-info shadow'><BsSearch/></Button>
             </div>
             </div>
           </div>
