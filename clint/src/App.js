@@ -16,6 +16,7 @@ import PublisherListLayout from './Layout/PublisherListLayout';
 import LaptopListLayout from './Layout/LaptopListLayout';
 import FindOutLayout from './Layout/FindOutLayout';
 import ProductsLayout from './Layout/ProductsLayout';
+import SearchProductLayout from './Layout/SearchProductLayout';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/UserSignin" element={<UserSigninLayout />} />
           <Route path="/AllAds" element={<AllAdsLayout />} />
           <Route path="/Shipping/:id" element={<ShippingLayout />} />
+          <Route path="/SearchProducts" element={<SearchProductLayout />}/>
 
           {/* for publisher */}
           <Route path="/PublisherDashboard" element={<PublisherDashboardLayout />} />

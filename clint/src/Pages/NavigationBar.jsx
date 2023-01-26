@@ -2,6 +2,7 @@ import React from 'react'
 import {Navbar,Container,Nav,Form,Button,FormControl} from 'react-bootstrap';
 import {Link} from "react-router-dom";
 import {AiOutlineSearch,AiOutlineUserSwitch,AiOutlineVideoCameraAdd,AiOutlineSortDescending,AiOutlineHome } from "react-icons/ai";
+import { TbSearch } from "react-icons/tb";
 import '../Assets/style/NavigationBar.css'
 import logo from '../Assets/images/logo.png'
 
@@ -22,6 +23,7 @@ const NavigationBar = () => {
                     <Nav.Link as={Link} to={'/'}> Home <AiOutlineHome/></Nav.Link>
                     <Nav.Link as={Link} to={'/PostAuth'}> Post AD <AiOutlineVideoCameraAdd/></Nav.Link>
                     <Nav.Link as={Link} to={'/allADS'}> All Ads <AiOutlineSortDescending/></Nav.Link>
+                    <Nav.Link as={Link} to={'/searchProducts'}> Search <TbSearch/></Nav.Link>
                     <Nav.Link as={Link} to={'/UserSignin'}> My Account <AiOutlineUserSwitch/></Nav.Link>
                 </Nav>
                 </Navbar.Collapse>

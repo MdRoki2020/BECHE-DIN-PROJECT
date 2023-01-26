@@ -1,34 +1,58 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useRef, useState } from 'react'
 import allAds from '../Assets/images/allAds.jpg'
 import { AiTwotoneEnvironment,AiOutlineSearch } from "react-icons/ai"
-import { BsCartPlus } from "react-icons/bs";
+import { BsCartPlus,BsEmojiLaughing } from "react-icons/bs";
 import ReactPaginate from 'react-paginate'
 import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import { Button } from 'react-bootstrap';
-import { AllADs } from '../APIRequest/APIRequest';
+import { ProductSearchRequest } from '../APIRequest/APIRequest';
+import { ErrorToast, IsEmpty } from '../Helper/FormHelper';
 
 
-const AllAds = () => {
+const SearchProduct = () => {
 
-  const [product,setProduct]=useState([]);
+  let ProductSearchRef=useRef();
+
+//   const [product,setProduct]=useState([]);
   const [pageNumber,setPageNumber]=useState(0);
+  const [searchProduct,setSearchProduct]=useState([]);
 
   const usersPerPage=18;
   const pagesVisited=pageNumber * usersPerPage
-  const displayProduct=product.slice(pagesVisited,pagesVisited+usersPerPage)
-  const pageCount=Math.ceil(product.length / usersPerPage);
+  const displayProduct=searchProduct.slice(pagesVisited,pagesVisited+usersPerPage)
+  const pageCount=Math.ceil(searchProduct.length / usersPerPage);
   const changePage=({selected})=>{
     setPageNumber(selected);
   };
 
-  useEffect(()=>{
-    AllADs().then((data)=>{
+//   useEffect(()=>{
+//     AllADs().then((data)=>{
 
-      setProduct(data);
+//       setProduct(data);
 
+//       })
+//   },[])
+
+
+
+//search request
+  const GetSearchValue=()=>{
+    let search=ProductSearchRef.value;
+
+    if(IsEmpty(search)){
+      ErrorToast("Search Value Required");
+    }else{
+
+      ProductSearchRequest(search).then((data)=>{
+        setSearchProduct(data);
       })
-  },[])
+
+    }
+    
+  }
+
+//   console.log(searchProduct);
 
 
   return (
@@ -45,9 +69,9 @@ const AllAds = () => {
             </div>
             <div className='col-sm-9'>
             <div className='posterText'>
-              <h2>All Ads !</h2>
+              <h2>What Are You Want ! Please Search <BsEmojiLaughing /></h2>
               <p><AiTwotoneEnvironment/> All Bangladesh !</p>
-              <input className='rounded-pill searchDistrict shadow' placeholder='What Are You Want' /> <Button className='btn btn-warning shadow'><AiOutlineSearch/></Button>
+              <input ref={(input)=>ProductSearchRef=input} className='rounded-pill searchDistrict shadow' placeholder='What Are You Want' /> <Button onClick={GetSearchValue} className='btn btn-warning shadow'><AiOutlineSearch/></Button>
             </div>
             </div>
           </div>
@@ -109,4 +133,4 @@ const AllAds = () => {
   )
 }
 
-export default AllAds
+export default SearchProduct
