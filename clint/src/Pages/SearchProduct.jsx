@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import { Button } from 'react-bootstrap';
 import { ProductSearchRequest } from '../APIRequest/APIRequest';
-import { ErrorToast, IsEmpty } from '../Helper/FormHelper';
+import { ErrorToast, IsEmpty, SuccessToast } from '../Helper/FormHelper';
 
 
 
@@ -16,12 +16,13 @@ const SearchProduct = () => {
   let ProductSearchRef=useRef();
 
   const [pageNumber,setPageNumber]=useState(0);
-  const [searchProduct,setSearchProduct]=useState([]);
+  const [searchProduct,setSearchProduct]=useState("");
+  const [product,setProduct]=useState([]);
 
   const usersPerPage=18;
   const pagesVisited=pageNumber * usersPerPage
-  const displayProduct=searchProduct.slice(pagesVisited,pagesVisited+usersPerPage)
-  const pageCount=Math.ceil(searchProduct.length / usersPerPage);
+  const displayProduct=product.slice(pagesVisited,pagesVisited+usersPerPage)
+  const pageCount=Math.ceil(product.length / usersPerPage);
   const changePage=({selected})=>{
     setPageNumber(selected);
   };
@@ -39,13 +40,30 @@ const SearchProduct = () => {
         if(IsEmpty(data)){
           ErrorToast("Not Found")
         }else{
-          setSearchProduct(data);
+          setProduct(data);
         }
       })
 
     }
     
   }
+
+
+  if(searchProduct){
+    // SuccessToast("Please Search With Valid Keyword");
+
+    ProductSearchRequest(searchProduct).then((data)=>{
+        setProduct(data);
+    })
+  }
+
+  // else if(IsEmpty(searchProduct)){
+  //   ErrorToast("Espect Valid Keyword");
+  // }else{
+    
+
+
+  // }
 
 
 
@@ -70,6 +88,7 @@ const SearchProduct = () => {
                   <h2>What Are You Want! Search Me <BsEmojiLaughing /></h2>
                   <p><AiTwotoneEnvironment/> All Bangladesh !</p>
                   <input ref={(input)=>ProductSearchRef=input} className='searchDistrict shadow' placeholder='What Are You Want' /> <Button onClick={GetSearchValue} className='btn btn-info shadow'><BsSearch/></Button>
+                  {/* <p>{searchProduct}</p> */}
                 </div>
               </div>
               <div className='col-sm-2'>
@@ -101,19 +120,19 @@ const SearchProduct = () => {
 
                   <span>CATEGORIES</span>
                   <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="laptop" id="flexCheckDefault" />
+                  <input onChange={(e)=>{setSearchProduct(e.target.value)}} class="form-check-input" type="checkbox" value="laptop" id="flexCheckDefault" />
                   <label class="form-check-label" for="flexCheckDefault">Laptop</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="mobile" id="flexCheckChecked" />
+                    <input onChange={(e)=>{setSearchProduct(e.target.value)}} class="form-check-input" type="checkbox" value="mobile" id="flexCheckChecked" />
                     <label class="form-check-label" for="flexCheckChecked">Mobile</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="watch" id="flexCheckDefault" />
+                    <input onChange={(e)=>{setSearchProduct(e.target.value)}} class="form-check-input" type="checkbox" value="watch" id="flexCheckDefault" />
                     <label class="form-check-label" for="flexCheckDefault">Watch</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="electronics" id="flexCheckDefault" />
+                    <input onChange={(e)=>{setSearchProduct(e.target.value)}} class="form-check-input" type="checkbox" value="electronics" id="flexCheckDefault" />
                     <label class="form-check-label" for="flexCheckDefault">Electronics</label>
                   </div>
 
