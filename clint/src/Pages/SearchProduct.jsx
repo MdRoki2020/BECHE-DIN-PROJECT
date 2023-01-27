@@ -40,6 +40,7 @@ const SearchProduct = () => {
         if(IsEmpty(data)){
           ErrorToast("Not Found")
         }else{
+          setProduct("");
           setProduct(data);
         }
       })
