@@ -36,7 +36,11 @@ const SearchProduct = () => {
     }else{
 
       ProductSearchRequest(search).then((data)=>{
-        setSearchProduct(data);
+        if(IsEmpty(data)){
+          ErrorToast("Not Found")
+        }else{
+          setSearchProduct(data);
+        }
       })
 
     }
