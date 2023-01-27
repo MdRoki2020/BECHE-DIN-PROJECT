@@ -4,7 +4,6 @@ import 'react-quill/dist/quill.snow.css'
 import '../../Assets/style/PostAds.css'
 import { MdPublish } from "react-icons/md";
 import { Button } from 'react-bootstrap';
-import Footer from '../Footer';
 import { ErrorToast, IsEmpty } from '../../Helper/FormHelper';
 import Swal from 'sweetalert2';
 import FullScreenLoader from '../../common/FullScreenLoader';
@@ -133,7 +132,7 @@ const PostAds = () => {
             <div className='allInputs1'>
               <div className='productName'>
                   <label >Product Name</label>
-                  <input ref={(input)=>ProductNameRef=input} className='form-control animated fadeInUp' type='text' placeholder='Write Product Name'/>
+                  <input ref={(input)=>ProductNameRef=input} maxlength="15" className='form-control animated fadeInUp' type='text' placeholder='Write Product Name'/>
                 </div>
                 <div className='features'>
                   <label className='mb-2'>Product Fetures</label>
@@ -211,8 +210,6 @@ const PostAds = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
 
       <div className='d-none' ref={(div)=>Loader=div}>
 
