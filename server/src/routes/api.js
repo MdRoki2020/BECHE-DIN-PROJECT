@@ -29,7 +29,7 @@ router.post('/CreateOrder/',UserController.CreateOrder);
 router.get('/FilterByCategories/:ProductCategories',UserController.FilterByCategories);
 router.get('/ReadById/:id',UserController.ReadById);
 router.get('/AllADs/',UserController.AllADs);
-router.get('/ProductSearch/:search',UserController.ProductSearch);
+router.get('/ProductSearch/:search/',UserController.ProductSearch); //:laptop/:mobile/:watch/:electronics?
 
 
 //Publisher Management
