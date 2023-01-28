@@ -7,16 +7,15 @@ import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import { Button } from 'react-bootstrap';
 import { ProductSearchRequest } from '../APIRequest/APIRequest';
-import { ErrorToast, IsEmpty, SuccessToast } from '../Helper/FormHelper';
+import { ErrorToast, IsEmpty } from '../Helper/FormHelper';
 
 
 
 const SearchProduct = () => {
 
-  let ProductSearchRef=useRef();
+  let ProductSearchRef, LaptopRefRef,MobileRef,WatchRef,ElectronicsRef=useRef();
 
   const [pageNumber,setPageNumber]=useState(0);
-  const [searchProduct,setSearchProduct]=useState("");
   const [product,setProduct]=useState([]);
 
   const usersPerPage=18;
@@ -31,11 +30,15 @@ const SearchProduct = () => {
 //search request
   const GetSearchValue=()=>{
     let search=ProductSearchRef.value;
+    // let laptop=LaptopRefRef.value;
+    // let mobile=MobileRef.value;
+    // let watch=WatchRef.value;
+    // let electronics=ElectronicsRef.value;
 
     if(IsEmpty(search)){
       ErrorToast("Search Value Required");
     }else{
-      ProductSearchRequest(search).then((data)=>{
+      ProductSearchRequest(search).then((data)=>{   //,laptop,mobile,watch,electronics
         if(IsEmpty(data)){
           ErrorToast("Not Found")
         }else{
@@ -48,13 +51,13 @@ const SearchProduct = () => {
   }
 
 
-  if(searchProduct){
-    ProductSearchRequest(searchProduct).then((data)=>{
-      SuccessToast("done");
-        setProduct(data);
-    })
+  // if(searchProduct){
+  //   ProductSearchRequest(searchProduct).then((data)=>{
+  //     SuccessToast("done");
+  //       setProduct(data);
+  //   })
     
-  }
+  // }
 
   // else if(IsEmpty(searchProduct)){
   //   ErrorToast("Espect Valid Keyword");
@@ -67,6 +70,7 @@ const SearchProduct = () => {
 
 
   //collapse
+
 
 
   return (
@@ -118,22 +122,25 @@ const SearchProduct = () => {
                 <div className='CategoriesCheckBoxSearch'>
 
                   <span>CATEGORIES</span>
+
+
                   <div class="form-check">
-                  <input onChange={(e)=>{setSearchProduct(e.target.value)}} class="form-check-input" type="checkbox" value="laptop" id="flexCheckDefault" />
+                  <input ref={(input)=>LaptopRefRef=input} class="form-check-input" type="checkbox" value="laptop" id="flexCheckDefault" />
                   <label class="form-check-label" for="flexCheckDefault">Laptop</label>
                   </div>
                   <div class="form-check">
-                    <input onChange={(e)=>{setSearchProduct(e.target.value)}} class="form-check-input" type="checkbox" value="mobile" id="flexCheckChecked" />
+                    <input ref={(input)=>MobileRef=input} class="form-check-input" type="checkbox" value="mobile" id="flexCheckChecked" />
                     <label class="form-check-label" for="flexCheckChecked">Mobile</label>
                   </div>
                   <div class="form-check">
-                    <input onChange={(e)=>{setSearchProduct(e.target.value)}} class="form-check-input" type="checkbox" value="watch" id="flexCheckDefault" />
+                    <input ref={(input)=>WatchRef=input} class="form-check-input" type="checkbox" value="watch" id="flexCheckDefault" />
                     <label class="form-check-label" for="flexCheckDefault">Watch</label>
                   </div>
                   <div class="form-check">
-                    <input onChange={e => setTimeout(() => setSearchProduct(e.target.value),1)} class="form-check-input" type="checkbox" value="electronics" id="flexCheckDefault" />
+                    <input ref={(input)=>ElectronicsRef=input} class="form-check-input" type="checkbox" value="electronics" id="flexCheckDefault" />
                     <label class="form-check-label" for="flexCheckDefault">Electronics</label>
                   </div>
+
 
                 </div>
               </div>
@@ -145,7 +152,7 @@ const SearchProduct = () => {
                   <input type="range" className="form-range" id="customRange2" />
                 </div>
 
-                <button className='everythingSearch btn btn-info shadow'><BsSearch/></button>
+                <button onClick={GetSearchValue} className='everythingSearch btn btn-info shadow'><BsSearch/></button>
               </div>
 
           </div>

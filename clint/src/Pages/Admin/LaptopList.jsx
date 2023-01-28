@@ -60,6 +60,7 @@ const LaptopList = () => {
                 <th>Battery mAh</th>
                 <th>Warranty</th>
                 <th>Categories</th>
+                <th>Ads Owner</th>
                 <th>Entry Time</th>
                 <th>Action</th>
                 </tr>
@@ -76,6 +77,7 @@ const LaptopList = () => {
                 <td className='animated fadeInUp'>{value.ProductBattery}</td>
                 <td className='animated fadeInUp'>{value.ProductWarranty}</td>
                 <td className='animated fadeInUp'>{value.ProductCategories}</td>
+                <td className='animated fadeInUp'>{value.PublisherEmail}</td>
                 <td className='animated fadeInUp'>{value.CreatedDate}</td>
                 <td className='animated fadeInUp'><span onClick={DeleteItem.bind(this,value._id)}><Badge bg="danger mb-3">Suspend</Badge></span></td>
                 </tr>

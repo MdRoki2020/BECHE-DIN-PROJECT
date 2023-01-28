@@ -407,9 +407,9 @@ export function DeletePublisher(id){
 }
 
 // search Product
-export const ProductSearchRequest=async (search)=>{
-    let URL="https://bechedin-deploy-production.up.railway.app/api/v1/ProductSearch/"+search;
-    return await  Axios.get(URL).then((res)=>{
+export const ProductSearchRequest=(search)=>{ //,laptop,mobile,watch,electronics
+    let URL="https://bechedin-deploy-production.up.railway.app/api/v1/ProductSearch/"+search; //+"/"+laptop+"/"+mobile+"/"+watch+"/"+electronics
+    return  Axios.get(URL).then((res)=>{
 
         if(res.status===200){
             return res.data['data'];
