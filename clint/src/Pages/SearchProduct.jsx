@@ -35,12 +35,10 @@ const SearchProduct = () => {
     if(IsEmpty(search)){
       ErrorToast("Search Value Required");
     }else{
-
       ProductSearchRequest(search).then((data)=>{
         if(IsEmpty(data)){
           ErrorToast("Not Found")
         }else{
-          setProduct("");
           setProduct(data);
         }
       })
@@ -51,11 +49,11 @@ const SearchProduct = () => {
 
 
   if(searchProduct){
-    // SuccessToast("Please Search With Valid Keyword");
-
     ProductSearchRequest(searchProduct).then((data)=>{
+      SuccessToast("done");
         setProduct(data);
     })
+    
   }
 
   // else if(IsEmpty(searchProduct)){
@@ -133,7 +131,7 @@ const SearchProduct = () => {
                     <label class="form-check-label" for="flexCheckDefault">Watch</label>
                   </div>
                   <div class="form-check">
-                    <input onChange={(e)=>{setSearchProduct(e.target.value)}} class="form-check-input" type="checkbox" value="electronics" id="flexCheckDefault" />
+                    <input onChange={e => setTimeout(() => setSearchProduct(e.target.value),1)} class="form-check-input" type="checkbox" value="electronics" id="flexCheckDefault" />
                     <label class="form-check-label" for="flexCheckDefault">Electronics</label>
                   </div>
 

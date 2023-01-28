@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import headerLaptop from '../Assets/images/laptop.jpg'
 import { AiTwotoneEnvironment } from "react-icons/ai"
 import { BsCartPlus, BsSearch } from "react-icons/bs";
 import '../Assets/style/categoriesItems.css'
@@ -19,6 +18,7 @@ const Products = () => {
   const [product,setProduct]=useState([]);
   const [pageNumber,setPageNumber]=useState(0);
 
+
   const usersPerPage=18;
   const pagesVisited=pageNumber * usersPerPage
   const displayUsers=product.slice(pagesVisited,pagesVisited+usersPerPage)
@@ -35,7 +35,10 @@ const Products = () => {
       })
   },[categories])
 
-  console.log(product);
+  let posterImage=product[0]?.filePath;
+
+  
+  
 
   return (
 <Fragment>
@@ -47,7 +50,7 @@ const Products = () => {
         <div className='card posterWrapper animated flipInX my-4'>
           <div className='row'>
             <div className='col-sm-3'>
-            <img className='poster' src={headerLaptop} alt='headerLaptop'/>
+            <img className='poster' src={`https://bechedin-deploy-production.up.railway.app/${posterImage}`} alt={product[0]?.ProductName}/> 
             </div>
             <div className='col-sm-9'>
             <div className='posterText'>
@@ -77,7 +80,7 @@ const Products = () => {
       <div className='col-md-2'>
         <Link to={'/productDetails/'+value._id}>
             <div className='allItems animated zoomIn mb-3'>
-              <div class="card">
+              <div className="card">
                 <img className="card-img-top" src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} alt="laptop" />
                 <div className="card-body">
                   <h6 className="card-title text-center">{value.ProductName}</h6>

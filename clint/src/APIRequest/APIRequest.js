@@ -407,9 +407,9 @@ export function DeletePublisher(id){
 }
 
 // search Product
-export function ProductSearchRequest(search){
+export const ProductSearchRequest=async (search)=>{
     let URL="https://bechedin-deploy-production.up.railway.app/api/v1/ProductSearch/"+search;
-    return Axios.get(URL).then((res)=>{
+    return await  Axios.get(URL).then((res)=>{
 
         if(res.status===200){
             return res.data['data'];
