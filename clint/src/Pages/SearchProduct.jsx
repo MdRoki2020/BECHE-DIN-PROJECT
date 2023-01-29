@@ -7,16 +7,17 @@ import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import { Button } from 'react-bootstrap';
 import { ProductSearchRequest } from '../APIRequest/APIRequest';
-import { ErrorToast, IsEmpty } from '../Helper/FormHelper';
+import { ErrorToast, IsEmpty, SuccessToast } from '../Helper/FormHelper';
 
 
 
 const SearchProduct = () => {
 
-  let ProductSearchRef, LaptopRefRef,MobileRef,WatchRef,ElectronicsRef=useRef();
+  let ProductSearchRef=useRef(); //, LaptopRefRef,MobileRef,WatchRef,ElectronicsRef
 
   const [pageNumber,setPageNumber]=useState(0);
   const [product,setProduct]=useState([]);
+  const [searchProduct,SetSearchProduct]=useState("");
 
   const usersPerPage=18;
   const pagesVisited=pageNumber * usersPerPage
@@ -34,6 +35,7 @@ const SearchProduct = () => {
     // let mobile=MobileRef.value;
     // let watch=WatchRef.value;
     // let electronics=ElectronicsRef.value;
+    
 
     if(IsEmpty(search)){
       ErrorToast("Search Value Required");
@@ -50,21 +52,16 @@ const SearchProduct = () => {
     
   }
 
-
-  // if(searchProduct){
-  //   ProductSearchRequest(searchProduct).then((data)=>{
-  //     SuccessToast("done");
-  //       setProduct(data);
-  //   })
-    
-  // }
+  if(searchProduct){
+    ProductSearchRequest(searchProduct).then((data)=>{
+      // SuccessToast("done");
+        setProduct(data);
+    })
+  }
 
   // else if(IsEmpty(searchProduct)){
   //   ErrorToast("Espect Valid Keyword");
   // }else{
-    
-
-
   // }
 
 
@@ -98,21 +95,21 @@ const SearchProduct = () => {
                 <div className='BrandCheckBoxSearch'>
 
                   <span>BRAND</span>
-                  <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="apple" id="flexCheckDefault" />
-                  <label class="form-check-label" for="flexCheckDefault">Apple</label>
+                  <div className="form-check">
+                  <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="apple" id="flexCheckDefault" />
+                  <label className="form-check-label" for="flexCheckDefault">Apple</label>
+                  </div>
+                  <div className="form-check">
+                    <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="asus" id="flexCheckChecked" />
+                    <label className="form-check-label" for="flexCheckChecked">Asus</label>
+                  </div>
+                  <div className="form-check">
+                    <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="samsung" id="flexCheckDefault" />
+                    <label className="form-check-label" for="flexCheckDefault">Samsung</label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="asus" id="flexCheckChecked" />
-                    <label class="form-check-label" for="flexCheckChecked">Asus</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="samsung" id="flexCheckDefault" />
-                    <label class="form-check-label" for="flexCheckDefault">Samsung</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="walton" id="flexCheckDefault" />
-                    <label class="form-check-label" for="flexCheckDefault">Walton</label>
+                    <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="walton" id="flexCheckDefault" />
+                    <label className="form-check-label" for="flexCheckDefault">Walton</label>
                   </div>
 
                 </div>
@@ -124,21 +121,21 @@ const SearchProduct = () => {
                   <span>CATEGORIES</span>
 
 
-                  <div class="form-check">
-                  <input ref={(input)=>LaptopRefRef=input} class="form-check-input" type="checkbox" value="laptop" id="flexCheckDefault" />
-                  <label class="form-check-label" for="flexCheckDefault">Laptop</label>
+                  <div className="form-check">
+                  <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="laptop" id="flexCheckDefault" />
+                  <label className="form-check-label" for="flexCheckDefault">Laptop</label>
                   </div>
-                  <div class="form-check">
-                    <input ref={(input)=>MobileRef=input} class="form-check-input" type="checkbox" value="mobile" id="flexCheckChecked" />
-                    <label class="form-check-label" for="flexCheckChecked">Mobile</label>
+                  <div className="form-check">
+                    <input onClick={(e)=>SetSearchProduct(e.target.value)}  className="form-check-input" type="checkbox" value="mobile" id="flexCheckChecked" />
+                    <label className="form-check-label" for="flexCheckChecked">Mobile</label>
                   </div>
-                  <div class="form-check">
-                    <input ref={(input)=>WatchRef=input} class="form-check-input" type="checkbox" value="watch" id="flexCheckDefault" />
-                    <label class="form-check-label" for="flexCheckDefault">Watch</label>
+                  <div className="form-check">
+                    <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="watch" id="flexCheckDefault" />
+                    <label className="form-check-label" for="flexCheckDefault">Watch</label>
                   </div>
-                  <div class="form-check">
-                    <input ref={(input)=>ElectronicsRef=input} class="form-check-input" type="checkbox" value="electronics" id="flexCheckDefault" />
-                    <label class="form-check-label" for="flexCheckDefault">Electronics</label>
+                  <div className="form-check">
+                    <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="electronics" id="flexCheckDefault" />
+                    <label className="form-check-label" for="flexCheckDefault">Electronics</label>
                   </div>
 
 
@@ -152,7 +149,7 @@ const SearchProduct = () => {
                   <input type="range" className="form-range" id="customRange2" />
                 </div>
 
-                <button onClick={GetSearchValue} className='everythingSearch btn btn-info shadow'><BsSearch/></button>
+                <button className='everythingSearch btn btn-info shadow'><BsSearch/></button>
               </div>
 
           </div>
