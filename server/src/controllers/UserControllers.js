@@ -73,10 +73,7 @@ exports.AllADs=(req,res)=>{
 exports.ProductSearch=async(req,res)=>{
     try{
         let search=req.params.search;
-        // let laptop = req.params.laptop;
-        // let mobile=req.params.mobile;
-        // let watch = req.params.watch;
-        // let electronics = req.params.electronics;
+
         let data=await PostAdsModel.find(  
             {
                 $or:[
@@ -84,17 +81,30 @@ exports.ProductSearch=async(req,res)=>{
                     {"ProductName":{ $regex: ".*"+search+".*","$options": "i"}},
                     {"ProductPrice":{ $regex: ".*"+search+".*","$options": "i"}},
                     {"ProductBrand":{ $regex: ".*"+search+".*","$options": "i"}},
-                    
-                    
-                    // {"ProductCategories":{ $regex: ".*"+laptop+".*","$options": "i"}},
-                    // {"ProductCategories":{ $regex: ".*"+mobile+".*","$options": "i"}},
-                    // {"ProductCategories":{ $regex: ".*"+watch+".*","$options": "i"}},
-                    // {"ProductCategories":{ $regex: ".*"+electronics+".*","$options": "i"}}, 
 
 
                     ]
             }
             );
+        if(data.length>0){
+            res.status(200).json({status:"success",data:data})
+        }
+        else{
+            res.status(200).json({status:"success",data:data})
+        }
+    }catch{
+        res.status(400).json({status:"fail",data:err})
+    }
+}
+
+
+//checkboxSearch
+exports.CheckBoxSearch=async(req,res)=>{
+    try{
+        let search=req.params.data;
+
+        let data=await PostAdsModel.find( {"ProductCategories":{ $regex: ".*"+search+".*","$options": "i"}} );
+
         if(data.length>0){
             res.status(200).json({status:"success",data:data})
         }

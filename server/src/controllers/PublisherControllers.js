@@ -1,6 +1,8 @@
 const PostAdsModel = require('../models/PostAdsModel');
 const PublisherModel=require('../models/PublisherModel');
 const jwt=require("jsonwebtoken");
+const SendEmailUtility = require('../utility/SendEmailUtility');
+const OTPModel = require('../models/OtpModel');
 
 //Create Publisher
 exports.CreatePublisher=(req,res)=>{
@@ -157,3 +159,83 @@ exports.DeletePublisher=(req,res)=>{
     })
     
 }
+
+
+
+
+//password recover api start.....
+//recover verify email
+exports.RecoverVerifyEmail=async (req,res)=>{
+    let Email = req.params.email;
+    let OTPCode = Math.floor(100000 + Math.random() * 900000)
+    try {
+        // Email Account Query
+        let UserCount = (await PublisherModel.aggregate([{$match: {Email:Email}}, {$count: "total"}]))
+        if(UserCount.length>0){
+            // OTP Insert
+            let CreateOTP = await OTPModel.create({Email:Email, otp:OTPCode})
+            // Email Send
+            let SendEmail = await SendEmailUtility(Email,"Your PIN Code is= "+OTPCode,"BECHE-DIN PIN Verification")
+            res.status(200).json({status: "success", data: SendEmail})
+        }
+        else{
+            res.status(200).json({status: "fail", data: "No User Found"})
+        }
+
+    }catch (e) {
+        res.status(200).json({status: "fail", data:e})
+    }
+}
+
+
+exports.RecoverVerifyOTP=async(req,res)=>{
+    let Email=req.params.email;
+    let OTPCode=req.params.otp;
+    let status=0;
+    let statusUpdate=1;
+
+    try{
+
+    let OTPCount=(await OTPModel.aggregate([{$match:{Email:Email,otp:OTPCode,status:status}},{$count:"total"}]))
+    if(OTPCount.length>0){
+        let OTPUpdate = await OTPModel.updateOne({Email:Email, otp:OTPCode, status:status}, {
+            Email:Email,
+            otp:OTPCode,
+            status:statusUpdate
+        })
+        res.status(200).json({status:"success", data:OTPUpdate})
+
+    }else{
+        res.status(200).json({status:"fail",data:"invalid OTP Code"})
+    }
+}catch(e){
+    res.status(200).json({status:"fail", data:e})
+}
+
+}
+
+
+exports.RecoverResetPass=async (req,res)=>{
+
+    let Email = req.body['email'];
+    let OTPCode = req.body['OTP'];
+    let NewPass =  req.body['password'];
+    let statusUpdate=1;
+
+    try {
+        let OTPUsedCount = await OTPModel.aggregate([{$match: {Email: Email, otp: OTPCode, status: statusUpdate}}, {$count: "total"}])
+        if (OTPUsedCount.length>0) {
+            let PassUpdate = await PublisherModel.updateOne({Email: Email}, {
+                Password: NewPass
+            })
+            res.status(200).json({status: "success", data: PassUpdate})
+        } else {
+            res.status(200).json({status: "fail", data: "Invalid Request"})
+        }
+    }
+    catch (e) {
+        res.status(200).json({status: "fail", data:e})
+    }
+}
+
+//password recover api start.....

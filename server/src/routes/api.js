@@ -30,6 +30,7 @@ router.get('/FilterByCategories/:ProductCategories',UserController.FilterByCateg
 router.get('/ReadById/:id',UserController.ReadById);
 router.get('/AllADs/',UserController.AllADs);
 router.get('/ProductSearch/:search/',UserController.ProductSearch); //:laptop/:mobile/:watch/:electronics?
+router.get('/CheckBoxSearch/:data/',UserController.CheckBoxSearch);
 
 
 //Publisher Management
@@ -40,5 +41,11 @@ router.post('/AfterPostADsLogin/',PublisherController.AfterPostADsLogin);
 router.get('/SpecificPublisherProductList/:PublisherEmail',PublisherController.SpecificPublisherProductList);
 router.get('/DeleteProduct/:id',AuthVerifyMiddleware,PublisherController.DeleteProduct);
 router.get('/DeletePublisher/:id',PublisherController.DeletePublisher);
+
+
+//for recovery password
+router.get("/RecoverVerifyEmail/:email",PublisherController.RecoverVerifyEmail);
+router.get("/RecoverVerifyOTP/:email/:otp",PublisherController.RecoverVerifyOTP);
+router.post("/RecoverResetPass",PublisherController.RecoverResetPass);
 
 module.exports=router;
