@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import { Button } from 'react-bootstrap';
 import { ProductSearchRequest } from '../APIRequest/APIRequest';
-import { ErrorToast, IsEmpty, SuccessToast } from '../Helper/FormHelper';
+import { ErrorToast, IsEmpty } from '../Helper/FormHelper';
 
 
 

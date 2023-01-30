@@ -176,7 +176,7 @@ const UserSignup = () => {
 
                 <div className='otherDetails'>
                     <Link to='/UserSignin'><p className='haveAnAccount text-center text-primary'>Already Have An Account !</p></Link>
-                    <Link to='#'><p className='forgetPass text-center text-primary'>Forget Password</p></Link>
+                    <Link to='/sendOtp'><p className='forgetPass text-center text-primary'>Forget Password</p></Link>
                 </div>
       
             </div>

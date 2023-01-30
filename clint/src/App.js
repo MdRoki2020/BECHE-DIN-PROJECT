@@ -17,6 +17,9 @@ import LaptopListLayout from './Layout/LaptopListLayout';
 import FindOutLayout from './Layout/FindOutLayout';
 import ProductsLayout from './Layout/ProductsLayout';
 import SearchProductLayout from './Layout/SearchProductLayout';
+import SendOtp from './AccountRecover/SendOtp';
+import VerifyOtp from './AccountRecover/VerifyOtp';
+import CreatePassword from './AccountRecover/CreatePassword';
 
 function App() {
   return (
@@ -45,10 +48,10 @@ function App() {
           <Route path="/ProductList" element={<LaptopListLayout />}/>
           <Route path="/FindOut" element={<FindOutLayout />}/>
 
-
-          {/* <Route path="/sendOtp" element={<SendOtp />}/>
+          {/* for recovery password */}
+          <Route path="/sendOtp" element={<SendOtp />}/>
           <Route path="/verifyOtp" element={<VerifyOtp />}/>
-          <Route path="/createPassword" element={<CreatePassword />} /> */}
+          <Route path="/createPassword" element={<CreatePassword />} />
           
         </Routes>
 

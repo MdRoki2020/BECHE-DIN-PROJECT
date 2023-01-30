@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { getToken, setToken, setUserDetails } from '../Helper/SessionHelperPublisher';
+import { getToken, setEmail, setOTP, setToken, setUserDetails } from '../Helper/SessionHelperPublisher';
 import { ErrorToast, SuccessToast } from '../Helper/FormHelper';
 
 const AxiosHeader={headers:{"token":getToken()}}
@@ -422,4 +422,91 @@ export const ProductSearchRequest=(search)=>{ //,laptop,mobile,watch,electronics
         return false;
     })
 }
+
+
+
+//Password Recovery API Request Start........
+//sendOTP email..
+export function RecoverVerifyEmailRequest(email){
+    let URL="http://localhost:5000/api/v1/RecoverVerifyEmail/"+email;
+
+    return Axios.get(URL).then((res)=>{
+        if(res.status===200){
+            if(res.data['status']==='fail'){
+                ErrorToast("No User Found");
+                return false;
+            }else{
+                setEmail(email);
+                SuccessToast("A 6 Digit Verification code has been sent to your email address");
+                return true;
+            }
+        }
+        else{
+            ErrorToast("Something Went Wrong");
+            return false;
+        }
+    }).catch((err)=>{
+        ErrorToast("Something Went Wrong");
+        return false;
+    });
+}
+
+
+//OTP verify..
+export function RecoverVerifyOTPRequest(email,otp){
+    let URL="http://localhost:5000/api/v1/RecoverVerifyOTP/"+email+"/"+otp;
+    return Axios.get(URL).then((res)=>{
+        if(res.status===200){
+            if(res.data['status']==="fail"){
+                ErrorToast(res.data['data']);
+                return false;
+            }
+            else{
+                setOTP(otp)
+                SuccessToast("Code Verification Success");
+                return true;
+            }
+        }
+        else{
+            ErrorToast("Something Went Wrong")
+            return false;
+        }
+    }).catch((err)=>{
+        ErrorToast("Something Went Wrong")
+        return false;
+    });
+}
+
+
+//password change request
+export function RecoverResetPassRequest(email,OTP,password){
+    let URL="http://localhost:5000/api/v1/RecoverResetPass";
+
+    let postBody={email:email,OTP:OTP,password:password}
+
+    return Axios.post(URL,postBody).then((res)=>{
+        if(res.status===200){
+            if(res.data['status']==='fail'){
+                ErrorToast(res.data['data'])
+                return false;
+            }else{
+                setOTP(OTP)
+                SuccessToast("New Password Created");
+                return true;
+            }
+        }
+        else{
+            ErrorToast("Something Went Wrong")
+            return false
+        }
+    }).catch((err)=>{
+        ErrorToast("Something Went Wrong")
+    });
+}
+
+
+//Password Recovery API Request End........
+
+
+
 
