@@ -41,7 +41,7 @@ const SendOtp = () => {
             
             </div>
             <div className='col-md-4'>
-            <Card className='topSpaceLoginForm px-4 py-4 shadow'>
+            <Card style={{ marginTop : "200px" }} className='topSpaceLoginForm px-4 py-4 shadow'>
             <div className='card px-3 py-4 shadow'>
             <div class="card-body cardTitle">
                 <h3>Email</h3>
