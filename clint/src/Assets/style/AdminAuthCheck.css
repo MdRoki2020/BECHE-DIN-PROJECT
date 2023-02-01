@@ -40,3 +40,12 @@ p.haventAccount.text-center.text-primary {
 p.forgetPassForSignin.text-center.text-primary {
     margin-bottom: 60px;
 }
+
+button.form-control.text-light.animated.fadeInUp.shadow.btn.btn-primary {
+    background: rgb(255, 87, 34);
+    border: none;
+}
+
+button.form-control.text-light.animated.fadeInUp.shadow.btn.btn-primary:hover {
+    background: darkcyan;
+}
