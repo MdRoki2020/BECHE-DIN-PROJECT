@@ -5,7 +5,7 @@ import {Button} from 'react-bootstrap'
 import {AiOutlineMail,AiFillLock } from "react-icons/ai";
 import { VscSignIn } from "react-icons/vsc";
 import { ErrorToast, IsEmail, IsEmpty } from '../../Helper/FormHelper';
-import { PublisherLoginRequest } from '../../APIRequest/APIRequest';
+import { AdminLoginRequest } from '../../APIRequest/APIRequest';
 import FullScreenLoader from '../../common/RoundLoader';
 
 const AdminAuthCheck = () => {
@@ -27,10 +27,10 @@ const AdminAuthCheck = () => {
             ErrorToast("Password Is Required");
         }else{
             Loader.classList.remove('d-none');
-            PublisherLoginRequest(Email,Password).then((result)=>{
+            AdminLoginRequest(Email,Password).then((result)=>{
                 if(result===true){
                     Loader.classList.add('d-none');
-                    navigate("/PublisherDashboard");
+                    navigate("/AdminDashboard");
                 }else{
                     Loader.classList.add('d-none');
                     ErrorToast("Email And Password Dosen't Match");

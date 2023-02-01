@@ -508,5 +508,34 @@ export function RecoverResetPassRequest(email,OTP,password){
 //Password Recovery API Request End........
 
 
+//Admin Login
+export function AdminLoginRequest(Email,Password){
+    let URL="https://bechedin-deploy-production.up.railway.app/api/v1/AdminLogin"
+
+    let PostBody={
+        Email:Email,
+        Password:Password
+    }
+
+    return Axios.post(URL,PostBody).then((res)=>{
+
+        if(res.status===200){
+            setToken(res.data['token']);
+            setUserDetails(res.data['data']);
+            SuccessToast("Login Success")
+            return true;
+        }
+        else{
+            ErrorToast("Invalid Email or Password")
+            return  false;
+        }
+    }).catch((err)=>{
+        console.log("Something Went Wrong");
+        return false;
+    });
+
+}
+
+
 
 
