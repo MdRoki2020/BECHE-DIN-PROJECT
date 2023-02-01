@@ -20,6 +20,7 @@ import SearchProductLayout from './Layout/SearchProductLayout';
 import SendOtp from './AccountRecover/SendOtp';
 import VerifyOtp from './AccountRecover/VerifyOtp';
 import CreatePassword from './AccountRecover/CreatePassword';
+import AdminAuthCheck from './Pages/Admin/AdminAuthCheck';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="/PostAds" element={<PostAdLayout />} />
 
           {/* for admin */}
+          <Route path="/AdminAuthCheck" element={<AdminAuthCheck />}/>
           <Route path="/AdminDashboard" element={<AdminDashboardLayout />} />
           <Route path="/PublisherList" element={<PublisherListLayout />}/>
           <Route path="/ProductList" element={<LaptopListLayout />}/>

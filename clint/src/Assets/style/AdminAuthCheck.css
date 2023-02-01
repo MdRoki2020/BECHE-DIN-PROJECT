@@ -1,0 +1,42 @@
+/* For user signup page */
+.ImageCover {
+    background: url("../images/adminAuthCover.jpg");
+    background-attachment: local;
+    /* background-position: 100%; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 110%; 
+}
+h4.accountHeading.text-center.mt-4 {
+    font-weight: 300;
+}
+
+p.subHeading.text-center {
+    font-weight: 200;
+}
+
+.otherDetails {
+    font-weight: 300;
+    margin-top: 15px;
+}
+.heading {
+    margin: 36px 0px;
+}
+p.forgetPass.text-center.text-primary {
+    margin-bottom: 50px;
+}
+
+
+/* For user signin Page */
+.signinComponents {
+    border: 2px dashed rgb(255, 87, 34);
+    padding: 10px 65px 70px 65px;
+    margin-top: 130px;
+}
+p.haventAccount.text-center.text-primary {
+    margin-top: 33px;
+}
+
+p.forgetPassForSignin.text-center.text-primary {
+    margin-bottom: 60px;
+}
