@@ -428,7 +428,7 @@ export const ProductSearchRequest=(search)=>{ //,laptop,mobile,watch,electronics
 //Password Recovery API Request Start........
 //sendOTP email..
 export function RecoverVerifyEmailRequest(email){
-    let URL="http://localhost:5000/api/v1/RecoverVerifyEmail/"+email;
+    let URL="https://bechedin-deploy-production.up.railway.app/api/v1/RecoverVerifyEmail/"+email;
 
     return Axios.get(URL).then((res)=>{
         if(res.status===200){
@@ -454,7 +454,7 @@ export function RecoverVerifyEmailRequest(email){
 
 //OTP verify..
 export function RecoverVerifyOTPRequest(email,otp){
-    let URL="http://localhost:5000/api/v1/RecoverVerifyOTP/"+email+"/"+otp;
+    let URL="https://bechedin-deploy-production.up.railway.app/api/v1/RecoverVerifyOTP/"+email+"/"+otp;
     return Axios.get(URL).then((res)=>{
         if(res.status===200){
             if(res.data['status']==="fail"){
@@ -480,7 +480,7 @@ export function RecoverVerifyOTPRequest(email,otp){
 
 //password change request
 export function RecoverResetPassRequest(email,OTP,password){
-    let URL="http://localhost:5000/api/v1/RecoverResetPass";
+    let URL="https://bechedin-deploy-production.up.railway.app/api/v1/RecoverResetPass";
 
     let postBody={email:email,OTP:OTP,password:password}
 

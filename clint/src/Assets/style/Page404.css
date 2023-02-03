@@ -1,0 +1,24 @@
+body{
+    background-color: #FFFFFF !important;
+}
+.ErrorContains.text-center {
+    color: #F4181C;
+    margin-top:22px;
+}
+
+p.backBtn {
+    font-weight: 700;
+    font-size: 22px;
+    color: coral;
+}
+p.HomeBtn {
+    font-weight: 600;
+    font-size: 22px;
+    color: coral;
+}
+.ErrorPage img {
+    height: 475px;
+}
+.ErrorContains.text-center h2 {
+    font-family: ui-monospace !important;
+}

@@ -21,6 +21,7 @@ import SendOtp from './AccountRecover/SendOtp';
 import VerifyOtp from './AccountRecover/VerifyOtp';
 import CreatePassword from './AccountRecover/CreatePassword';
 import AdminAuthCheck from './Pages/Admin/AdminAuthCheck';
+import Page404 from './Pages/Page404';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/AllAds" element={<AllAdsLayout />} />
           <Route path="/Shipping/:id" element={<ShippingLayout />} />
           <Route path="/SearchProducts" element={<SearchProductLayout />}/>
+          <Route path="*" element={<Page404/>}/>
 
           {/* for publisher */}
           <Route path="/PublisherDashboard" element={<PublisherDashboardLayout />} />

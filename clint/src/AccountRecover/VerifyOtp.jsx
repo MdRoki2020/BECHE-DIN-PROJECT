@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ReactCodeInput from 'react-code-input-2'
-import { ErrorToast } from '../Helper/FormHelper';
+import { ErrorToast, SuccessToast } from '../Helper/FormHelper';
 import { getEmail } from '../Helper/SessionHelperPublisher';
 import { RecoverVerifyOTPRequest } from '../APIRequest/APIRequest';
 const VerifyOtp = () => {
@@ -11,6 +11,7 @@ const VerifyOtp = () => {
 
     const SubmitOTP = () => {
         if(otp.length===6){
+            SuccessToast("Please Wait");
             RecoverVerifyOTPRequest(getEmail(),otp).then((result)=>{
                 if(result===true){
                     nevigate("/createPassword");

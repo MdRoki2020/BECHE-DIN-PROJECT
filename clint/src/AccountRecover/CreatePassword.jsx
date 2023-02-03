@@ -1,7 +1,7 @@
 import React, { Fragment, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { RecoverResetPassRequest } from '../APIRequest/APIRequest';
-import { ErrorToast, IsEmpty } from '../Helper/FormHelper';
+import { ErrorToast, IsEmpty, SuccessToast } from '../Helper/FormHelper';
 import { getEmail, getOTP } from '../Helper/SessionHelperPublisher';
 
 const CreatePassword = () => {
@@ -22,6 +22,7 @@ const CreatePassword = () => {
   else if(password!==confirmPassword){
       ErrorToast("Password Dosen't Match");
   }else{
+    SuccessToast("Please Wait...");
       RecoverResetPassRequest(getEmail(),getOTP(),password).then((result)=>{
           if(result===true){
               navigate("/UserSignin");
