@@ -126,51 +126,51 @@ const UserSignup = () => {
                 
                 <form method="post" enctype="multipart/form-data">
                 <div className='row my-4'>
-                        <div className='col-md-6'>
-                            <input type='text' ref={(input)=>FirstNameRef=input} className='form-control animated fadeInUp' placeholder='Enter First Name'/>
-                        </div>
-                        <div className='col-md-6'>
-                            <input type='text' ref={(input)=>LastNameRef=input} className='form-control animated fadeInUp' placeholder='Enter Last Name'/>
-                        </div>
+                    <div className='col-md-6'>
+                        <input type='text' ref={(input)=>FirstNameRef=input} className='form-control animated fadeInUp' placeholder='Enter First Name'/>
+                    </div>
+                    <div className='col-md-6'>
+                        <input type='text' ref={(input)=>LastNameRef=input} className='form-control animated fadeInUp' placeholder='Enter Last Name'/>
+                    </div>
                 </div>
 
                 <div className='row'>
-                        <div className='col-md-6'>
-                            <input type='text' ref={(input)=>AgeRef=input} className='form-control animated fadeInUp' placeholder='Enter Age'/>
-                        </div>
-                        <div className='col-md-6'>
-                            <input type='text' ref={(input)=>MobileNumRef=input} className='form-control animated fadeInUp' placeholder='Enter Mobile Number'/>
-                        </div>
+                    <div className='col-md-6'>
+                        <input type='text' ref={(input)=>AgeRef=input} className='form-control animated fadeInUp' placeholder='Enter Age'/>
+                    </div>
+                    <div className='col-md-6'>
+                        <input type='text' ref={(input)=>MobileNumRef=input} className='form-control animated fadeInUp' placeholder='Enter Mobile Number'/>
+                    </div>
                 </div>
 
                 <div className='row py-4'>
-                        <div className='col-md-12 input-group'>
-                            <input type='email' ref={(input)=>EmailRef=input} className='form-control animated fadeInUp' placeholder='Enter Email'/>
-                        </div>
+                    <div className='col-md-12 input-group'>
+                        <input type='email' ref={(input)=>EmailRef=input} className='form-control animated fadeInUp' placeholder='Enter Email'/>
+                    </div>
                 </div>
 
                 <div className='row mb-4'>
-                        <div className='col-md-6'>
-                            <input type='file' ref={(input)=>fileRef=input} className='form-control animated fadeInUp'/>
-                        </div>
-                        <div className='col-md-6'>
-                            <input type='text' ref={(input)=>DistrictRef=input} className='form-control animated fadeInUp' placeholder='Enter District'/>
-                        </div>
+                    <div className='col-md-6'>
+                        <input type='file' ref={(input)=>fileRef=input} className='form-control animated fadeInUp'/>
+                    </div>
+                    <div className='col-md-6'>
+                        <input type='text' ref={(input)=>DistrictRef=input} className='form-control animated fadeInUp' placeholder='Enter District'/>
+                    </div>
                 </div>
 
                 <div className='row'>
-                        <div className='col-md-6'>
-                            <input type='password' ref={(input)=>PasswordRef=input} className='form-control animated fadeInUp' placeholder='Enter Password'/>
-                        </div>
-                        <div className='col-md-6'>
-                            <input type='password' ref={(input)=>CnfrmPasswordRef=input} className='form-control animated fadeInUp' placeholder='Enter Conform Password'/>
-                        </div>
+                    <div className='col-md-6'>
+                        <input type='password' ref={(input)=>PasswordRef=input} className='form-control animated fadeInUp' placeholder='Enter Password'/>
+                    </div>
+                    <div className='col-md-6'>
+                        <input type='password' ref={(input)=>CnfrmPasswordRef=input} className='form-control animated fadeInUp' placeholder='Enter Conform Password'/>
+                    </div>
                 </div>
 
                 <div className='row py-4'>
-                        <div className='col-md-12'>
-                            <Button onClick={OnSignUp} className='form-control btn btn-warning text-light animated fadeInUp shadow'>Signup With Email <AiOutlineUserAdd/></Button>
-                        </div>
+                    <div className='col-md-12'>
+                        <Button onClick={OnSignUp} className='form-control btn btn-warning text-light animated fadeInUp shadow'>Signup With Email <AiOutlineUserAdd/></Button>
+                    </div>
                 </div>
                 </form>
 
