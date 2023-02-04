@@ -510,7 +510,7 @@ export function RecoverResetPassRequest(email,OTP,password){
 
 //Admin Login
 export function AdminLoginRequest(Email,Password){
-    let URL="http://localhost:5000/api/v1/AdminLogin"
+    let URL="https://bechedin-deploy-production.up.railway.app/api/v1/AdminLogin"
 
     let PostBody={
         Email:Email,

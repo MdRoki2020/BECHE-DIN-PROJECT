@@ -237,7 +237,7 @@ const AdminDashboard = () => {
                     <td className='animated fadeInUp'>{value.Address}</td>
                     <td className='animated fadeInUp'>{value.TransactionId}</td>
                     <td className='animated fadeInUp'><Badge bg="danger">Pending</Badge></td>
-                    <td className='animated fadeInUp'>{value.CreatedDate}</td>
+                    <td className='animated fadeInUp'>{formatDate(new Date(value.CreatedDate))}</td>
                     </tr>
                     )
                   }
@@ -273,5 +273,22 @@ const AdminDashboard = () => {
     </Fragment>
   )
 }
+
+
+const formatDate = date => {
+  const months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+  ];
+  const month = months[date.getMonth()];
+  const day = date.getDate();
+  const year = date.getFullYear();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const hours12 = hours % 12 || 12;
+  return `${day}-${month}-${year}   ${hours12}:${minutes}:${seconds} ${ampm}`;
+};
 
 export default AdminDashboard

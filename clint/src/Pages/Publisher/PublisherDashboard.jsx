@@ -197,7 +197,9 @@ const DeleteItem=(id)=>{
                 <td className='animated fadeInUp'>{value.ProductColor}</td>
                 <td className='animated fadeInUp'>{value.ProductBattery}</td>
                 <td className='animated fadeInUp'>{value.ProductWarranty}</td>
-                <td className='animated fadeInUp'>{value.CreatedDate}</td>
+                {/* <td className='animated fadeInUp'>{new Date(value.CreatedDate).toLocaleDateString()}</td> 2/1/2023 */}
+                <td className='animated fadeInUp'>{formatDate(new Date(value.CreatedDate))}</td>
+                {/* <td className='animated fadeInUp'>{value.CreatedDate}</td> */}
                 <td className='animated fadeInUp'><span onClick={UpdateItem.bind(this,value._id)} className='text-info'><BiEdit/></span> <span onClick={DeleteItem.bind(this,value._id)} className='text-danger'><RiDeleteBin6Line/></span></td>
                 </tr>
 
@@ -237,5 +239,22 @@ const DeleteItem=(id)=>{
     </Fragment>
   )
 }
+
+
+const formatDate = date => {
+  const months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+  ];
+  const month = months[date.getMonth()];
+  const day = date.getDate();
+  const year = date.getFullYear();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const hours12 = hours % 12 || 12;
+  return `${day}-${month}-${year}   ${hours12}:${minutes}:${seconds} ${ampm}`;
+};
 
 export default PublisherDashboard
