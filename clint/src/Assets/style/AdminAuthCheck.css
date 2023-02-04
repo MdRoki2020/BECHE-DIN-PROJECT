@@ -1,5 +1,5 @@
 /* For user signup page */
-.ImageCover {
+.ImageCover1 {
     background: url("../images/adminAuthCover.jpg");
     background-attachment: local;
     /* background-position: 100%; */
@@ -28,7 +28,7 @@ p.forgetPass.text-center.text-primary {
 
 
 /* For user signin Page */
-.signinComponents {
+.signinComponents1 {
     border: 2px dashed rgb(255, 87, 34);
     padding: 10px 65px 70px 65px;
     margin-top: 130px;

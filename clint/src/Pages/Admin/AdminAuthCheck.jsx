@@ -47,7 +47,7 @@ const AdminAuthCheck = () => {
         <div className='row'>
             <div className='col-md-6'>
                 
-                <div className='signinComponents'>
+                <div className='signinComponents1'>
 
                 <div className='heading'>
                     <h4 className='accountHeading text-center mt-4'>Welcome To Beche Din ADMIN</h4>
@@ -78,7 +78,7 @@ const AdminAuthCheck = () => {
             </div>
 
             <div className='col-md-6'>
-                <div className='ImageCover'>
+                <div className='ImageCover1'>
                     
                 </div>
             </div>

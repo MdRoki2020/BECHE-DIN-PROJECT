@@ -1,11 +1,11 @@
 /* For user signup page */
 .ImageCover {
-    background: url("../images/accountCover.jpg");
-    background-attachment: local;
+    background: url("../images/accountCover.jpg") !important;
+    background-attachment: local !important;
     /* background-position: 100%; */
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    height: 100% !important;
 }
 h4.accountHeading.text-center.mt-4 {
     font-weight: 300;
@@ -29,7 +29,7 @@ p.forgetPass.text-center.text-primary {
 
 /* For user signin Page */
 .signinComponents {
-    border: 2px dashed #ffc107;
+    border: 2px dashed #ffc107 !important;
     padding: 10px 65px 70px 65px;
     margin-top: 90px;
 }
@@ -39,4 +39,10 @@ p.haventAccount.text-center.text-primary {
 
 p.forgetPassForSignin.text-center.text-primary {
     margin-bottom: 60px;
+}
+button.form-control.btn.btn-warning.text-light.animated.fadeInUp.shadow.btn.btn-primary {
+    background: #ffc107;
+}
+button.form-control.btn.btn-warning.text-light.animated.fadeInUp.shadow.btn.btn-primary:hover {
+    background: darkcyan;
 }
