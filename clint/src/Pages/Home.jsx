@@ -14,6 +14,7 @@ import largeposter from '../Assets/images/largePoster.png'
 import Footer from './Footer'
 import { Link } from 'react-router-dom'
 import { Badge, Button } from 'react-bootstrap';
+import 'hover.css/css/hover-min.css';
 
 function Home() {
   return (
@@ -32,7 +33,7 @@ function Home() {
               </div>
               <div className='col-md-6'>
                   <div className='subscribeComponents mt-5 text-center animated fadeInUp'>
-                  <input className='shadow' placeholder='Enter Email'/><Button className='shadow btn btn-info text-light'> <TbBellRinging2/></Button>
+                  <input className='shadow' placeholder='Enter Email'/><Button className='hvr-pop shadow btn btn-info text-light'> <TbBellRinging2/></Button>
                   </div>
               </div>
             </div>
@@ -143,7 +144,7 @@ function Home() {
                 <div className='posterText'>
                   <h2>Sell Your Product's and Earn Money!</h2>
                   <p>If you want to sell any of your products then you can sell now. One of the easiest and quickest works</p>
-                  <Link to='/PostAuth'><button className='btn btn-warning shadow rounded-pill'>Post Your Ads <AiOutlinePlusSquare/></button></Link>
+                  <Link to='/PostAuth'><button className='btn btn-warning shadow rounded-pill hvr-pop'>Post Your Ads <AiOutlinePlusSquare/></button></Link>
                 </div>
                 </div>
               </div>
@@ -160,7 +161,7 @@ function Home() {
                 <div className='posterText'>
                   <h2>Buy items at your fingertips !</h2>
                   <p>You can easily select your desired product and purchase it from here. It is easy and safe to use.</p>
-                  <Link to='/AllAds'><button className='btn btn-info shadow rounded-pill'>See All Ads <AiOutlineDoubleRight/></button></Link>
+                  <Link to='/AllAds'><button className='btn btn-info shadow rounded-pill hvr-pop'>See All Ads <AiOutlineDoubleRight/></button></Link>
                 </div>
                 </div>
               </div>
@@ -180,7 +181,7 @@ function Home() {
                 <div className='posterText'>
                   <h2>Find the right product for you !</h2>
                   <p>Get the product directly in hand and have the facility of fastest delivery. In the case of buying and selling products, you get the benefit of seeing and understanding , that is, you can see any product with your own hands and then buy and sell it. ad!</p>
-                  <button className='btn btn-primary shadow rounded-pill'>Shop Now <AiFillCaretRight/></button>
+                  <button className='btn btn-primary shadow rounded-pill hvr-pop'>Shop Now <AiFillCaretRight/></button>
                 </div>
                 </div>
               </div>
@@ -201,7 +202,7 @@ function Home() {
           <div className='row'>
             <div className='col-md-4'>
               <div className='singleContact'>
-                <div className='singleContactBox card shadow mb-3'><AiTwotonePhone/></div>
+                <div className='singleContactBox card shadow mb-3 hvr-float-shadow hvr-pop'><AiTwotonePhone/></div>
                 <h5>Phone</h5>
                 <p>If you have to need any help you can call any time. Our teem spend there time for give best service.</p>
                 <p>++8801717453205</p>
@@ -209,7 +210,7 @@ function Home() {
             </div>
             <div className='col-md-4'>
               <div className='singleContact'>
-                <div className='singleContactBox card shadow mb-3'><AiTwotoneMail/></div>
+                <div className='singleContactBox card shadow mb-3 hvr-float-shadow hvr-pop'><AiTwotoneMail/></div>
                 <h5>Email</h5>
                 <p>If you have want to send massage, You can send email us. We shall back to response very quickly!</p>
                 <p>mroki815@gmail.com</p>
@@ -217,7 +218,7 @@ function Home() {
             </div>
             <div className='col-md-4'>
               <div className='singleContact'>
-                <div className='singleContactBox card shadow mb-3'><AiFillEnvironment/></div>
+                <div className='singleContactBox card shadow mb-3 hvr-float-shadow hvr-Buzz hvr-pop'><AiFillEnvironment/></div>
                 <h5>Location</h5>
                 <p>Our Company has located in Chittagong, Bangladesh. please visit <a href='https://rsroki.info'>Rs Roki (Protfolio)</a> for more info.</p>
                 <p>Mirpur Dhaka</p>
