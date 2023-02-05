@@ -1,16 +1,48 @@
 import React,{ Fragment, useRef} from 'react'
 import { Button } from 'react-bootstrap';
 import { MdPublish } from 'react-icons/md';
-import FullScreenLoader from '../../common/FullScreenLoader'
-
+import FullScreenLoader from '../../common/FullScreenLoader';
+import {useNavigate, useParams} from "react-router-dom";
+import { UpdateProductRequest } from '../../APIRequest/APIRequest';
+import { SuccessToast } from '../../Helper/FormHelper';
 
 const UpdateProduct = () => {
+    let navigate = useNavigate ();
 
-    let ProductNameRef,ProductFeaturesRef,ProductBrandRef,ProductPriceRef,ProductExPriceRef,ProductColorRef,ProductBatteryRef,WarrantyRef,ImageRef,ProductCategoriesRef,Loader=useRef();
+    const {id}=useParams();
+
+    let ProductNameRef,ProductFeaturesRef,ProductBrandRef,ProductPriceRef,ProductExPriceRef,ProductColorRef,ProductBatteryRef,WarrantyRef,ProductCategoriesRef,Loader=useRef();
 
     const OnUpdate=()=>{
-        
+        let ProductName=ProductNameRef.value
+        let ProductFeatures=ProductFeaturesRef.value
+        let ProductBrand=ProductBrandRef.value
+        let ProductPrice=ProductPriceRef.value
+        let ProductExPrice=ProductExPriceRef.value
+        let ProductColor=ProductColorRef.value
+        let ProductBattery=ProductBatteryRef.value
+        let Warranty=WarrantyRef.value
+        let ProductCategories=ProductCategoriesRef.value
+
+
+      Loader.classList.remove('d-none');
+
+      UpdateProductRequest(id,ProductName,ProductFeatures,ProductBrand,ProductPrice,ProductExPrice,ProductColor,ProductBattery,Warranty,ProductCategories)
+     .then((result)=>{
+
+      Loader.classList.add('d-none');
+
+        if(result===true){
+          navigate("/PublisherDashboard");
+          SuccessToast("Product Updated");
+
+        }else{
+            console.log('something went wrong');
+        }
+    });
+
     }
+
   return (
     <Fragment>
       <div className='container'>
@@ -23,7 +55,7 @@ const UpdateProduct = () => {
                   <h4><MdPublish/></h4>
                   </div>
                   <div className='col-sm-9'>
-                  <h4>Post Ads !</h4>
+                  <h4>Update Ads !</h4>
                   </div>
                 </div>
             </div>
@@ -84,11 +116,11 @@ const UpdateProduct = () => {
                 </div>
 
                 <div className='row'>
-                    <div className='col-md-6'>
+                    {/* <div className='col-md-6'>
                     <label >Product Image</label>
                         <input ref={(input)=>ImageRef=input} type='file' className='form-control animated fadeInUp'/>
-                    </div>
-                    <div className='col-md-6'>
+                    </div> */}
+                    <div className='col-md-12'>
                         <label>Product Categories</label>
                         <select ref={(input)=>ProductCategoriesRef=input} className='form-control animated fadeInUp'>
                           <option selected>Select Categories</option>

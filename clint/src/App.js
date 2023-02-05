@@ -22,7 +22,7 @@ import VerifyOtp from './AccountRecover/VerifyOtp';
 import CreatePassword from './AccountRecover/CreatePassword';
 import AdminAuthCheck from './Pages/Admin/AdminAuthCheck';
 import Page404 from './Pages/Page404';
-import UpdateProduct from './Pages/Publisher/UpdateProduct';
+import UpdateProductLayout from './Layout/UpdateProductLayout';
 
 function App() {
   return (
@@ -45,7 +45,7 @@ function App() {
           {/* for publisher */}
           <Route path="/PublisherDashboard" element={<PublisherDashboardLayout />} />
           <Route path="/PostAds" element={<PostAdLayout />} />
-          <Route path="/updateProduct/:id" element={<UpdateProduct />} />
+          <Route path="/updateProduct/:id" element={<UpdateProductLayout />} />
 
           {/* for admin */}
           <Route path="/AdminAuthCheck" element={<AdminAuthCheck />}/>
