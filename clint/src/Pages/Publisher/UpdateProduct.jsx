@@ -1,15 +1,25 @@
-import React,{ Fragment, useRef} from 'react'
+import React,{ Fragment, useEffect, useRef, useState} from 'react'
 import { Button } from 'react-bootstrap';
 import { MdPublish } from 'react-icons/md';
 import FullScreenLoader from '../../common/FullScreenLoader';
 import {useNavigate, useParams} from "react-router-dom";
-import { UpdateProductRequest } from '../../APIRequest/APIRequest';
+import { ReadById, UpdateProductRequest } from '../../APIRequest/APIRequest';
 import { SuccessToast } from '../../Helper/FormHelper';
 
 const UpdateProduct = () => {
     let navigate = useNavigate ();
 
+    const [Product,setProduct]=useState([]);
+
     const {id}=useParams();
+
+    useEffect(()=>{
+        ReadById(id).then((data)=>{
+    
+            setProduct(data[0]);
+    
+          })
+      },[id])
 
     let ProductNameRef,ProductFeaturesRef,ProductBrandRef,ProductPriceRef,ProductExPriceRef,ProductColorRef,ProductBatteryRef,WarrantyRef,ProductCategoriesRef,Loader=useRef();
 
@@ -63,7 +73,7 @@ const UpdateProduct = () => {
             <div className='allInputs1'>
               <div className='productName'>
                   <label >Product Name</label>
-                  <input ref={(input)=>ProductNameRef=input} maxlength="15" className='form-control animated fadeInUp' type='text' placeholder='Write Product Name'/>
+                  <input value={Product.ProductName} ref={(input)=>ProductNameRef=input} maxlength="15" className='form-control animated fadeInUp' type='text' placeholder='Write Product Name'/>
                 </div>
                 {/* <div className='features'>
                   <label className='mb-2'>Product Fetures</label>
@@ -71,7 +81,7 @@ const UpdateProduct = () => {
                 </div> */}
                 <div className='features'>
                   <label className='mb-2'>Product Fetures</label>
-                  <textarea ref={(input)=>ProductFeaturesRef=input} placeholder="Write Your Extra Feature" className='form-control animated fadeInUp' rows="11" cols="50">Roki Vai</textarea>
+                  <textarea value={Product.ProductFetures} ref={(input)=>ProductFeaturesRef=input} placeholder="Write Your Extra Feature" className='form-control animated fadeInUp' rows="11" cols="50"></textarea>
                 </div>
             </div>
           </div>
@@ -82,36 +92,36 @@ const UpdateProduct = () => {
                 <div className='row my-4'>
                     <div className='col-md-6'>
                         <label >Brand</label>
-                        <input ref={(input)=>ProductBrandRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Brand'/>
+                        <input value={Product.ProductBrand} ref={(input)=>ProductBrandRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Brand'/>
                     </div>
                     <div className='col-md-6'>
                         <label >Product Price</label>
-                        <input ref={(input)=>ProductPriceRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Price'/>
+                        <input value={Product.ProductPrice} ref={(input)=>ProductPriceRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Price'/>
                     </div>
                 </div>
 
                 <div className='row'>
                     <div className='col-md-6'>
                         <label >Product Ex-Price</label>
-                        <input ref={(input)=>ProductExPriceRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Ex-price'/>
+                        <input value={Product.ProductExPrice} ref={(input)=>ProductExPriceRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Ex-price'/>
                     </div>
                     <div className='col-md-6'>
                         <label >Product Color</label>
-                        <input ref={(input)=>ProductColorRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Color'/>
+                        <input value={Product.ProductColor} ref={(input)=>ProductColorRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Color'/>
                     </div>
                 </div>
 
                 <div className='row py-4'>
                     <div className='col-md-12'>
                         <label >Product Battery mAh</label>
-                        <input ref={(input)=>ProductBatteryRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Battery mAh'/>
+                        <input value={Product.ProductBattery} ref={(input)=>ProductBatteryRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Battery mAh'/>
                     </div>
                 </div>
 
                 <div className='row mb-4'>
                     <div className='col-md-12'>
                         <label >Warranty-Information</label>
-                        <input ref={(input)=>WarrantyRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Warranty-Information'/>
+                        <input value={Product.ProductWarranty} ref={(input)=>WarrantyRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Warranty-Information'/>
                     </div>
                 </div>
 
@@ -122,7 +132,7 @@ const UpdateProduct = () => {
                     </div> */}
                     <div className='col-md-12'>
                         <label>Product Categories</label>
-                        <select ref={(input)=>ProductCategoriesRef=input} className='form-control animated fadeInUp'>
+                        <select value={Product.ProductCategories} ref={(input)=>ProductCategoriesRef=input} className='form-control animated fadeInUp'>
                           <option selected>Select Categories</option>
                           <option value="Laptop">Laptop</option>
                           <option value="Mobile">Mobile</option>

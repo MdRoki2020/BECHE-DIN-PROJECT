@@ -91,7 +91,7 @@ const PublisherDashboard = () => {
 
 
   const UpdateItem=(id)=>{
-    navigate("/updateProduct/"+id);
+    navigate("/UpdateProduct/"+id);
 }
 
 
