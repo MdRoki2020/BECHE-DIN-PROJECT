@@ -12,7 +12,6 @@ import '../../Assets/style/adminDashboard.css'
 import Footer from '../Footer'
 import { useState } from 'react';
 import { FilterProductByEmail } from '../../APIRequest/APIRequest';
-import { ErrorToast } from '../../Helper/FormHelper';
 import { useNavigate } from 'react-router-dom';
 import { DeleteAlert } from '../../Helper/DeleteAlert';
 
@@ -92,7 +91,7 @@ const PublisherDashboard = () => {
 
 
   const UpdateItem=(id)=>{
-    navigate("/updatefood/"+id);
+    navigate("/updateProduct/"+id);
 }
 
 

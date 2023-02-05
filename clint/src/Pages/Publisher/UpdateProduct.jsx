@@ -1,117 +1,16 @@
-import React, { Fragment, useRef } from 'react'
-// import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css'
-import '../../Assets/style/PostAds.css'
-import { MdPublish } from "react-icons/md";
+import React,{ Fragment, useRef} from 'react'
 import { Button } from 'react-bootstrap';
-import { ErrorToast, IsEmpty } from '../../Helper/FormHelper';
-import Swal from 'sweetalert2';
-import FullScreenLoader from '../../common/FullScreenLoader';
-import { getUserDetails } from '../../Helper/SessionHelperPublisher';
-import { PostADsRequest } from '../../APIRequest/APIRequest';
+import { MdPublish } from 'react-icons/md';
+import FullScreenLoader from '../../common/FullScreenLoader'
 
-const PostAds = () => {
 
-  let PublisherEmail=getUserDetails()['Email'];
+const UpdateProduct = () => {
 
-  let ProductNameRef,ProductFeaturesRef,ProductBrandRef,ProductPriceRef,ProductExPriceRef,ProductColorRef,ProductBatteryRef,WarrantyRef,ImageRef,ProductCategoriesRef,Loader=useRef();
- 
-  const OnPost=()=>{
-  let ProductName=ProductNameRef.value;
-  let ProductFetures=ProductFeaturesRef.value;
-  let ProductBrand=ProductBrandRef.value;
-  let ProductPrice=ProductPriceRef.value;
-  let ProductExPrice=ProductExPriceRef.value;
-  let ProductColor=ProductColorRef.value;
-  let ProductBattery=ProductBatteryRef.value;
-  let ProductWarranty=WarrantyRef.value;
-  let Image=ImageRef.files[0];
-  let ProductCategories=ProductCategoriesRef.value;
-  
-  if(IsEmpty(ProductName)){
-      ErrorToast("First Name Required");
+    let ProductNameRef,ProductFeaturesRef,ProductBrandRef,ProductPriceRef,ProductExPriceRef,ProductColorRef,ProductBatteryRef,WarrantyRef,ImageRef,ProductCategoriesRef,Loader=useRef();
+
+    const OnUpdate=()=>{
+        
     }
-    else if(IsEmpty(ProductFetures)){
-      ErrorToast("Product Features Required");
-    }
-    else if(IsEmpty(ProductBrand)){
-      ErrorToast("Product Brand Required");
-    }
-    else if(IsEmpty(ProductPrice)){
-      ErrorToast("Price Required");
-    }
-    else if(IsEmpty(ProductExPrice)){
-      ErrorToast("Product Ex-Price Required");
-    }
-    else if(IsEmpty(ProductColor)){
-      ErrorToast("Product Color Required");
-    }
-    else if(IsEmpty(ProductBattery)){
-      ErrorToast("Battery Required");
-    }
-    else if(IsEmpty(ProductWarranty)){
-      ErrorToast("Warrenty Required");
-    }
-    else if(IsEmpty(Image)){
-      ErrorToast("Image Required");
-    }
-    else if(IsEmpty(ProductCategories)){
-      ErrorToast("Product Categories Required");
-    }else{
-
-      Loader.classList.remove('d-none');
-
-      const formData=new FormData();
-      formData.append('file',Image);
-      formData.append('PublisherEmail',PublisherEmail);
-      formData.append('ProductName',ProductName);
-      formData.append('ProductBrand',ProductBrand);
-      formData.append('ProductPrice',ProductPrice);
-      formData.append('ProductExPrice',ProductExPrice);
-      formData.append('ProductColor',ProductColor);
-      formData.append('ProductBattery',ProductBattery);
-      formData.append('ProductWarranty',ProductWarranty);
-      formData.append('ProductCategories',ProductCategories);
-      formData.append('ProductFetures',ProductFetures)
-
-    PostADsRequest(formData).then((result)=>{
-      
-      if(result===true){
-        Loader.classList.add('d-none');
-
-        ProductNameRef.value="";
-        ProductFeaturesRef.value="";
-        ProductBrandRef.value="";
-        ProductPriceRef.value="";
-        ProductExPriceRef.value="";
-        ProductColorRef.value="";
-        ProductBatteryRef.value="";
-        WarrantyRef.value="";
-        ImageRef.value="";
-        ProductCategoriesRef.value="";
-
-        success();
-
-      }
-      else{
-      Loader.classList.add('d-none');
-      ErrorToast('Something Went Wrong');
-      console.log('something went wrong');
-      }
-    })
-
-    }
-  }
-
-    const success=()=>{
-      Swal.fire(
-        'Successfully Added !',
-        'You clicked the button!',
-        'success'
-      )
-    }
-
-
   return (
     <Fragment>
       <div className='container'>
@@ -205,7 +104,7 @@ const PostAds = () => {
 
                 <div className='row py-4'>
                     <div className='col-md-12'>
-                        <Button onClick={OnPost} className='form-control btn btn-warning text-light animated fadeInUp shadow'>Publish <MdPublish/></Button>
+                        <Button onClick={OnUpdate} className='form-control btn btn-warning text-light animated fadeInUp shadow'>Publish <MdPublish/></Button>
                     </div>
                 </div>
 
@@ -224,4 +123,4 @@ const PostAds = () => {
   )
 }
 
-export default PostAds
+export default UpdateProduct
