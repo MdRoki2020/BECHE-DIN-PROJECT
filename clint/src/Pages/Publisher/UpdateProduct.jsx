@@ -73,7 +73,7 @@ const UpdateProduct = () => {
             <div className='allInputs1'>
               <div className='productName'>
                   <label >Product Name</label>
-                  <input value={Product.ProductName} ref={(input)=>ProductNameRef=input} maxlength="15" className='form-control animated fadeInUp' type='text' placeholder='Write Product Name'/>
+                  <input defaultValue={Product.ProductName} ref={(input)=>ProductNameRef=input} maxlength="15" className='form-control animated fadeInUp' type='text' placeholder='Write Product Name'/>
                 </div>
                 {/* <div className='features'>
                   <label className='mb-2'>Product Fetures</label>
@@ -81,7 +81,7 @@ const UpdateProduct = () => {
                 </div> */}
                 <div className='features'>
                   <label className='mb-2'>Product Fetures</label>
-                  <textarea value={Product.ProductFetures} ref={(input)=>ProductFeaturesRef=input} placeholder="Write Your Extra Feature" className='form-control animated fadeInUp' rows="11" cols="50"></textarea>
+                  <textarea defaultValue={Product.ProductFetures} ref={(input)=>ProductFeaturesRef=input} placeholder="Write Your Extra Feature" className='form-control animated fadeInUp' rows="11" cols="50"></textarea>
                 </div>
             </div>
           </div>
@@ -92,36 +92,36 @@ const UpdateProduct = () => {
                 <div className='row my-4'>
                     <div className='col-md-6'>
                         <label >Brand</label>
-                        <input value={Product.ProductBrand} ref={(input)=>ProductBrandRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Brand'/>
+                        <input defaultValue={Product.ProductBrand} ref={(input)=>ProductBrandRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Brand'/>
                     </div>
                     <div className='col-md-6'>
                         <label >Product Price</label>
-                        <input value={Product.ProductPrice} ref={(input)=>ProductPriceRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Price'/>
+                        <input defaultValue={Product.ProductPrice} ref={(input)=>ProductPriceRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Price'/>
                     </div>
                 </div>
 
                 <div className='row'>
                     <div className='col-md-6'>
                         <label >Product Ex-Price</label>
-                        <input value={Product.ProductExPrice} ref={(input)=>ProductExPriceRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Ex-price'/>
+                        <input defaultValue={Product.ProductExPrice} ref={(input)=>ProductExPriceRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Ex-price'/>
                     </div>
                     <div className='col-md-6'>
                         <label >Product Color</label>
-                        <input value={Product.ProductColor} ref={(input)=>ProductColorRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Color'/>
+                        <input defaultValue={Product.ProductColor} ref={(input)=>ProductColorRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Color'/>
                     </div>
                 </div>
 
                 <div className='row py-4'>
                     <div className='col-md-12'>
                         <label >Product Battery mAh</label>
-                        <input value={Product.ProductBattery} ref={(input)=>ProductBatteryRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Battery mAh'/>
+                        <input defaultValue={Product.ProductBattery} ref={(input)=>ProductBatteryRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Battery mAh'/>
                     </div>
                 </div>
 
                 <div className='row mb-4'>
                     <div className='col-md-12'>
                         <label >Warranty-Information</label>
-                        <input value={Product.ProductWarranty} ref={(input)=>WarrantyRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Warranty-Information'/>
+                        <input defaultValue={Product.ProductWarranty} ref={(input)=>WarrantyRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Warranty-Information'/>
                     </div>
                 </div>
 
@@ -132,14 +132,14 @@ const UpdateProduct = () => {
                     </div> */}
                     <div className='col-md-12'>
                         <label>Product Categories</label>
-                        <select value={Product.ProductCategories} ref={(input)=>ProductCategoriesRef=input} className='form-control animated fadeInUp'>
-                          <option selected>Select Categories</option>
-                          <option value="Laptop">Laptop</option>
-                          <option value="Mobile">Mobile</option>
-                          <option value="Watch">Watch</option>
-                          <option value="Television">Television</option>
-                          <option value="Electronics">Electronics</option>
-                          <option value="Fashion">Fashion</option>
+                        <select defaultValue={Product.ProductCategories} ref={(input)=>ProductCategoriesRef=input} className='form-control animated fadeInUp'>
+                          <option defaultValue="">Select Categories</option>
+                          <option defaultValue="Laptop">Laptop</option>
+                          <option defaultValue="Mobile">Mobile</option>
+                          <option defaultValue="Watch">Watch</option>
+                          <option defaultValue="Television">Television</option>
+                          <option defaultValue="Electronics">Electronics</option>
+                          <option defaultValue="Fashion">Fashion</option>
                         </select>
                     </div>
                 </div>
