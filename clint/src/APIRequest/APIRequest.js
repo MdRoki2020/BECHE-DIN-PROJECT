@@ -540,7 +540,7 @@ export function AdminLoginRequest(Email,Password){
 //Product Update Request
 export function UpdateProductRequest(id,ProductName,ProductFeatures,ProductBrand,ProductPrice,ProductExPrice,ProductColor,ProductBattery,Warranty,ProductCategories){
 
-    let URL="http://localhost:5000/api/v1/UpdateProduct"+id
+    let URL="http://localhost:5000/api/v1/UpdateProduct/"+id
 
     let PostBody={
         ProductName:ProductName,
@@ -550,7 +550,7 @@ export function UpdateProductRequest(id,ProductName,ProductFeatures,ProductBrand
         ProductExPrice:ProductExPrice,
         ProductColor:ProductColor,
         ProductBattery:ProductBattery,
-        Warranty:Warranty,
+        ProductWarranty:Warranty,
         ProductCategories:ProductCategories
     }
 

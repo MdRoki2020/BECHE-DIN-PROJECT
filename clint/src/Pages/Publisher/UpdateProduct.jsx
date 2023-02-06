@@ -132,7 +132,7 @@ const UpdateProduct = () => {
                     </div> */}
                     <div className='col-md-12'>
                         <label>Product Categories</label>
-                        <select defaultValue={Product.ProductCategories} ref={(input)=>ProductCategoriesRef=input} className='form-control animated fadeInUp'>
+                        <select value={Product.ProductCategories} ref={(input)=>ProductCategoriesRef=input} className='form-control animated fadeInUp'>
                           <option defaultValue="">Select Categories</option>
                           <option defaultValue="Laptop">Laptop</option>
                           <option defaultValue="Mobile">Mobile</option>
