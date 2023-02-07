@@ -238,4 +238,34 @@ exports.RecoverResetPass=async (req,res)=>{
     }
 }
 
-//password recover api start.....
+//password recover api end.....
+
+
+//update product
+exports.UpdateProduct=(req,res)=>{
+
+    let id=req.params.id;
+    let Query={_id:id};
+    let reqBody=req.body;
+    // let reqBody={
+        
+    //     ProductName:req.body.ProductName,
+    //     ProductFeatures:req.body.ProductFeatures,
+    //     ProductBrand:req.body.ProductBrand,
+    //     ProductPrice:req.body.ProductPrice,
+    //     ProductExPrice:req.body.ProductExPrice,
+    //     ProductColor:req.body.ProductColor,
+    //     ProductBattery:req.body.ProductBattery,
+    //     ProductWarranty:req.body.ProductWarranty,
+    //     ProductCategories:req.body.ProductCategories
+        
+    // }
+
+    PostAdsModel.updateOne(Query,reqBody,(err,data)=>{
+        if(err){
+            res.status(400).json({status:"fail",data:err})
+        }else{
+            res.status(200).json({status:"success",data:data})
+        }
+    })
+}
