@@ -540,11 +540,11 @@ export function AdminLoginRequest(Email,Password){
 //Product Update Request
 export function UpdateProductRequest(id,ProductName,ProductFeatures,ProductBrand,ProductPrice,ProductExPrice,ProductColor,ProductBattery,Warranty,ProductCategories){
 
-    let URL="http://localhost:5000/api/v1/UpdateProduct/"+id
+    let URL="https://bechedin-deploy-production.up.railway.app/api/v1/UpdateProduct/"+id
 
     let PostBody={
         ProductName:ProductName,
-        ProductFeatures:ProductFeatures,
+        ProductFetures:ProductFeatures,
         ProductBrand:ProductBrand,
         ProductPrice:ProductPrice,
         ProductExPrice:ProductExPrice,

@@ -45,7 +45,6 @@ const UpdateProduct = () => {
         if(result===true){
           navigate("/PublisherDashboard");
           SuccessToast("Product Updated");
-
         }else{
             console.log('something went wrong');
         }
