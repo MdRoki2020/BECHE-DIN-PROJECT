@@ -8,8 +8,11 @@ import ReactImageMagnify from 'react-image-magnify';
 import { BsPatchCheckFill,BsBatteryCharging } from "react-icons/bs";
 import { IoColorPaletteSharp } from "react-icons/io5";
 import { SiBrandfolder } from "react-icons/si";
-import { ReadById } from '../APIRequest/APIRequest';
-import { FaComments } from 'react-icons/fa';
+import { CreateCommentRequest, ReadById, ReadCommentsById } from '../APIRequest/APIRequest';
+import { RiSendPlaneFill } from "react-icons/ri";
+import { ErrorToast, IsEmpty, SuccessToast } from '../Helper/FormHelper';
+import ReactPaginate from 'react-paginate';
+import { FcClock, FcComments } from "react-icons/fc";
 
 const ProductDetails = () => {
 
@@ -31,9 +34,54 @@ const ProductDetails = () => {
   console.log(product)
 
   //for comment
-  const OnComment=()=>{
 
+  const OnComment=()=>{
+    let comment=CommentRef.value;
+
+    if(IsEmpty(comment)){
+      ErrorToast("Please Write Comment");
+    }else{
+      SuccessToast("Please Wait...");
+      CreateCommentRequest(id,comment).then((result)=>{
+
+    if(result===true){
+      CommentRef.value="";
+      SuccessToast("Comment Successfully Added");
+    }
+    else{
+      ErrorToast('Something Went Wrong');
+      console.log('something went wrong');
+    }
+    })
+    }
   }
+
+
+
+
+  const [Comment,setComment]=useState([]);
+
+  const [pageNumber,setPageNumber]=useState(0);
+
+  const usersPerPage=5;
+  const pagesVisited=pageNumber * usersPerPage
+  const displayComments=Comment.slice(pagesVisited,pagesVisited+usersPerPage)
+  const pageCount=Math.ceil(Comment.length / usersPerPage);
+  const changePage=({selected})=>{
+    setPageNumber(selected);
+  };
+
+  useEffect(()=>{
+    GetData();
+    
+  },[])
+
+  const GetData=()=>{
+    ReadCommentsById(id).then((data)=>{
+      setComment(data);
+      })
+  }
+
 
   return (
     <Fragment>
@@ -64,11 +112,56 @@ const ProductDetails = () => {
               <div className='ProductComments'>
                 <div className='row'>
 
-                <div className='col-md-7 mt-4'>
-                      <input ref={(input)=>CommentRef=input} type='text' className='form-control animated fadeInUp' placeholder='Write Your Comment'/>
+                <div className='col-md-9 mt-5'>
+                      <input ref={(input)=>CommentRef=input} type='text' className='form-control animated fadeInUp shadow commentInput' placeholder='Write Your Comment'/>
                   </div>
-                  <div className='col-md-5 mt-4'>
-                    <button onClick={OnComment} className='btn btn-primary shadow'>Comment <FaComments/></button>
+                  <div className='col-md-3 mt-5'>
+                    <button onClick={OnComment} className='btn btn-primary shadow commentBtn'>Send <RiSendPlaneFill/></button>
+                  </div>
+
+                  <div className='allComments mt-3'>
+                    <table className='table table-striped table-bordered table-responsive text-center'>
+                      <thead>
+                        <tr>
+                          <th><FcComments/></th>
+                          <th><FcClock/></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {
+                      displayComments.map((value,key)=>
+                        <tr key={key}>
+                          <td>{value.Comments}</td>
+                          <td>{formatDate(new Date(value.createdDate))}</td>
+                        </tr>
+                        )
+                      }
+                      </tbody>
+                    </table>
+
+
+                  <div className=''>
+                    <ReactPaginate 
+                      previousLabel={"previous"}
+                      nextLabel={"next"}
+                      breakLabel={"..."}
+                      pageCount={pageCount}
+                      onPageChange={changePage}
+                      containerClassName={"pagination justify-content-end"}
+                      pageClassName={"page-item"}
+                      pageLinkClassName={"page-link"}
+                      previousClassName={"page-item"}
+                      previousLinkClassName={"page-link"}
+                      nextClassName={"page-item"}
+                      nextLinkClassName={"page-link"}
+                      breakClassName={"page-item"}
+                      breakLinkClassName={"page-link"}
+                      activeClassName={"active"}
+                    />
+                  </div>
+
+
+
                   </div>
 
                 </div>
@@ -77,7 +170,7 @@ const ProductDetails = () => {
             <div className='col-md-8'>
               <div className='productDetails my-4'>
                 <div className='detailsSectionOne'>
-                  <h4>Asus Vivobook 15</h4>
+                  <h4>{product.ProductName}</h4>
                   <button className='btn starButton my-3 shadow'>0 <AiFillStar/></button> (0) <Link to='#'><span className='reviewOption'> | Add Your Review</span></Link>
                   <p>Brand: <span className='brand'> {product.ProductBrand}</span> | Categories: <span className='soldBy'> {product.ProductCategories}</span></p>
                 </div>
@@ -135,5 +228,22 @@ const ProductDetails = () => {
     </Fragment>
   )
 }
+
+
+const formatDate = date => {
+  const months = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+  ];
+  const month = months[date.getMonth()];
+  const day = date.getDate();
+  const year = date.getFullYear();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const hours12 = hours % 12 || 12;
+  return `${day}-${month}-${year}   ${hours12}:${minutes}:${seconds} ${ampm}`;
+};
 
 export default ProductDetails

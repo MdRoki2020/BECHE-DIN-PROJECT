@@ -567,5 +567,47 @@ export function UpdateProductRequest(id,formData){  //ProductName,ProductFeature
 }
 
 
+//create comment request
+//order request
+export function CreateCommentRequest(id,Comments){
+    let URL="https://bechedin-deploy-production.up.railway.app/api/v1/CreateComment"
+
+    let PostBody={
+        ProductId:id,
+        Comments:Comments,
+
+    }
+
+    return Axios.post(URL,PostBody).then((res)=>{
+        if(res.status===200){
+            return true;
+        }else{
+            return false;
+        }
+    }).catch((err)=>{
+        console.log(err);
+        return false;
+    })
+}
+
+
+
+//reads comments by id
+export function ReadCommentsById(id){
+    let URL="https://bechedin-deploy-production.up.railway.app/api/v1/ReadCommentByProductId/"+id;
+    return Axios.get(URL).then((res)=>{
+
+        if(res.status===200){
+            return res.data['data'];
+        }else{
+            return false
+        }
+
+    }).catch((err)=>{
+        return false
+    })
+}
+
+
 
 

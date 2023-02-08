@@ -45,11 +45,15 @@ p.coins {
 button.buynow.form-control {
     background-color: rgb(255, 87, 34);
     color: white;
+    border: none;
 }
 
 button.wishlist.form-control.my-4 {
     background: rgb(18, 153, 232);
     color: white;
+}
+button.buynow.form-control.animated.fadeInUp.shadow:hover {
+    background: dimgray;
 }
 b.featuresheader {
     font-weight: normal;
@@ -73,4 +77,12 @@ span.featuresnormal {
 }
 p.text-center.my-3 {
     color: rgb(255, 87, 34);
+}
+.commentBtn {
+    background: rgb(255, 87, 34);
+    border: none;
+}
+.commentInput {
+    border: none;
+    /* border-bottom: 1px solid rgb(255, 87, 34); */
 }
