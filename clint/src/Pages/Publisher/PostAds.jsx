@@ -140,7 +140,7 @@ const PostAds = () => {
                 </div> */}
                 <div className='features'>
                   <label className='mb-2'>Product Fetures</label>
-                  <textarea ref={(input)=>ProductFeaturesRef=input} placeholder="Write Your Extra Feature" className='form-control animated fadeInUp' rows="11" cols="50">Roki Vai</textarea>
+                  <textarea ref={(input)=>ProductFeaturesRef=input} placeholder="Write Your Extra Features" className='form-control animated fadeInUp' rows="11" cols="50"></textarea>
                 </div>
             </div>
           </div>

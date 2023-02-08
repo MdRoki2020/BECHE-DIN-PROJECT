@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { AiFillStar,AiOutlineHeart,AiOutlineShopping } from "react-icons/ai";
 import '../Assets/style/productDetails.css';
 import { Link, useParams } from 'react-router-dom';
@@ -9,8 +9,11 @@ import { BsPatchCheckFill,BsBatteryCharging } from "react-icons/bs";
 import { IoColorPaletteSharp } from "react-icons/io5";
 import { SiBrandfolder } from "react-icons/si";
 import { ReadById } from '../APIRequest/APIRequest';
+import { FaComments } from 'react-icons/fa';
 
 const ProductDetails = () => {
+
+  let CommentRef=useRef();
 
   const [product,setProduct]=useState([]);
 
@@ -26,6 +29,11 @@ const ProductDetails = () => {
   },[id])
 
   console.log(product)
+
+  //for comment
+  const OnComment=()=>{
+
+  }
 
   return (
     <Fragment>
@@ -51,6 +59,19 @@ const ProductDetails = () => {
               </div>
               <button className='wishlist form-control my-4 animated fadeInUp shadow'>WishList <AiOutlineHeart/></button>
               <Link to={'/Shipping/'+product._id}><button className='buynow form-control animated fadeInUp shadow'>Buy Now <AiOutlineShopping/></button></Link>
+              </div>
+
+              <div className='ProductComments'>
+                <div className='row'>
+
+                <div className='col-md-7 mt-4'>
+                      <input ref={(input)=>CommentRef=input} type='text' className='form-control animated fadeInUp' placeholder='Write Your Comment'/>
+                  </div>
+                  <div className='col-md-5 mt-4'>
+                    <button onClick={OnComment} className='btn btn-primary shadow'>Comment <FaComments/></button>
+                  </div>
+
+                </div>
               </div>
             </div>
             <div className='col-md-8'>
