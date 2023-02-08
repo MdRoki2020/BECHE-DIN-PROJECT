@@ -139,7 +139,7 @@ exports.ReadCommentByProductId=(req,res)=>{
     CommentsModel.aggregate([
         {$match:{ProductId:ProductId}},
         {$project:{
-            _id:0,ProductId:1,Comments:1,CreatedDate:1,
+            _id:0,ProductId:1,Comments:1,createdDate:1,
         }}
     ],(err,data)=>{
         if(err){
