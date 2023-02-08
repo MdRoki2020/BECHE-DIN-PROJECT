@@ -32,7 +32,7 @@ router.get('/AllADs/',UserController.AllADs);
 router.get('/ProductSearch/:search/',UserController.ProductSearch); //:laptop/:mobile/:watch/:electronics?
 router.get('/CheckBoxSearch/:data/',UserController.CheckBoxSearch);
 router.post('/CreateComment/',UserController.CreateComment);
-router.get('/ReadCommentByProductId/',UserController.ReadCommentByProductId);
+router.get('/ReadCommentByProductId/:ProductId',UserController.ReadCommentByProductId);
 
 
 //Publisher Management
