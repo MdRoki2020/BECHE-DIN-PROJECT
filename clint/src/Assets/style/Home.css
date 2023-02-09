@@ -1,9 +1,10 @@
 .wrapper {
-    background: url('../images//cover.jpg');
-    padding: 143px 0px;
-    background-attachment: fixed;
+    /* background: url('../images/cover.jpg'); */
+    background: url('https://img.freepik.com/premium-vector/big-sale-valentines-day-with-discount-offer-facebook-cover-banner-design-premium-vector_600732-30.jpg?w=2000');
+    padding: 180px 0px;
+    background-attachment: inherit;
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: top;
     background-size: cover;
 }
 h2.textContentWrapper {
