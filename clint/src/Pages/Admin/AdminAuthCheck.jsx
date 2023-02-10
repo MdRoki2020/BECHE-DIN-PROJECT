@@ -7,6 +7,7 @@ import { VscSignIn } from "react-icons/vsc";
 import { ErrorToast, IsEmail, IsEmpty } from '../../Helper/FormHelper';
 import { AdminLoginRequest } from '../../APIRequest/APIRequest';
 import FullScreenLoader from '../../common/RoundLoader';
+import { BsArrowRightCircle } from "react-icons/bs";
 
 const AdminAuthCheck = () => {
     let EmailRef,PasswordRef,Loader=useRef();
@@ -73,6 +74,7 @@ const AdminAuthCheck = () => {
                 <div className='otherDetails'>
                     <Link to='/UserSignup'><p className='haventAccount text-center text-primary'>Haven't An Account !</p></Link>
                     <Link to='/sendOtp'><p className='forgetPassForSignin text-center text-primary'>Forget Password</p></Link>
+                    <Link to='/'><p className='text-center text-primary'>GO Home <BsArrowRightCircle /></p></Link>
                 </div>
       
             </div>
