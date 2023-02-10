@@ -1,10 +1,13 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { Badge, Table } from 'react-bootstrap'
+import { Badge, Button, Table } from 'react-bootstrap'
+import { AiTwotoneEnvironment } from 'react-icons/ai'
+import { BsSearch } from 'react-icons/bs'
 import ReactPaginate from 'react-paginate'
 import Swal from 'sweetalert2'
 import { AllADsList, DeleteProduct } from '../../APIRequest/APIRequest'
 import '../../Assets/style/adminDashboard.css'
 import { DeleteAlert } from '../../Helper/DeleteAlert'
+import { MdProductionQuantityLimits } from "react-icons/md";
 
 const LaptopList = () => {
 
@@ -43,12 +46,31 @@ const LaptopList = () => {
   return (
     <Fragment>
         <div className='container-fluid'>
+        <div className='row'>
+          <div className='col-md-12'>
+              <div className='card posterWrapper animated flipInX my-4'>
+                <div className='row'>
+                  <div className='col-sm-3'>
+                  <h2><MdProductionQuantityLimits /></h2>
+                  </div>
+                  <div className='col-sm-9'>
+                  <div className='posterText'>
+                    <h2>All Products !</h2>
+                    {/* <p><AiTwotoneEnvironment/> All Bangladesh !</p> */}
+                    {/* <input className='searchDistrict shadow' placeholder='What Are You Want' /> <Button className='btn btn-info shadow'><BsSearch/></Button> */}
+                  </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+
         <Badge bg="danger mb-3">
          Product List
         </Badge>
 
         <div className='orderTable card mb-3'>
-
             <Table striped bordered hover responsive>
             <thead>
                 <tr>
