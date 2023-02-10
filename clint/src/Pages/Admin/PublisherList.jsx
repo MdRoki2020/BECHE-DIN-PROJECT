@@ -4,6 +4,7 @@ import ReactPaginate from 'react-paginate'
 import '../../Assets/style/adminDashboard.css'
 import { AllPublisherList } from '../../APIRequest/APIRequest'
 import { PublisherDeleteAlert } from '../../Helper/PublisherDeleteAlert'
+import { FcBusinessman } from "react-icons/fc";
 
 const PublisherList = () => {
 
@@ -40,6 +41,26 @@ const PublisherList = () => {
   return (
     <Fragment>
         <div className='container-fluid'>
+
+        <div className='row'>
+          <div className='col-md-12'>
+              <div className='card posterWrapper animated flipInX my-4'>
+                <div className='row'>
+                  <div className='col-sm-3'>
+                  <h2><FcBusinessman /></h2>
+                  </div>
+                  <div className='col-sm-9'>
+                  <div className='posterText'>
+                    <h2>All Publishers !</h2>
+                    {/* <p><AiTwotoneEnvironment/> All Bangladesh !</p> */}
+                    {/* <input className='searchDistrict shadow' placeholder='What Are You Want' /> <Button className='btn btn-info shadow'><BsSearch/></Button> */}
+                  </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
         <Badge bg="danger mb-3">
          Publisher List
         </Badge>
