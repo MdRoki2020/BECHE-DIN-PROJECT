@@ -1,13 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { Badge, Button, Table } from 'react-bootstrap'
-import { AiTwotoneEnvironment } from 'react-icons/ai'
-import { BsSearch } from 'react-icons/bs'
+import { Badge, Table } from 'react-bootstrap'
 import ReactPaginate from 'react-paginate'
-import Swal from 'sweetalert2'
-import { AllADsList, DeleteProduct } from '../../APIRequest/APIRequest'
+import { AllADsList } from '../../APIRequest/APIRequest'
 import '../../Assets/style/adminDashboard.css'
 import { DeleteAlert } from '../../Helper/DeleteAlert'
 import { MdProductionQuantityLimits } from "react-icons/md";
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 
 const LaptopList = () => {
 
@@ -91,7 +90,15 @@ const LaptopList = () => {
             {
               displayAds.map((value,key)=>
               <tr key={key}>
-                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} width="50" alt='image'/></td>
+                {/* <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} width="50" alt='image'/></td> */}
+                <td>
+                <Zoom>
+                  <img className='img-fluid img-thumbnail rounded' alt={value.ProductName}
+                  src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`}
+                  width="50" height="50"
+                  />
+                </Zoom>
+                </td>
                 <td className='animated fadeInUp'>{value.ProductName}</td>
                 <td className='animated fadeInUp'>{value.ProductBrand}</td>
                 <td className='animated fadeInUp'>{value.ProductPrice}</td>

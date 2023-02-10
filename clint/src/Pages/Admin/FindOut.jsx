@@ -7,6 +7,7 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 import { generateVoucherCode, ReadOrderByTransactionId, ReadProductsById, ShowVoucherCode } from '../../APIRequest/APIRequest';
 import { ErrorToast, IsEmpty, SuccessToast } from '../../Helper/FormHelper';
 import Swal from 'sweetalert2';
+import { GiRollingEnergy } from "react-icons/gi";
 
 const FindOut = () => {
 
@@ -69,6 +70,7 @@ const FindOut = () => {
             if(result===true){
                 voucherRef.value="";
                 success();
+                getCode();
             }else{
                 ErrorToast("Something Went Wrong")
             }
@@ -226,7 +228,7 @@ const FindOut = () => {
                 <div className='voucherCode'>
                 <label>Generate Voucher Code</label>
                 <input ref={(input)=>voucherRef=input} className='form-control animated fadeInUp' placeholder='Generate Voucher Code'/>
-                <button onClick={generateVoucher} className='applyButton shadow form-control mt-2'>Generate</button>
+                <button onClick={generateVoucher} className='applyButton shadow form-control mt-2'>Generate <GiRollingEnergy /></button>
                 </div>
                 <table className='subTotalTable table table-striped table-hover table-bordered table-responsive'>
                     <tbody>

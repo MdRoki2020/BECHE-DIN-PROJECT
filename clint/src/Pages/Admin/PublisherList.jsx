@@ -5,6 +5,8 @@ import '../../Assets/style/adminDashboard.css'
 import { AllPublisherList } from '../../APIRequest/APIRequest'
 import { PublisherDeleteAlert } from '../../Helper/PublisherDeleteAlert'
 import { FcBusinessman } from "react-icons/fc";
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 
 const PublisherList = () => {
 
@@ -85,7 +87,15 @@ const PublisherList = () => {
             {
                 displayUsers.map((value,key)=>
                 <tr key={key}>
-                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} alt="profile" width="50"/></td>
+                {/* <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} alt="profile" width="50"/></td> */}
+                <td>
+                <Zoom>
+                  <img className='img-fluid img-thumbnail rounded' alt={value.FirstName}
+                  src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`}
+                  width="50" height="50"
+                  />
+                </Zoom>
+                </td>
                 <td className='animated fadeInUp'>{value.FirstName}</td>
                 <td className='animated fadeInUp'>{value.LastName}</td>
                 <td className='animated fadeInUp'>{value.Age}</td>
