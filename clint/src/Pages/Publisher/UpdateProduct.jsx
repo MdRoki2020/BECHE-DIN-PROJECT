@@ -24,72 +24,69 @@ const UpdateProduct = () => {
     let ProductNameRef,ProductFeaturesRef,ProductBrandRef,ProductPriceRef,ProductExPriceRef,ProductColorRef,ProductBatteryRef,WarrantyRef,ImageRef,ProductCategoriesRef,Loader=useRef();
 
     const OnUpdate=()=>{
-        // let ProductName=ProductNameRef.value
-        // let ProductFeatures=ProductFeaturesRef.value
-        // let ProductBrand=ProductBrandRef.value
-        // let ProductPrice=ProductPriceRef.value
-        // let ProductExPrice=ProductExPriceRef.value
-        // let ProductColor=ProductColorRef.value
-        // let ProductBattery=ProductBatteryRef.value
-        // let Warranty=WarrantyRef.value
-        // let ProductCategories=ProductCategoriesRef.value
+        let ProductName=ProductNameRef.value
+        let ProductFeatures=ProductFeaturesRef.value
+        let ProductBrand=ProductBrandRef.value
+        let ProductPrice=ProductPriceRef.value
+        let ProductExPrice=ProductExPriceRef.value
+        let ProductColor=ProductColorRef.value
+        let ProductBattery=ProductBatteryRef.value
+        let Warranty=WarrantyRef.value
+        let ProductCategories=ProductCategoriesRef.value
 
-        let ProductName=ProductNameRef.value;
-        let ProductFetures=ProductFeaturesRef.value;
-        let ProductBrand=ProductBrandRef.value;
-        let ProductPrice=ProductPriceRef.value;
-        let ProductExPrice=ProductExPriceRef.value;
-        let ProductColor=ProductColorRef.value;
-        let ProductBattery=ProductBatteryRef.value;
-        let ProductWarranty=WarrantyRef.value;
-        let Image=ImageRef.files[0];
-        let ProductCategories=ProductCategoriesRef.value;
+        // let ProductName=ProductNameRef.value;
+        // let ProductFetures=ProductFeaturesRef.value;
+        // let ProductBrand=ProductBrandRef.value;
+        // let ProductPrice=ProductPriceRef.value;
+        // let ProductExPrice=ProductExPriceRef.value;
+        // let ProductColor=ProductColorRef.value;
+        // let ProductBattery=ProductBatteryRef.value;
+        // let ProductWarranty=WarrantyRef.value;
+        // let Image=ImageRef.files[0];
+        // let ProductCategories=ProductCategoriesRef.value;
 
       Loader.classList.remove('d-none');
 
 
-      const formData=new FormData();
-      formData.append('file',Image);
-      formData.append('ProductName',ProductName);
-      formData.append('ProductBrand',ProductBrand);
-      formData.append('ProductPrice',ProductPrice);
-      formData.append('ProductExPrice',ProductExPrice);
-      formData.append('ProductColor',ProductColor);
-      formData.append('ProductBattery',ProductBattery);
-      formData.append('ProductWarranty',ProductWarranty);
-      formData.append('ProductCategories',ProductCategories);
-      formData.append('ProductFetures',ProductFetures)
+    //   const formData=new FormData();
+    //   formData.append('file',Image);
+    //   formData.append('ProductName',ProductName);
+    //   formData.append('ProductBrand',ProductBrand);
+    //   formData.append('ProductPrice',ProductPrice);
+    //   formData.append('ProductExPrice',ProductExPrice);
+    //   formData.append('ProductColor',ProductColor);
+    //   formData.append('ProductBattery',ProductBattery);
+    //   formData.append('ProductWarranty',ProductWarranty);
+    //   formData.append('ProductCategories',ProductCategories);
+    //   formData.append('ProductFetures',ProductFetures)
 
-      UpdateProductRequest(id,formData).then((result)=>{
-      Loader.classList.add('d-none');
-      if(result===true){
-        navigate("/PublisherDashboard");
-        SuccessToast("Product Updated");
-
-        // success();
-
-      }
-      else{
-      // Loader.classList.add('d-none');
-      ErrorToast('Something Went Wrong');
-      console.log('something went wrong');
-      }
-    })
-
-
-
-    //   UpdateProductRequest(id,ProductName,ProductFeatures,ProductBrand,ProductPrice,ProductExPrice,ProductColor,ProductBattery,Warranty,ProductCategories)
-    //  .then((result)=>{
-
+    //   UpdateProductRequest(id,formData).then((result)=>{
     //   Loader.classList.add('d-none');
+    //   if(result===true){
+    //     navigate("/PublisherDashboard");
+    //     SuccessToast("Product Updated");
+    //   }
+    //   else{
+    //   // Loader.classList.add('d-none');
+    //   ErrorToast('Something Went Wrong');
+    //   console.log('something went wrong');
+    //   }
+    // })
 
-    //     if(result===true){
-          // navigate("/PublisherDashboard");
-          // SuccessToast("Product Updated");
-    //     }else{
-    //         console.log('something went wrong');
-    //     }
-    // });
+
+
+      UpdateProductRequest(id,ProductName,ProductFeatures,ProductBrand,ProductPrice,ProductExPrice,ProductColor,ProductBattery,Warranty,ProductCategories)
+     .then((result)=>{
+
+      Loader.classList.add('d-none');
+
+        if(result===true){
+          navigate("/PublisherDashboard");
+          SuccessToast("Product Updated");
+        }else{
+            console.log('something went wrong');
+        }
+    });
 
     }
 
@@ -159,17 +156,17 @@ const UpdateProduct = () => {
                 </div>
 
                 <div className='row mb-4'>
-                    <div className='col-md-6'>
+                    <div className='col-md-12'>
                         <label >Warranty-Information</label>
                         <input defaultValue={Product.ProductWarranty} ref={(input)=>WarrantyRef=input} type='text' className='form-control animated fadeInUp' placeholder='Enter Warranty-Information'/>
                     </div>
                 </div>
 
                 <div className='row'>
-                    <div className='col-md-6'>
+                    {/* <div className='col-md-6'>
                     <label >Product Image</label>
                         <input ref={(input)=>ImageRef=input} type='file' className='form-control animated fadeInUp'/>
-                    </div>
+                    </div> */}
                     <div className='col-md-12'>
                         <label>Product Categories</label>
                         <select value={Product.ProductCategories} ref={(input)=>ProductCategoriesRef=input} className='form-control animated fadeInUp'>

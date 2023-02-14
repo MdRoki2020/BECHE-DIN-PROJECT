@@ -538,23 +538,23 @@ export function AdminLoginRequest(Email,Password){
 
 
 //Product Update Request
-export function UpdateProductRequest(id,formData){  //ProductName,ProductFeatures,ProductBrand,ProductPrice,ProductExPrice,ProductColor,ProductBattery,Warranty,ProductCategories
+export function UpdateProductRequest(id,ProductName,ProductFeatures,ProductBrand,ProductPrice,ProductExPrice,ProductColor,ProductBattery,Warranty,ProductCategories){  //
 
-    let URL="http://localhost:5000/api/v1/UpdateProduct/"+id
+    let URL="https://bechedin-deploy-production.up.railway.app/api/v1/UpdateProduct/"+id
 
-    // let PostBody={
-    //     ProductName:ProductName,
-    //     ProductFetures:ProductFeatures,
-    //     ProductBrand:ProductBrand,
-    //     ProductPrice:ProductPrice,
-    //     ProductExPrice:ProductExPrice,
-    //     ProductColor:ProductColor,
-    //     ProductBattery:ProductBattery,
-    //     ProductWarranty:Warranty,
-    //     ProductCategories:ProductCategories
-    // }
+    let PostBody={
+        ProductName:ProductName,
+        ProductFetures:ProductFeatures,
+        ProductBrand:ProductBrand,
+        ProductPrice:ProductPrice,
+        ProductExPrice:ProductExPrice,
+        ProductColor:ProductColor,
+        ProductBattery:ProductBattery,
+        ProductWarranty:Warranty,
+        ProductCategories:ProductCategories
+    }
 
-    return Axios.post(URL,formData).then((res)=>{
+    return Axios.post(URL,PostBody).then((res)=>{
         if(res.status===200){
             return true;
         }else{
@@ -575,7 +575,6 @@ export function CreateCommentRequest(id,Comments){
     let PostBody={
         ProductId:id,
         Comments:Comments,
-
     }
 
     return Axios.post(URL,PostBody).then((res)=>{
