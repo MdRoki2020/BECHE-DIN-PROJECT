@@ -242,45 +242,13 @@ exports.RecoverResetPass=async (req,res)=>{
 
 
 //update product
-// exports.UpdateProduct=(req,res)=>{
-
-//     let id=req.params.id;
-//     let Query={_id:id};
-//     let reqBody=req.body;
-
-//     PostAdsModel.updateOne(Query,reqBody,(err,data)=>{
-//         if(err){
-//             res.status(400).json({status:"fail",data:err})
-//         }else{
-//             res.status(200).json({status:"success",data:data})
-//         }
-//     })
-// }
-
-
 exports.UpdateProduct=(req,res)=>{
 
     let id=req.params.id;
     let Query={_id:id};
+    let reqBody=req.body;
 
-
-    const file=new PostAdsModel({
-        
-        filePath:req.file.path,
-        ProductName:req.body.ProductName,
-        ProductBrand:req.body.ProductBrand,
-        ProductPrice:req.body.ProductPrice,
-        ProductExPrice:req.body.ProductExPrice,
-        ProductColor:req.body.ProductColor,
-        ProductBattery:req.body.ProductBattery,
-        ProductWarranty:req.body.ProductWarranty,
-        ProductCategories:req.body.ProductCategories,
-        ProductFetures:req.body.ProductFetures
-
-      });
-
-      PostAdsModel.updateOne(Query,file,(err,data)=>{
-
+    PostAdsModel.updateOne(Query,reqBody,(err,data)=>{
         if(err){
             res.status(400).json({status:"fail",data:err})
         }else{
@@ -288,3 +256,35 @@ exports.UpdateProduct=(req,res)=>{
         }
     })
 }
+
+
+// exports.UpdateProduct=(req,res)=>{
+
+//     let id=req.params.id;
+//     let Query={_id:id};
+
+
+//     const file=new PostAdsModel({
+        
+//         filePath:req.file.path,
+//         ProductName:req.body.ProductName,
+//         ProductBrand:req.body.ProductBrand,
+//         ProductPrice:req.body.ProductPrice,
+//         ProductExPrice:req.body.ProductExPrice,
+//         ProductColor:req.body.ProductColor,
+//         ProductBattery:req.body.ProductBattery,
+//         ProductWarranty:req.body.ProductWarranty,
+//         ProductCategories:req.body.ProductCategories,
+//         ProductFetures:req.body.ProductFetures
+
+//       });
+
+//       PostAdsModel.updateOne(Query,file,(err,data)=>{
+
+//         if(err){
+//             res.status(400).json({status:"fail",data:err})
+//         }else{
+//             res.status(200).json({status:"success",data:data})
+//         }
+//     })
+// }
