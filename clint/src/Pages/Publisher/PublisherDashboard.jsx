@@ -14,6 +14,8 @@ import { useState } from 'react';
 import { FilterProductByEmail } from '../../APIRequest/APIRequest';
 import { useNavigate } from 'react-router-dom';
 import { DeleteAlert } from '../../Helper/DeleteAlert';
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 
 const data = [
   {
@@ -187,7 +189,15 @@ const DeleteItem=(id)=>{
             {
                 displayUsers.map((value,key)=>
                 <tr key={key}>
-                <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} alt="laptop" width="50"/></td>
+                  <td>
+                  <Zoom>
+                  <img className='img-fluid img-thumbnail rounded' alt={value.ProductName}
+                  src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`}
+                  width="50" height="50"
+                  />
+                  </Zoom>
+                  </td>
+                {/* <td className='animated fadeInUp'><img className='img-thumbnail rounded' src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} alt="laptop" width="50"/></td> */}
                 <td className='animated fadeInUp'>{value.ProductCategories}</td>
                 <td className='animated fadeInUp'>{value.ProductName}</td>
                 <td className='animated fadeInUp'>{value.ProductBrand}</td>
