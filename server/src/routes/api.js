@@ -12,16 +12,16 @@ const router=express.Router();
 //Admin management
 router.post('/CreateAdmin/',uploadOthers.single('file'),AdminController.CreateAdmin);
 router.post('/AdminLogin/',AdminController.AdminLogin);
-router.get('/TotalOrders/',AuthVerifyMiddleware,AdminController.TotalOrders);
-router.get('/TotalPublisher/',AuthVerifyMiddleware,AdminController.TotalPublisher);
-router.get('/TotalProducts/',AuthVerifyMiddleware,AdminController.TotalProducts);
-router.get('/ReadOrders/',AuthVerifyMiddleware,AdminController.ReadOrders);
-router.get('/ReadPublisher/',AuthVerifyMiddleware,AdminController.ReadPublisher);
-router.get('/ReadProducts/',AuthVerifyMiddleware,AdminController.ReadProducts);
+router.get('/TotalOrders/',AdminController.TotalOrders);
+router.get('/TotalPublisher/',AdminController.TotalPublisher);
+router.get('/TotalProducts/',AdminController.TotalProducts);
+router.get('/ReadOrders/',AdminController.ReadOrders);
+router.get('/ReadPublisher/',AdminController.ReadPublisher);
+router.get('/ReadProducts/',AdminController.ReadProducts);
 router.get('/ReadOrderByTransactionId/:TransactionId',AdminController.ReadOrderByTransactionId);
-router.post('/CreateVoucherCode',AuthVerifyMiddleware,AdminController.CreateVoucherCode);
+router.post('/CreateVoucherCode',AdminController.CreateVoucherCode);
 router.get('/ShowVoucherCode',AdminController.ShowVoucherCode);
-router.get('/DeletePublisher/:id',AuthVerifyMiddleware,PublisherController.DeletePublisher);
+router.get('/DeletePublisher/:id',PublisherController.DeletePublisher);
 
 
 //User management
@@ -40,8 +40,8 @@ router.post('/CreateADs/',upload.single('file'),PublisherController.CreateADs);
 router.post('/PublisherLogin/',PublisherController.PublisherLogin);
 router.post('/AfterPostADsLogin/',PublisherController.AfterPostADsLogin);
 router.get('/SpecificPublisherProductList/:PublisherEmail',PublisherController.SpecificPublisherProductList);
-router.get('/DeleteProduct/:id',AuthVerifyMiddleware,PublisherController.DeleteProduct);
-router.post('/UpdateProduct/:id',AuthVerifyMiddleware,PublisherController.UpdateProduct);
+router.get('/DeleteProduct/:id',PublisherController.DeleteProduct);
+router.post('/UpdateProduct/:id',PublisherController.UpdateProduct);
 
 
 //for recovery password
