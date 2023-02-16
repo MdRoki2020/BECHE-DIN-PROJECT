@@ -33,7 +33,7 @@ function Home() {
               </div>
               <div className='col-md-6'>
                   <div className='subscribeComponents mt-5 text-center animated fadeInUp'>
-                  <input className='shadow' placeholder='Enter Email'/><Button className='hvr-pop shadow btn btn-info text-light'> <TbBellRinging2/></Button>
+                  <input className='shadow' placeholder='Enter Email'/><Button className='hvr-sweep-to-right hvr-pop shadow btn btn-info text-light'> <TbBellRinging2/></Button>
                   </div>
               </div>
             </div>
@@ -50,7 +50,7 @@ function Home() {
             </Badge>
             
             <div className='row'>
-              <div className='col-md-2'>
+              <div className='col-md-2 hvr-pulse-shrink'>
               <Link to='/Products/Laptop'>
               <div className='allItems'>
                 <div className="card">
@@ -63,7 +63,7 @@ function Home() {
               </Link>
               </div>
 
-              <div className='col-md-2'>
+              <div className='col-md-2 hvr-pulse-shrink'>
               <Link to='/Products/Mobile'>
               <div className='allItems'>
                 <div className="card">
@@ -76,7 +76,7 @@ function Home() {
               </Link>
               </div>
 
-              <div className='col-md-2'>
+              <div className='col-md-2 hvr-pulse-shrink'>
               <Link to='/Products/Watch'>
               <div className='allItems'>
                 <div className="card">
@@ -89,7 +89,7 @@ function Home() {
               </Link>
               </div>
 
-              <div className='col-md-2'>
+              <div className='col-md-2 hvr-pulse-shrink'>
               <Link to='/Products/Television'>
               <div className='allItems'>
                 <div className="card">
@@ -102,7 +102,7 @@ function Home() {
               </Link>
               </div>
 
-              <div className='col-md-2'>
+              <div className='col-md-2 hvr-pulse-shrink'>
               <Link to='/Products/Electronics'>
               <div className='allItems'>
                 <div className="card">
@@ -115,7 +115,7 @@ function Home() {
               </Link>
               </div>
 
-              <div className='col-md-2'>
+              <div className='col-md-2 hvr-pulse-shrink'>
               <Link to='/Products/Fashion'>
               <div className='allItems'>
                 <div className="card">

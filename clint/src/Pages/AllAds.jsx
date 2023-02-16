@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import { Button } from 'react-bootstrap';
 import { AllADs } from '../APIRequest/APIRequest';
+import 'hover.css/css/hover-min.css';
 
 
 const AllAds = () => {

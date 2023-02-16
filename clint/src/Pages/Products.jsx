@@ -9,6 +9,7 @@ import Footer from './Footer';
 import { useEffect } from 'react';
 import { FilterByCategories } from '../APIRequest/APIRequest';
 import { useState } from 'react';
+import 'hover.css/css/hover-min.css';
 
 
 const Products = () => {
@@ -79,7 +80,7 @@ const Products = () => {
 
       <div className='col-md-2'>
         <Link to={'/productDetails/'+value._id}>
-            <div className='allItems animated zoomIn mb-3'>
+            <div className='allItems hvr-wobble-bottom animated zoomIn mb-3'>
               <div className="card">
                 <img className="card-img-top" src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} alt="laptop" />
                 <div className="card-body">
