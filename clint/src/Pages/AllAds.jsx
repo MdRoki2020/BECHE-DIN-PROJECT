@@ -68,8 +68,8 @@ const AllAds = () => {
 
       <div className='col-md-2 d-block d-lg-flex'>
         <Link to={'/productDetails/'+value._id}>
-            <div className='allItems animated zoomIn mb-3 '>
-              <div class="card">
+            <div className='allItems mb-3 hvr-float-shadow'>
+              <div className="card animated zoomIn">
                 <img className="card-img-top" src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} alt="laptop" />
                 <div className="card-body">
                   <h6 className="card-title text-center">{value.ProductName}</h6>

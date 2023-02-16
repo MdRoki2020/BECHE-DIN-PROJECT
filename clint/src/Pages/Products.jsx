@@ -80,8 +80,8 @@ const Products = () => {
 
       <div className='col-md-2'>
         <Link to={'/productDetails/'+value._id}>
-            <div className='allItems hvr-wobble-bottom animated zoomIn mb-3'>
-              <div className="card">
+            <div className='allItems hvr-float-shadow mb-3'>
+              <div className="card animated zoomIn">
                 <img className="card-img-top" src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} alt="laptop" />
                 <div className="card-body">
                   <h6 className="card-title text-center">{value.ProductName}</h6>
