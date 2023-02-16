@@ -4,7 +4,7 @@ import { FaShippingFast } from "react-icons/fa";
 import '../Assets/style/shipping.css';
 import { IoIosArrowDown } from "react-icons/io";
 import Footer from './Footer';
-import { OrderRequest, ReadById } from '../APIRequest/APIRequest';
+import { OrderRequest, ReadById, ShowVoucherCode } from '../APIRequest/APIRequest';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { ErrorToast, IsEmpty, SuccessToast } from '../Helper/FormHelper';
@@ -13,18 +13,32 @@ import { ErrorToast, IsEmpty, SuccessToast } from '../Helper/FormHelper';
 const Shipping = () => {
   const [open, setOpen] = useState(false);
   const [product,setProduct]=useState([]);
+  const [voucher,setVoucher]=useState([]);
 
   const {id}=useParams();
 
   useEffect(()=>{
-    ReadById(id).then((data)=>{
-
-        setProduct(data[0]);
-
-      })
+    getProductDetails();
+    GetVoucherCode();
   },[id])
 
+
+  const getProductDetails=()=>{
+    ReadById(id).then((data)=>{
+      setProduct(data[0]);
+    })
+  }
+  
+  const GetVoucherCode=()=>{
+    ShowVoucherCode().then((data)=>{
+      setVoucher(data[0]);
+    })
+  }
+
+  console.log(voucher.VoucherCode);
+
   let FirstNameRef,LastNameRef,ContactNumberRef,AddressRef,DivisionRef,DistrictRef,ThanaRef,TransactionRef=useRef();
+  let UserApplyVoucherRef=useRef();
 
   let productName=product.ProductName
   let ProductCategories=product.ProductCategories
@@ -95,6 +109,30 @@ const Shipping = () => {
     }
 }
 
+
+//voucher handle
+const OnVoucher=()=>{
+  let userVoucher=UserApplyVoucherRef.value;
+  if(IsEmpty(userVoucher)){
+    ErrorToast("Please Apply Voucher");
+  }else{
+    console.log(userVoucher);
+    if(userVoucher==voucher.VoucherCode){
+      console.log("yes match");
+    }else{
+      console.log("didn't match");
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
 const success=()=>{
   Swal.fire({
       position: 'top-end',
@@ -104,6 +142,7 @@ const success=()=>{
       timer: 1500
     })
 }
+
 
 
   return (
@@ -209,8 +248,8 @@ const success=()=>{
 
                       <Collapse in={open}>
                         <div id="example-collapse-text">
-                          <input className='form-control animated fadeInUp' placeholder='Apply Voucher Code'/>
-                          <button className='applyButton shadow form-control mt-2'>Apply</button>
+                          <input ref={(input)=>UserApplyVoucherRef=input} className='form-control animated fadeInUp' placeholder='Apply Voucher Code'/>
+                          <button onClick={OnVoucher} className='applyButton shadow form-control mt-2'>Apply</button>
                         </div>
                       </Collapse>
                     </div>
