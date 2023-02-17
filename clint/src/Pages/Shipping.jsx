@@ -119,8 +119,15 @@ const OnVoucher=()=>{
     console.log(userVoucher);
     if(userVoucher==voucher.VoucherCode){
       console.log("yes match");
+      let voucherWithTotalPrice=TotalPrice-100;
+      let updateVoucherWithTotalPrice = voucherWithTotalPrice=false;
+      if(updateVoucherWithTotalPrice){
+        console.log("false")
+      }else{
+        console.log("true")
+      }
     }else{
-      console.log("didn't match");
+      ErrorToast("didn't match");
     }
   }
 }
@@ -267,6 +274,13 @@ const success=()=>{
                             <td>৳ 250</td>
                           </tr>
                           <th>Total</th>
+
+                          {/* {updateVoucherWithTotalPrice ? (
+                            <th className='animated fadeInUp'>emptyy</th>
+                          ) : (
+                            <th className='animated fadeInUp'>not null</th>
+                          )} */}
+
                           <th className='animated fadeInUp'>৳ {TotalPrice}</th>
                         </tbody>
                       </table>
