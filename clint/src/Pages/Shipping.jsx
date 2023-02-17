@@ -14,6 +14,7 @@ const Shipping = () => {
   const [open, setOpen] = useState(false);
   const [product,setProduct]=useState([]);
   const [voucher,setVoucher]=useState([]);
+  
 
   const {id}=useParams();
 
@@ -45,7 +46,17 @@ const Shipping = () => {
   let ProductId=product._id
 
   let ProductPrice=parseFloat(product.ProductPrice);
-  let TotalPrice=ProductPrice+250;
+  var TotalPrice=ProductPrice+250;
+
+
+  const [totalValue,setTotalValue]=useState(TotalPrice);
+
+  if(isNaN(totalValue)){
+    setTotalValue(TotalPrice);
+  }else{
+    setTotalValue(TotalPrice);
+  }
+
 
   const OnOrder=()=>{
 
@@ -116,24 +127,23 @@ const OnVoucher=()=>{
   if(IsEmpty(userVoucher)){
     ErrorToast("Please Apply Voucher");
   }else{
-    console.log(userVoucher);
+    // console.log(userVoucher);
     if(userVoucher==voucher.VoucherCode){
+
+      setTotalValue(TotalPrice - 100);
+
       console.log("yes match");
-      let voucherWithTotalPrice=TotalPrice-100;
-      let updateVoucherWithTotalPrice = voucherWithTotalPrice=false;
-      if(updateVoucherWithTotalPrice){
-        console.log("false")
-      }else{
-        console.log("true")
-      }
+
     }else{
+
+      setTotalValue(TotalPrice);
+
       ErrorToast("didn't match");
     }
   }
 }
 
-
-
+console.log(totalValue);
 
 
 
@@ -281,7 +291,7 @@ const success=()=>{
                             <th className='animated fadeInUp'>not null</th>
                           )} */}
 
-                          <th className='animated fadeInUp'>৳ {TotalPrice}</th>
+                          <th className='animated fadeInUp'>৳ {totalValue}</th>
                         </tbody>
                       </table>
                     </div>
