@@ -51,7 +51,7 @@ const Shipping = () => {
 
   const [totalValue,setTotalValue]=useState(TotalPrice);
 
-  if(isNaN(totalValue)){
+  if(!isNaN(totalValue)){
     setTotalValue(TotalPrice);
   }else{
     setTotalValue(TotalPrice);
@@ -292,6 +292,7 @@ const success=()=>{
                           )} */}
 
                           <th className='animated fadeInUp'>৳ {totalValue}</th>
+                          {/* <th className='animated fadeInUp'>৳ {totalValue !== null ? totalValue : 'N/A'}</th> */}
                         </tbody>
                       </table>
                     </div>
