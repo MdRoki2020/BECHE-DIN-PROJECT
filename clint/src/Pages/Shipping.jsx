@@ -49,13 +49,26 @@ const Shipping = () => {
   var TotalPrice=ProductPrice+250;
 
 
-  const [totalValue,setTotalValue]=useState(TotalPrice);
+  const [totalValue,setTotalValue]=useState("roki");
 
-  if(!isNaN(totalValue)){
-    setTotalValue(TotalPrice);
-  }else{
+  if(totalValue==="roki"){
+    console.log('fucker');
     setTotalValue(TotalPrice);
   }
+  // }else if(isNaN(TotalPrice)){
+  //   setTotalValue(TotalPrice);
+  // }
+
+
+  // console.log(typeof(totalValue));
+
+  // if(isNaN(totalValue)){
+  //   setTotalValue(TotalPrice);
+  // }else if(totalValue===0){
+  //   setTotalValue(TotalPrice);
+  // }else{
+  //   setTotalValue(TotalPrice);
+  // }
 
 
   const OnOrder=()=>{
@@ -128,7 +141,7 @@ const OnVoucher=()=>{
     ErrorToast("Please Apply Voucher");
   }else{
     // console.log(userVoucher);
-    if(userVoucher==voucher.VoucherCode){
+    if(userVoucher==voucher?.VoucherCode){
 
       setTotalValue(TotalPrice - 100);
 
@@ -291,8 +304,8 @@ const success=()=>{
                             <th className='animated fadeInUp'>not null</th>
                           )} */}
 
+                          {/* <th className='animated fadeInUp'>৳ {totalValue}</th> */}
                           <th className='animated fadeInUp'>৳ {totalValue}</th>
-                          {/* <th className='animated fadeInUp'>৳ {totalValue !== null ? totalValue : 'N/A'}</th> */}
                         </tbody>
                       </table>
                     </div>
