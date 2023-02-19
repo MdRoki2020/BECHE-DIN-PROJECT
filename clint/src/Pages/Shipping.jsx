@@ -44,16 +44,21 @@ const Shipping = () => {
   let productName=product.ProductName
   let ProductCategories=product.ProductCategories
   let ProductId=product._id
+  let DatabaseProductPrice=product.ProductPrice;
 
-  let ProductPrice=parseFloat(product.ProductPrice);
+  // let ProductPrice=parseFloat(DatabaseProductPrice);
+  let ProductPrice=DatabaseProductPrice.toString();
   var TotalPrice=ProductPrice+250;
+  console.log(TotalPrice);
 
 
-  const [totalValue,setTotalValue]=useState("roki");
+  const [totalValue,setTotalValue]=useState(TotalPrice);
 
-  if(totalValue==="roki"){
-    setTotalValue(TotalPrice);
-  }
+  // if(isNaN(totalValue)){
+  //   setTotalValue(totalValue);
+  // }else{
+
+  // }
 
 
   // console.log(typeof(totalValue));
@@ -152,7 +157,7 @@ const OnVoucher=()=>{
   }
 }
 
-console.log(totalValue);
+// console.log(totalValue);
 
 
 
