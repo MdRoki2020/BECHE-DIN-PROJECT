@@ -52,12 +52,8 @@ const Shipping = () => {
   const [totalValue,setTotalValue]=useState("roki");
 
   if(totalValue==="roki"){
-    console.log('fucker');
     setTotalValue(TotalPrice);
   }
-  // }else if(isNaN(TotalPrice)){
-  //   setTotalValue(TotalPrice);
-  // }
 
 
   // console.log(typeof(totalValue));
