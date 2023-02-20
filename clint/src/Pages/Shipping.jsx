@@ -41,13 +41,12 @@ const Shipping = () => {
   let FirstNameRef,LastNameRef,ContactNumberRef,AddressRef,DivisionRef,DistrictRef,ThanaRef,TransactionRef=useRef();
   let UserApplyVoucherRef=useRef();
 
-  let productName=product.ProductName
-  let ProductCategories=product.ProductCategories
-  let ProductId=product._id
+  let productName=product.ProductName;
+  let ProductCategories=product.ProductCategories;
+  let ProductId=product._id;
   let DatabaseProductPrice=product.ProductPrice;
 
-  // let ProductPrice=parseFloat(DatabaseProductPrice);
-  let ProductPrice=DatabaseProductPrice.toString();
+  let ProductPrice=parseFloat(DatabaseProductPrice);
   var TotalPrice=ProductPrice+250;
   console.log(TotalPrice);
 
