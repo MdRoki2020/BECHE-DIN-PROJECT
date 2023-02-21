@@ -51,7 +51,7 @@ const Shipping = () => {
   console.log(TotalPrice);
 
 
-  const [totalValue,setTotalValue]=useState(TotalPrice);
+  const [totalValue,setTotalValue]=useState(0);
 
   // if(isNaN(totalValue)){
   //   setTotalValue(totalValue);
