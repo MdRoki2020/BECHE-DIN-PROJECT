@@ -53,15 +53,11 @@ const Shipping = () => {
 
   const [totalValue,setTotalValue]=useState(0);
 
-  // if(isNaN(totalValue)){
-  //   setTotalValue(totalValue);
-  // }else{
-
-  // }
 
 
   // console.log(typeof(totalValue));
 
+  //when i added this statement page will blank
   // if(isNaN(totalValue)){
   //   setTotalValue(TotalPrice);
   // }else if(totalValue===0){
@@ -140,7 +136,6 @@ const OnVoucher=()=>{
   if(IsEmpty(userVoucher)){
     ErrorToast("Please Apply Voucher");
   }else{
-    // console.log(userVoucher);
     if(userVoucher==voucher?.VoucherCode){
 
       setTotalValue(TotalPrice - 100);
