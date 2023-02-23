@@ -6,7 +6,7 @@ import { MdPublish } from "react-icons/md";
 import { Button } from 'react-bootstrap';
 import { ErrorToast, IsEmpty } from '../../Helper/FormHelper';
 import Swal from 'sweetalert2';
-import FullScreenLoader from '../../common/FullScreenLoader';
+import FullScreenLoader from '../../common/RoundLoader';
 import { getUserDetails } from '../../Helper/SessionHelperPublisher';
 import { PostADsRequest } from '../../APIRequest/APIRequest';
 
@@ -60,6 +60,7 @@ const PostAds = () => {
     }else{
 
       // Loader.classList.remove('d-none');
+      Loader.classList.remove('d-none');
 
       const formData=new FormData();
       formData.append('file',Image);
@@ -77,9 +78,7 @@ const PostAds = () => {
     PostADsRequest(formData).then((result)=>{
       
       if(result===true){
-        loading();
-
-        // Loader.classList.add('d-none');
+        Loader.classList.add('d-none');
 
         ProductNameRef.value="";
         ProductFeaturesRef.value="";
@@ -105,30 +104,27 @@ const PostAds = () => {
     }
   }
 
-    const loading=()=>{
-      let timerInterval
-      Swal.fire({
-        title: 'Auto close alert!',
-        html: 'I will close in <b></b> milliseconds.',
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: () => {
-          Swal.showLoading()
-          const b = Swal.getHtmlContainer().querySelector('b')
-          timerInterval = setInterval(() => {
-            b.textContent = Swal.getTimerLeft()
-          }, 100)
-        },
-        willClose: () => {
-          clearInterval(timerInterval)
-        }
-        }).then((result) => {
-        /* Read more about handling dismissals below */
-        if (result.dismiss === Swal.DismissReason.timer) {
-          console.log('It Closed When Upload Complete!');
-        }
-      })
-    }
+    // const loading=()=>{
+
+    //   const inputOptions = new Promise((resolve) => {
+    //     setTimeout(() => {
+    //       // resolve({
+    //       //   '#ff0000': 'Red',
+    //       //   '#00ff00': 'Green',
+    //       //   '#0000ff': 'Blue'
+    //       // })
+    //     }, 1000)
+    //   })
+      
+    //   const {} = Swal.fire({
+    //     title: 'Processing..',
+    //     input: 'radio',
+    //     inputOptions: inputOptions,
+    //     inputValidator: (value) => {
+    //     }
+    //   })
+
+    // }
 
 
     const success=()=>{
@@ -246,6 +242,7 @@ const PostAds = () => {
       </div>
 
       <div className='d-none' ref={(div)=>Loader=div}>
+      {/* <div className='d-none' ref={(div)=>loading=div}> */}
 
       <FullScreenLoader />
 
