@@ -300,7 +300,7 @@ const success=()=>{
                           )} */}
 
                           {/* <th className='animated fadeInUp'>৳ {totalValue}</th> */}
-                          <th className='animated fadeInUp'>৳ {totalValue}</th>
+                          <th className='animated fadeInUp'>৳ {TotalPrice}</th>
                         </tbody>
                       </table>
                     </div>
