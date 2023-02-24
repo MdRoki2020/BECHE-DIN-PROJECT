@@ -123,8 +123,14 @@ exports.PriceRangeSearch = async (req,res)=>{
     try{
 
         const { minPrice, maxPrice } = req.query;
-        const data = await PostAdsModel.find({ ProductPrice: { $gte: minPrice, $lte: maxPrice } });
-
+        // console.log('minPrice:', minPrice);
+        // console.log('maxPrice:', maxPrice);
+        const data = await PostAdsModel.find({
+        ProductPrice: {
+        $gte: minPrice,
+        $lte: maxPrice,
+        },
+        });
         if(data.length>0){
             res.status(200).json({status:"success",data:data})
         }
@@ -132,7 +138,20 @@ exports.PriceRangeSearch = async (req,res)=>{
             res.status(200).json({status:"success",data:data})
         }
 
-    }catch{
+
+
+
+        // const data = await PostAdsModel.find({ ProductPrice: { $gte: minPrice, $lte: maxPrice } });
+
+        // if(data.length>0){
+        //     res.status(200).json({status:"success",data:data})
+        // }
+        // else{
+        //     res.status(200).json({status:"success",data:data})
+        // }
+
+    }catch(error){
+        console.error(error);
         res.status(400).json({status:"fail",data:err})
     }
 }
