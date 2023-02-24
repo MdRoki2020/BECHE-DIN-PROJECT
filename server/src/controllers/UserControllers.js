@@ -118,6 +118,27 @@ exports.CheckBoxSearch=async(req,res)=>{
 }
 
 
+//Pricerange search
+exports.PriceRangeSearch = async (req,res)=>{
+    try{
+
+        const { minPrice, maxPrice } = req.query;
+        const data = await PostAdsModel.find({ price: { $gte: minPrice, $lte: maxPrice } });
+
+        if(data.length>0){
+            res.status(200).json({status:"success",data:data})
+        }
+        else{
+            res.status(200).json({status:"success",data:data})
+        }
+
+    }catch{
+        res.status(400).json({status:"fail",data:err})
+    }
+}
+
+
+
 //create comments
 exports.CreateComment=(req,res)=>{
     let reqBody=req.body;
@@ -149,5 +170,8 @@ exports.ReadCommentByProductId=(req,res)=>{
         }
     })
 }
+
+
+
 
 

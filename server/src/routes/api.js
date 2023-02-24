@@ -32,6 +32,7 @@ router.get('/AllADs/',UserController.AllADs);
 router.get('/ProductSearch/:search',UserController.ProductSearch);
 router.post('/CreateComment/',UserController.CreateComment);
 router.get('/ReadCommentByProductId/:ProductId',UserController.ReadCommentByProductId);
+router.get('/PriceRangeSearch/',UserController.PriceRangeSearch);
 
 
 //Publisher Management
