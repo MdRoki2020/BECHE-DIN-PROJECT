@@ -123,7 +123,7 @@ exports.PriceRangeSearch = async (req,res)=>{
     try{
 
         const { minPrice, maxPrice } = req.query;
-        const data = await PostAdsModel.find({ price: { $gte: minPrice, $lte: maxPrice } });
+        const data = await PostAdsModel.find({ ProductPrice: { $gte: minPrice, $lte: maxPrice } });
 
         if(data.length>0){
             res.status(200).json({status:"success",data:data})
