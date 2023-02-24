@@ -8,12 +8,13 @@ import Footer from './Footer'
 import { Button } from 'react-bootstrap';
 import { ProductSearchRequest } from '../APIRequest/APIRequest';
 import { ErrorToast, IsEmpty } from '../Helper/FormHelper';
+import Axios from 'axios';
 
 
 
 const SearchProduct = () => {
 
-  let ProductSearchRef=useRef(); //, LaptopRefRef,MobileRef,WatchRef,ElectronicsRef
+  let ProductSearchRef,minPriceSearchRef,maxPriceSearchRef=useRef(); //, LaptopRefRef,MobileRef,WatchRef,ElectronicsRef
 
   const [pageNumber,setPageNumber]=useState(0);
   const [product,setProduct]=useState([]);
@@ -45,11 +46,10 @@ const SearchProduct = () => {
           ErrorToast("Not Found")
         }else{
           setProduct(data);
+          console.log(product);
         }
       })
-
     }
-    
   }
 
   if(searchProduct){
@@ -66,7 +66,28 @@ const SearchProduct = () => {
 
 
 
-  //collapse
+  //for price...
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(100000);
+  // const [results, setResults] = useState([]);
+
+
+
+  const GetPriceValue=async()=>{
+    let minPrice=Number(minPriceSearchRef.value);
+    let maxPrice=Number(maxPriceSearchRef.value);
+
+      const response = await Axios.get('http://localhost:5000/api/v1/PriceRangeSearch', {
+        params: {
+          minPrice: minPrice,
+          maxPrice: maxPrice,
+        },
+      });
+
+      setProduct(response.data['data']);
+    
+
+  }
 
 
 
@@ -145,11 +166,38 @@ const SearchProduct = () => {
               <div className='col-sm-2'>
                 <div className='PriceCheckBoxSearch'>
 
-                  <span>PRICE RANGE</span>
-                  <input type="range" className="form-range" id="customRange2" />
+                  {/* <span>PRICE RANGE</span>
+                  <input type="range" className="form-range" id="customRange2" /> */}
+
+                  <label htmlFor="priceRange">Price Range:</label>
+                  <input
+                    type="range"
+                    id="priceRange"
+                    name="priceRange"
+                    min="0"
+                    max="100000"
+                    value={minPrice}
+                    onChange={(e) => setMinPrice(Number(e.target.value))}
+                    ref={(input)=>minPriceSearchRef=input}
+                  />
+                  <input
+                    type="range"
+                    id="priceRange"
+                    name="priceRange"
+                    min="0"
+                    max="100000"
+                    value={maxPrice}
+                    onChange={(e) => setMaxPrice(Number(e.target.value))}
+                    ref={(input)=>maxPriceSearchRef=input}
+                  />
+
+                        {/* <button type="submit">Search</button> */}
+                  <br/><button onClick={GetPriceValue} className='everythingSearch btn btn-info shadow'><BsSearch/></button> <span>{minPrice} To {maxPrice}</span>
+
+
                 </div>
 
-                <button className='everythingSearch btn btn-info shadow'><BsSearch/></button>
+                {/* <button className='everythingSearch btn btn-info shadow'><BsSearch/></button> */}
               </div>
 
           </div>
