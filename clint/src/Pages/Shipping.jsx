@@ -54,7 +54,7 @@ const Shipping = () => {
   const [totalValue,setTotalValue]=useState(0);
 
 
-
+//check values type...
   // console.log(typeof(totalValue));
 
   //when i added this statement page will blank
