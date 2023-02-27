@@ -293,12 +293,6 @@ const success=()=>{
                           </tr>
                           <th>Total</th>
 
-                          {/* {updateVoucherWithTotalPrice ? (
-                            <th className='animated fadeInUp'>emptyy</th>
-                          ) : (
-                            <th className='animated fadeInUp'>not null</th>
-                          )} */}
-
                           {/* <th className='animated fadeInUp'>৳ {totalValue}</th> */}
                           <th className='animated fadeInUp'>৳ {TotalPrice}</th>
                         </tbody>
