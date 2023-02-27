@@ -46,25 +46,43 @@ const Shipping = () => {
   let ProductId=product._id;
   let DatabaseProductPrice=product.ProductPrice;
 
+
   let ProductPrice=parseFloat(DatabaseProductPrice);
+
   var TotalPrice=ProductPrice+250;
+
   console.log(TotalPrice);
 
 
-  const [totalValue,setTotalValue]=useState(0);
 
 
-//check values type...
-  // console.log(typeof(totalValue));
+  const validTotalPrice = Number.isNaN(TotalPrice) ? TotalPrice : TotalPrice;
 
-  //when i added this statement page will blank
-  // if(isNaN(totalValue)){
-  //   setTotalValue(TotalPrice);
-  // }else if(totalValue===0){
-  //   setTotalValue(TotalPrice);
-  // }else{
-  //   setTotalValue(TotalPrice);
-  // }
+  
+  // set the value of totalPrice in localStorage
+  localStorage.setItem('totalPrice', validTotalPrice);
+
+
+  // initialize the state of totalValue with the value of totalPrice
+  const [totalValue, setTotalValue] = useState(() => {
+    const storedValue = localStorage.getItem('totalPrice');
+    const validStoredValue = Number.isNaN(storedValue) ? storedValue : parseFloat(storedValue);
+    return validStoredValue || validTotalPrice;
+  });
+
+  // const [totalValue, setTotalValue] = useState(isNaN(TotalPrice) ? 0 : TotalPrice);
+
+  // useEffect(() => {
+  //   localStorage.getItem('totalPrice', totalValue);
+  // }, [totalValue]);
+
+
+
+  
+
+
+
+
 
 
   const OnOrder=()=>{
@@ -131,25 +149,64 @@ const Shipping = () => {
 
 
 //voucher handle
-const OnVoucher=()=>{
-  let userVoucher=UserApplyVoucherRef.value;
-  if(IsEmpty(userVoucher)){
+// const OnVoucher=()=>{
+//   let userVoucher=UserApplyVoucherRef.value;
+
+//   if(IsEmpty(userVoucher)){
+//     ErrorToast("Please Apply Voucher");
+//   }else{
+//     if(userVoucher==voucher?.VoucherCode){
+
+
+//       setTotalValue(TotalPrice - 100);
+
+
+//       console.log("yes match");
+
+//     }else{
+
+//       setTotalValue(TotalPrice);
+
+
+//       ErrorToast("didn't match");
+//     }
+//   }
+// }
+
+
+
+
+
+
+
+
+const OnVoucher = () => {
+  let userVoucher = UserApplyVoucherRef.value;
+  if (IsEmpty(userVoucher)) {
     ErrorToast("Please Apply Voucher");
-  }else{
-    if(userVoucher==voucher?.VoucherCode){
-
-      setTotalValue(TotalPrice - 100);
-
-      console.log("yes match");
-
-    }else{
-
-      setTotalValue(TotalPrice);
-
-      ErrorToast("didn't match");
+  } else {
+    if (userVoucher === voucher?.VoucherCode) {
+      let discountedPrice = TotalPrice - 100;
+      if (isNaN(discountedPrice)) {
+        ErrorToast("Discounted price is not a valid number");
+      } else {
+        setTotalValue(discountedPrice);
+        console.log("yes match");
+      }
+    } else {
+      if (isNaN(TotalPrice)) {
+        ErrorToast("Product price is not a valid number");
+        setTotalValue(TotalPrice); // or setTotalValue('')
+      } else {
+        setTotalValue(TotalPrice);
+        ErrorToast("didn't match");
+      }
     }
   }
-}
+};
+
+
+
 
 // console.log(totalValue);
 
@@ -293,8 +350,8 @@ const success=()=>{
                           </tr>
                           <th>Total</th>
 
-                          {/* <th className='animated fadeInUp'>৳ {totalValue}</th> */}
-                          <th className='animated fadeInUp'>৳ {TotalPrice}</th>
+                          <th className='animated fadeInUp'>৳ {totalValue}</th>
+                          {/* <th className='animated fadeInUp'>৳ {TotalPrice}</th> */}
                         </tbody>
                       </table>
                     </div>
