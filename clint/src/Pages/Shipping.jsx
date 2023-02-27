@@ -56,7 +56,7 @@ const Shipping = () => {
 
 
 
-  const validTotalPrice = Number.isNaN(TotalPrice) ? TotalPrice : TotalPrice;
+  const validTotalPrice = Number.isNaN(TotalPrice) ? 0 : TotalPrice;
 
   
   // set the value of totalPrice in localStorage
@@ -66,7 +66,7 @@ const Shipping = () => {
   // initialize the state of totalValue with the value of totalPrice
   const [totalValue, setTotalValue] = useState(() => {
     const storedValue = localStorage.getItem('totalPrice');
-    const validStoredValue = Number.isNaN(storedValue) ? storedValue : parseFloat(storedValue);
+    const validStoredValue = Number.isNaN(storedValue) ? 0 : parseFloat(storedValue);
     return validStoredValue || validTotalPrice;
   });
 
