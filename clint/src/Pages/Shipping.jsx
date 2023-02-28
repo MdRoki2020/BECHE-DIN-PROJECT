@@ -148,36 +148,6 @@ const Shipping = () => {
 }
 
 
-//voucher handle
-// const OnVoucher=()=>{
-//   let userVoucher=UserApplyVoucherRef.value;
-
-//   if(IsEmpty(userVoucher)){
-//     ErrorToast("Please Apply Voucher");
-//   }else{
-//     if(userVoucher==voucher?.VoucherCode){
-
-
-//       setTotalValue(TotalPrice - 100);
-
-
-//       console.log("yes match");
-
-//     }else{
-
-//       setTotalValue(TotalPrice);
-
-
-//       ErrorToast("didn't match");
-//     }
-//   }
-// }
-
-
-
-
-
-
 
 
 const OnVoucher = () => {
