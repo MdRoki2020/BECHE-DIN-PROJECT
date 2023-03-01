@@ -178,8 +178,6 @@ const OnVoucher = () => {
 
 
 
-// console.log(totalValue);
-
 
 
 
