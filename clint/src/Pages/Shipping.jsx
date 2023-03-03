@@ -178,12 +178,6 @@ console.log(cost);
 
 
 
-// 
-// const totalCost = localStorage.getItem('totalCost');
-// setCost(totalCost);
-
-
-
 
 
 // const OnVoucher = () => {
