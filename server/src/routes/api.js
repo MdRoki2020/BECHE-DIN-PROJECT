@@ -22,6 +22,8 @@ router.get('/ReadOrderByTransactionId/:TransactionId',AdminController.ReadOrderB
 router.post('/CreateVoucherCode',AdminController.CreateVoucherCode);
 router.get('/ShowVoucherCode',AdminController.ShowVoucherCode);
 router.get('/DeletePublisher/:id',PublisherController.DeletePublisher);
+router.get("/updateTaskStatus/:id/:status",AdminController.updateTaskStatus);
+
 
 
 //User management

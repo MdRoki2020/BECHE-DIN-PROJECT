@@ -11,6 +11,7 @@ const DataSchema=mongoose.Schema({
     District:{type:String},
     Thana:{type:String},
     TransactionId:{type:String},
+    Status:{type:String},
     CreatedDate:{type:Date,default:Date.now()}
 })
 
