@@ -94,7 +94,7 @@ const LaptopList = () => {
                 <td>
                 <Zoom>
                   <img className='img-fluid img-thumbnail rounded' alt={value.ProductName}
-                  src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`}
+                  src={`http://localhost:5000/${value.filePath}`}
                   width="50" height="50"
                   />
                 </Zoom>

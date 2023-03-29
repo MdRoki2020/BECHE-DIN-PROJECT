@@ -219,7 +219,7 @@ const SearchProduct = () => {
         <Link to={'/productDetails/'+value._id}>
             <div className='allItems animated zoomIn mb-3 '>
               <div class="card">
-                <img className="card-img-top" src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} alt="laptop" />
+                <img className="card-img-top" src={`http://localhost:5000//${value.filePath}`} alt="laptop" />
                 <div className="card-body">
                   <h6 className="card-title text-center">{value.ProductName}</h6>
                   <div className='price text-center'><del>৳{value.ProductExPrice}</del> <b>৳{value.ProductPrice}</b></div>

@@ -97,10 +97,10 @@ const ProductDetails = () => {
                       smallImage: {
                           alt: 'productImage',
                           isFluidWidth: true,
-                          src: `https://bechedin-deploy-production.up.railway.app/${product.filePath}`
+                          src: `http://localhost:5000//${product.filePath}`
                       },
                       largeImage: {
-                        src: `https://bechedin-deploy-production.up.railway.app/${product.filePath}`,
+                        src: `http://localhost:5000//${product.filePath}`,
                           width: 1200,
                           height: 1800
                       }

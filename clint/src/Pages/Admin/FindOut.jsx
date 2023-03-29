@@ -221,7 +221,7 @@ const FindOut = () => {
                 </table>
                     <div className='productImage text-center mb-3'>
                         <h4>Product Image</h4>
-                        <img className='center animated fadeInUp img-thumbnail img-fluid rounded' src={`https://bechedin-deploy-production.up.railway.app/${Productdetails.filePath}`} alt="Product"/>
+                        <img className='center animated fadeInUp img-thumbnail img-fluid rounded' src={`http://localhost:5000/${Productdetails.filePath}`} alt="Product"/>
                     </div>
             </div>
             <div className='col-md-4'>

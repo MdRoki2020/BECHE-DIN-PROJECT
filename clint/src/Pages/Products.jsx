@@ -51,7 +51,7 @@ const Products = () => {
         <div className='card posterWrapper animated flipInX my-4'>
           <div className='row'>
             <div className='col-sm-3'>
-            <img className='poster' src={`https://bechedin-deploy-production.up.railway.app/${posterImage}`} alt={product[0]?.ProductName}/> 
+            <img className='poster' src={`http://localhost:5000/${posterImage}`} alt={product[0]?.ProductName}/> 
             </div>
             <div className='col-sm-9'>
             <div className='posterText'>
@@ -82,7 +82,7 @@ const Products = () => {
         <Link to={'/productDetails/'+value._id}>
             <div className='allItems hvr-float-shadow mb-3'>
               <div className="card animated zoomIn">
-                <img className="card-img-top" src={`https://bechedin-deploy-production.up.railway.app/${value.filePath}`} alt="laptop" />
+                <img className="card-img-top" src={`http://localhost:5000/${value.filePath}`} alt="laptop" />
                 <div className="card-body">
                   <h6 className="card-title text-center">{value.ProductName}</h6>
                   <div className='price text-center'><del>৳{value.ProductExPrice}</del> <b>৳{value.ProductPrice}</b></div>
