@@ -45,10 +45,10 @@ const PublisherNavigation = (props) => {
 
                     <div className="float-right h-auto d-flex">
                         <div className="user-dropdown">
-                            <img className="icon-nav-img icon-nav" src={`https://bechedin-deploy-production.up.railway.app/${getUserDetails()['filePath']}`} alt="profile"/>
+                            <img className="icon-nav-img icon-nav" src={`http://localhost:5000/${getUserDetails()['filePath']}`} alt="profile"/>
                             <div className="user-dropdown-content ">
                                 <div className="mt-4 text-center">
-                                    <img className="icon-nav-img" src={`https://bechedin-deploy-production.up.railway.app/${getUserDetails()['filePath']}`} alt="profile"/>
+                                    <img className="icon-nav-img" src={`http://localhost:5000/${getUserDetails()['filePath']}`} alt="profile"/>
                                     <h6>{getUserDetails()['FirstName']}</h6>
                                     <hr className="user-dropdown-divider  p-0"/>
                                 </div>
