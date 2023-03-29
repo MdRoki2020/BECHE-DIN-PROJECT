@@ -342,7 +342,7 @@ export function TotalProducts(){
 }
 
 //order request
-export function OrderRequest(ProductCategories,ProductId,productName,FirstName,LastName,ContactNumber,Address,Division,District,Thana,Transaction){
+export function OrderRequest(ProductCategories,ProductId,productName,FirstName,LastName,ContactNumber,Address,Division,District,Thana,Transaction,Status){
     let URL="http://localhost:5000/api/v1/CreateOrder"
 
     let PostBody={
@@ -357,6 +357,7 @@ export function OrderRequest(ProductCategories,ProductId,productName,FirstName,L
         District:District,
         Thana:Thana,
         TransactionId:Transaction,
+        Status:Status,
     }
 
     return Axios.post(URL,PostBody).then((res)=>{
@@ -371,6 +372,29 @@ export function OrderRequest(ProductCategories,ProductId,productName,FirstName,L
     })
 
 }
+
+
+//status changee..
+export function UpdateStatusRequest(id,status){
+    // SuccessToast("Please Wait...")
+    let URL="http://localhost:5000/api/v1/updateTaskStatus/"+id+"/"+status;
+    return Axios.get(URL).then((res)=>{
+        // Store.dispatch(HideLoader())
+        if(res.status===200){
+            SuccessToast("Status Updated")
+            return true;
+        }
+        else{
+            ErrorToast("Something Went Wrong")
+            return false;
+        }
+    }).catch((err)=>{
+        ErrorToast("Something Went Wrong")
+        // Store.dispatch(HideLoader())
+        return false;
+    });
+}
+
 
 
 // delete product

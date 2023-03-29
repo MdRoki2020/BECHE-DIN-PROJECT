@@ -96,6 +96,7 @@ const Shipping = () => {
     let District=DistrictRef.value;
     let Thana=ThanaRef.value;
     let Transaction=TransactionRef.value;
+    let Status="pending";
 
     if(IsEmpty(FirstName)){
         ErrorToast("First Name Required");
@@ -123,7 +124,7 @@ const Shipping = () => {
       }else{
 
     SuccessToast("Please Wait...");
-    OrderRequest(ProductCategories,ProductId,productName,FirstName,LastName,ContactNumber,Address,Division,District,Thana,Transaction).then((result)=>{
+    OrderRequest(ProductCategories,ProductId,productName,FirstName,LastName,ContactNumber,Address,Division,District,Thana,Transaction,Status).then((result)=>{
     if(result===true){
       FirstNameRef.value="";
       LastNameRef.value="";

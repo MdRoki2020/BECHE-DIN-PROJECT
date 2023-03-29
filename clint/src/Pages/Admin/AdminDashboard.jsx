@@ -10,6 +10,8 @@ import { BsGraphUp } from "react-icons/bs";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Legend, Bar } from 'recharts';
 import Footer from '../Footer';
 import { AllOrders,TotalOrders,TotalPublisher,TotalProducts } from '../../APIRequest/APIRequest';
+import { UpdateToDO } from '../../Helper/UpdateAlert';
+import { AiFillEdit } from "react-icons/ai";
 
 
 const data = [
@@ -99,6 +101,16 @@ const AdminDashboard = () => {
       setTotalProduct(data);
       })
   }
+
+
+//ststus change request..
+  const StatusChangeItem=(id,status)=>{
+    UpdateToDO(id, status).then((result)=>{
+        if(result===true){
+          getOrder();
+        }
+    })
+}
 
 
   return (
@@ -236,7 +248,14 @@ const AdminDashboard = () => {
                     <td className='animated fadeInUp'>{value.Thana}</td>
                     <td className='animated fadeInUp'>{value.Address}</td>
                     <td className='animated fadeInUp'>{value.TransactionId}</td>
-                    <td className='animated fadeInUp'><Badge bg="danger">Pending</Badge></td>
+                    <td className='animated fadeInUp'>
+
+                    <Badge bg={value.Status === "Completed" ? "success" : "danger"}>
+                      {value.Status}
+                    </Badge>
+
+                    <span className='text-info' onClick={StatusChangeItem.bind(this,value._id,value.Status)}><AiFillEdit/></span>
+                    </td>
                     <td className='animated fadeInUp'>{formatDate(new Date(value.CreatedDate))}</td>
                     </tr>
                     )
