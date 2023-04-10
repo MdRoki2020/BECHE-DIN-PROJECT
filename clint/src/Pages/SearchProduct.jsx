@@ -1,4 +1,4 @@
-import React, { Fragment, useRef, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import allAds from '../Assets/images/allAds.jpg'
 import { AiTwotoneEnvironment } from "react-icons/ai"
 import { BsCartPlus,BsEmojiLaughing,BsSearch } from "react-icons/bs";
@@ -14,80 +14,81 @@ import Axios from 'axios';
 
 const SearchProduct = () => {
 
-  let ProductSearchRef,minPriceSearchRef,maxPriceSearchRef=useRef(); //, LaptopRefRef,MobileRef,WatchRef,ElectronicsRef
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [pageNumber, setPageNumber] = useState(0);
 
-  const [pageNumber,setPageNumber]=useState(0);
-  const [product,setProduct]=useState([]);
-  const [searchProduct,SetSearchProduct]=useState("");
+  const resultsPerPage = 18;
+  const pagesVisited=pageNumber * resultsPerPage
+  const displayProduct=searchResults.slice(pagesVisited,pagesVisited+resultsPerPage)
 
-  const usersPerPage=18;
-  const pagesVisited=pageNumber * usersPerPage
-  const displayProduct=product.slice(pagesVisited,pagesVisited+usersPerPage)
-  const pageCount=Math.ceil(product.length / usersPerPage);
-  const changePage=({selected})=>{
+  useEffect(() => {
+    const fetchSearchResults =  () => {
+      try {
+
+        ProductSearchRequest(searchTerm).then((data)=>{
+
+            setSearchResults(data);
+
+          })
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    if (searchTerm.length > 0) {
+      fetchSearchResults();
+    } else {
+      fetchSearchResults();
+    }
+  }, [searchTerm]);
+
+  const pageCount = Math.ceil(searchResults.length / resultsPerPage);
+
+  const changePage = ({ selected }) => {
     setPageNumber(selected);
   };
 
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+
+
+
+
 
 //search request
-  const GetSearchValue=()=>{
-    let search=ProductSearchRef.value;
-    // let laptop=LaptopRefRef.value;
-    // let mobile=MobileRef.value;
-    // let watch=WatchRef.value;
-    // let electronics=ElectronicsRef.value;
+  // const GetSearchValue=()=>{
+  //   let search=ProductSearchRef.value;
     
 
-    if(IsEmpty(search)){
-      ErrorToast("Search Value Required");
-    }else{
-      ProductSearchRequest(search).then((data)=>{   //,laptop,mobile,watch,electronics
-        if(IsEmpty(data)){
-          ErrorToast("Not Found")
-        }else{
-          setProduct(data);
-          console.log(product);
-        }
-      })
-    }
-  }
+  //   if(IsEmpty(search)){
+  //     ErrorToast("Search Value Required");
+  //   }else{
+  //     ProductSearchRequest(search).then((data)=>{
+  //       if(IsEmpty(data)){
+  //         ErrorToast("Not Found")
+  //       }else{
+  //         setProduct(data);
+  //         console.log(product);
+  //       }
+  //     })
+  //   }
+  // }
 
-  if(searchProduct){
-    ProductSearchRequest(searchProduct).then((data)=>{
-      // SuccessToast("done");
-        setProduct(data);
-    })
-  }
-
-  // else if(IsEmpty(searchProduct)){
-  //   ErrorToast("Espect Valid Keyword");
-  // }else{
+  // if(searchProduct){
+  //   ProductSearchRequest(searchProduct).then((data)=>{
+  //     // SuccessToast("done");
+  //       setProduct(data);
+  //   })
   // }
 
 
 
-  //for price...
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(100000);
-  // const [results, setResults] = useState([]);
 
 
 
-  const GetPriceValue=async()=>{
-    let minPrice=Number(minPriceSearchRef.value);
-    let maxPrice=Number(maxPriceSearchRef.value);
-
-      const response = await Axios.get('http://localhost:5000/api/v1/PriceRangeSearch', {
-        params: {
-          minPrice: minPrice,
-          maxPrice: maxPrice,
-        },
-      });
-
-      setProduct(response.data['data']);
-    
-
-  }
 
 
 
@@ -108,8 +109,8 @@ const SearchProduct = () => {
                 <div className='posterText'>
                   <h2>What Are You Want! Search Me <BsEmojiLaughing /></h2>
                   <p><AiTwotoneEnvironment/> All Bangladesh !</p>
-                  <input ref={(input)=>ProductSearchRef=input} className='searchDistrict shadow' placeholder='What Are You Want' /> <Button onClick={GetSearchValue} className='btn btn-info shadow'><BsSearch/></Button>
-                  {/* <p>{searchProduct}</p> */}
+                  <input type='text' onChange={handleInputChange} value={searchTerm} className='searchDistrict shadow' placeholder='What Are You Want' />
+                  
                 </div>
               </div>
               <div className='col-sm-2'>
@@ -117,19 +118,19 @@ const SearchProduct = () => {
 
                   <span>BRAND</span>
                   <div className="form-check">
-                  <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="apple" id="flexCheckDefault" />
+                  <input  className="form-check-input" type="checkbox" value="apple" id="flexCheckDefault" />
                   <label className="form-check-label" for="flexCheckDefault">Apple</label>
                   </div>
                   <div className="form-check">
-                    <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="asus" id="flexCheckChecked" />
+                    <input  className="form-check-input" type="checkbox" value="asus" id="flexCheckChecked" />
                     <label className="form-check-label" for="flexCheckChecked">Asus</label>
                   </div>
                   <div className="form-check">
-                    <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="samsung" id="flexCheckDefault" />
+                    <input  className="form-check-input" type="checkbox" value="samsung" id="flexCheckDefault" />
                     <label className="form-check-label" for="flexCheckDefault">Samsung</label>
                   </div>
                   <div class="form-check">
-                    <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="walton" id="flexCheckDefault" />
+                    <input  className="form-check-input" type="checkbox" value="walton" id="flexCheckDefault" />
                     <label className="form-check-label" for="flexCheckDefault">Walton</label>
                   </div>
 
@@ -143,19 +144,19 @@ const SearchProduct = () => {
 
 
                   <div className="form-check">
-                  <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="laptop" id="flexCheckDefault" />
+                  <input  className="form-check-input" type="checkbox" value="laptop" id="flexCheckDefault" />
                   <label className="form-check-label" for="flexCheckDefault">Laptop</label>
                   </div>
                   <div className="form-check">
-                    <input onClick={(e)=>SetSearchProduct(e.target.value)}  className="form-check-input" type="checkbox" value="mobile" id="flexCheckChecked" />
+                    <input   className="form-check-input" type="checkbox" value="mobile" id="flexCheckChecked" />
                     <label className="form-check-label" for="flexCheckChecked">Mobile</label>
                   </div>
                   <div className="form-check">
-                    <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="watch" id="flexCheckDefault" />
+                    <input  className="form-check-input" type="checkbox" value="watch" id="flexCheckDefault" />
                     <label className="form-check-label" for="flexCheckDefault">Watch</label>
                   </div>
                   <div className="form-check">
-                    <input onClick={(e)=>SetSearchProduct(e.target.value)} className="form-check-input" type="checkbox" value="electronics" id="flexCheckDefault" />
+                    <input  className="form-check-input" type="checkbox" value="electronics" id="flexCheckDefault" />
                     <label className="form-check-label" for="flexCheckDefault">Electronics</label>
                   </div>
 
@@ -166,8 +167,6 @@ const SearchProduct = () => {
               <div className='col-sm-2'>
                 <div className='PriceCheckBoxSearch'>
 
-                  {/* <span>PRICE RANGE</span>
-                  <input type="range" className="form-range" id="customRange2" /> */}
 
                   <label htmlFor="priceRange">Price Range:</label>
                   <input
@@ -176,9 +175,9 @@ const SearchProduct = () => {
                     name="priceRange"
                     min="0"
                     max="100000"
-                    value={minPrice}
-                    onChange={(e) => setMinPrice(Number(e.target.value))}
-                    ref={(input)=>minPriceSearchRef=input}
+                    
+                    
+                    
                   />
                   <input
                     type="range"
@@ -186,18 +185,16 @@ const SearchProduct = () => {
                     name="priceRange"
                     min="0"
                     max="100000"
-                    value={maxPrice}
-                    onChange={(e) => setMaxPrice(Number(e.target.value))}
-                    ref={(input)=>maxPriceSearchRef=input}
+                    
+                    
+                    
                   />
 
-                        {/* <button type="submit">Search</button> */}
-                  <br/><button onClick={GetPriceValue} className='everythingSearch btn btn-info shadow'><BsSearch/></button> <span>{minPrice} To {maxPrice}</span>
+                  <br/><button  className='everythingSearch btn btn-info shadow'><BsSearch/></button>
 
 
                 </div>
 
-                {/* <button className='everythingSearch btn btn-info shadow'><BsSearch/></button> */}
               </div>
 
           </div>
@@ -211,27 +208,26 @@ const SearchProduct = () => {
   <div className='container'>
     <h5>All Category</h5>
 
-    <div className='row'>
-    {
-    displayProduct.map((value,key)=>
+        <div className='row'>
 
-      <div className='col-md-2 d-block d-lg-flex'>
-        <Link to={'/productDetails/'+value._id}>
-            <div className='allItems animated zoomIn mb-3 '>
-              <div class="card">
-                <img className="card-img-top" src={`http://localhost:5000//${value.filePath}`} alt="laptop" />
-                <div className="card-body">
-                  <h6 className="card-title text-center">{value.ProductName}</h6>
-                  <div className='price text-center'><del>৳{value.ProductExPrice}</del> <b>৳{value.ProductPrice}</b></div>
-                  <Link to={'/productDetails/'+value._id}><button className='btn btn-secondary form-control'><BsCartPlus/></button></Link>
+              {displayProduct.map((value,key) =>
+                
+                <div className='col-md-2 d-block d-lg-flex'>
+                  <Link to={'/productDetails/'+value._id}>
+                      <div className='allItems animated zoomIn mb-3 '>
+                        <div class="card">
+                          <img className="card-img-top" src={`http://localhost:5000/${value.filePath}`} alt="laptop" />
+                          <div className="card-body">
+                            <h6 className="card-title text-center">{value.ProductName}</h6>
+                            <div className='price text-center'><del>৳{value.ProductExPrice}</del> <b>৳{value.ProductPrice}</b></div>
+                            <Link to={'/productDetails/'+value._id}><button className='btn btn-secondary form-control'><BsCartPlus/></button></Link>
+                          </div>
+                        </div>
+                      </div>
+                  </Link>
                 </div>
-              </div>
-            </div>
-        </Link>
+              )}
       </div>
-      )
-    }
-    </div>
   </div>
   </section>
 

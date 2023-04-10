@@ -433,8 +433,8 @@ export function DeletePublisher(id){
 }
 
 // search Product
-export const ProductSearchRequest=(search)=>{ //,laptop,mobile,watch,electronics
-    let URL="http://localhost:5000/api/v1/ProductSearch/"+search; //+"/"+laptop+"/"+mobile+"/"+watch+"/"+electronics
+export const ProductSearchRequest=(searchTerm)=>{
+    let URL=`http://localhost:5000/api/v1/ProductSearch?searchTerm=${searchTerm}`
     return  Axios.get(URL).then((res)=>{
 
         if(res.status===200){
