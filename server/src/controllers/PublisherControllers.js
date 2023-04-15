@@ -258,6 +258,7 @@ exports.UpdateProduct=(req,res)=>{
 }
 
 
+
 // exports.UpdateProduct=(req,res)=>{
 
 //     let id=req.params.id;

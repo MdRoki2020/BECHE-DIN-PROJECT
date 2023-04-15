@@ -71,32 +71,57 @@ exports.AllADs=(req,res)=>{
 
 
 //search products
-exports.ProductSearch=async(req,res)=>{
-    try{
-        let search=req.params.search;
+// exports.ProductSearch=async(req,res)=>{
+//     try{
+//         let search=req.params.search;
 
-        let data=await PostAdsModel.find(  
-            {
-                $or:[
-                    {"ProductCategories":{ $regex: ".*"+search+".*","$options": "i"}},
-                    {"ProductName":{ $regex: ".*"+search+".*","$options": "i"}},
-                    {"ProductPrice":{ $regex: ".*"+search+".*","$options": "i"}},
-                    {"ProductBrand":{ $regex: ".*"+search+".*","$options": "i"}},
+//         let data=await PostAdsModel.find(  
+//             {
+//                 $or:[
+//                     {"ProductCategories":{ $regex: ".*"+search+".*","$options": "i"}},
+//                     {"ProductName":{ $regex: ".*"+search+".*","$options": "i"}},
+//                     {"ProductPrice":{ $regex: ".*"+search+".*","$options": "i"}},
+//                     {"ProductBrand":{ $regex: ".*"+search+".*","$options": "i"}},
 
 
-                    ]
-            }
-            );
-        if(data.length>0){
-            res.status(200).json({status:"success",data:data})
-        }
-        else{
-            res.status(200).json({status:"success",data:data})
-        }
-    }catch{
-        res.status(400).json({status:"fail",data:err})
+//                     ]
+//             }
+//             );
+//         if(data.length>0){
+//             res.status(200).json({status:"success",data:data})
+//         }
+//         else{
+//             res.status(200).json({status:"success",data:data})
+//         }
+//     }catch{
+//         res.status(400).json({status:"fail",data:err})
+//     }
+// }
+
+
+//search products
+exports.ProductSearch = async (req, res) => {
+    const searchTerm = req.query.searchTerm;
+    try {
+      const data = await PostAdsModel.find({
+        $or: [
+          { ProductName: { $regex: searchTerm, $options: 'i' } },
+          { ProductBrand: { $regex: searchTerm, $options: 'i' } },
+          { ProductCategories: { $regex: searchTerm, $options: 'i' } },
+        ],
+      }
+      );
+      if(data.length>0){
+        res.status(200).json({status:"success",data:data})
     }
-}
+    else{
+        res.status(200).json({status:"success",data:data})
+    }
+    }catch{
+      res.status(400).json({status:"fail",data:err})
+    }
+  };
+  
 
 
 //checkboxSearch
