@@ -14,47 +14,48 @@ import { UpdateToDO } from '../../Helper/UpdateAlert';
 import { AiFillEdit } from "react-icons/ai";
 
 
-const data = [
-  {
-    name: 'Laptop',
-    uv: 4000,
-    pv: 3400,
-    amt: 2400,
-  },
-  {
-    name: 'Mobile',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Watch',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'Television',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Electronics',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Fashion',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-];
+// const data = [
+//   {
+//     name: 'Laptop',
+//     uv: 4000,
+//     pv: 3400,
+//     amt: 2400,
+//   },
+//   {
+//     name: 'Mobile',
+//     uv: 3000,
+//     pv: 1398,
+//     amt: 2210,
+//   },
+//   {
+//     name: 'Watch',
+//     uv: 2000,
+//     pv: 9800,
+//     amt: 2290,
+//   },
+//   {
+//     name: 'Television',
+//     uv: 2780,
+//     pv: 3908,
+//     amt: 2000,
+//   },
+//   {
+//     name: 'Electronics',
+//     uv: 1890,
+//     pv: 4800,
+//     amt: 2181,
+//   },
+//   {
+//     name: 'Fashion',
+//     uv: 2390,
+//     pv: 3800,
+//     amt: 2500,
+//   },
+// ];
 
 
 const AdminDashboard = () => {
+
 
   const [TotalOrderCount,setTotalOrders]=useState([]);
   const [TotalPublisherCount,setTotalPublisher]=useState([]);
@@ -62,6 +63,7 @@ const AdminDashboard = () => {
 
   const [product,setProduct]=useState([]);
   const [pageNumber,setPageNumber]=useState(0);
+  const [data, setData] = useState([]);
 
   const usersPerPage=10;
   const pagesVisited=pageNumber * usersPerPage
@@ -112,6 +114,16 @@ const AdminDashboard = () => {
     })
 }
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const response = await fetch('http://localhost:5000/api/v1/ProductLevelChart');
+    const result = await response.json();
+    setData(result);
+  };
+
 
   return (
     <Fragment>
@@ -155,35 +167,28 @@ const AdminDashboard = () => {
         <div className='row'>
           <div className='col-md-6'>
             <div className='card IncomeChart my-3 shadow'>
-            <h5>Income From Categories</h5>
-
-            <ResponsiveContainer width="100%" aspect={3}>
-              <BarChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-                barSize={20}
-              >
-                <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <CartesianGrid strokeDasharray="3 3" />
-                <Bar dataKey="pv" fill="#8884d8" background={{ fill: '#eee' }} />
-              </BarChart>
-              </ResponsiveContainer>
+            <h5>Product Lavel From Categories</h5>
+            <ResponsiveContainer width="100%" height={207}>
+            <BarChart
+              data={data}
+              margin={{
+                top: 5, right: 30, left: 20, bottom: 5,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="_id" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="count" fill="#8884d8" />
+            </BarChart>
+          </ResponsiveContainer>
 
             </div>
           </div>
           <div className='col-md-6'>
             <div className='card categoriesLavel my-3 shadow'>
-                <h5>Product Lavel</h5>
+                <h5>Income From Categories</h5>
                 <ResponsiveContainer width="100%" aspect={3}>
                   <AreaChart
                     width={500}
